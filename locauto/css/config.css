@@ -1,0 +1,50 @@
+/* Este é o arquivo de CSS básico */
+/* Aqui é onde a configuração de telas, cores, tamanhos, tabelas, etc... acontece */
+
+html,body {
+  font-family: 'Open Sans', serif;
+  font-size: 14px;
+  font-weight: 300;
+	
+}
+.hero.is-success {
+  background: #f2f7fa;
+}
+.hero .nav, .hero.is-success .nav {
+  -webkit-box-shadow: none;
+  box-shadow: none;
+}
+input {
+  font-weight: 300;
+}
+p {
+  font-weight: 700;
+}
+
+.is-tall {
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+}
+.is-tall-container {
+  flex: 1;
+}
+
+.bgg {
+  background-color: #A8AFFB;
+	color: white;
+}
+
+/* Fixar rodape na pagina */
+/* ainda não funcionando */
+.Site {
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+}
+
+.Site-content {
+  flex: 1;
+}
+
+
