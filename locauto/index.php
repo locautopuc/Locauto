@@ -18,7 +18,7 @@ session_start();
 </head>
 
 
-<body>
+<body">
 	<?php 
 	// chamando o arquivo de cabeçalho
 	require 'cabecalho.php';
@@ -106,7 +106,6 @@ session_start();
             </div>
         </div>
     </section>
-	
 	<?php 
 	// chamando o arquivo de cabeçalho
 	require 'rodape.php'; 
