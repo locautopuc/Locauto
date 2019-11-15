@@ -128,7 +128,7 @@ if($conexao->query($sql) === TRUE) {
 }
 
 $conexao->close();
-
-header('Location: cadastro.php');
+// se o cadastro foi tudo bem a tela retorna para a tela de login para o usuário logar
+header('Location: index.php');
 exit;
 ?>

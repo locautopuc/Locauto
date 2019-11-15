@@ -21,7 +21,7 @@ session_start();
 <body>
 	<?php 
 	// chamando o arquivo de cabeçalho
-	require 'cabecalho.php'; 
+	require 'cabecalho.php';
 	?>
 	<section class="hero is-success is-fullheight">
         <div class="hero-body">
@@ -32,9 +32,26 @@ session_start();
                     <h3 class="title has-text-grey"><a href="" target="_blank"> </a></h3>
 					
 					<!-- **************************************************** -->
+					<!-- SESSION status_cadastro -->
+                    <?php
+					
+                    if(isset($_SESSION['status_cadastro'])):
+                    ?>
+					<div class="notification is-success">
+                      <p>Seu cadastro foi feito com sucesso!</p>
+                      <p>Faça login informando o seu usuário e senha</p>
+                    </div>
+					<?php
+                    endif;
+                    unset($_SESSION['status_cadastro']);
+                    ?>
+					<!-- fim SESSION status_cadastro -->
+					<!-- **************************************************** -->
+					
+					
 					<!-- SESSION nao_autenticado -->
                     <?php
-                    if(isset($_SESSION['nao_autenticado'])):
+					 if(isset($_SESSION['nao_autenticado'])):
                     ?>
                     <div class="notification is-danger">
                       <p>ERRO: Usuário ou senha inválidos.</p>
