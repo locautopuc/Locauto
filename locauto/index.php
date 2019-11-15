@@ -57,8 +57,8 @@ session_start();
 		<p>ERRO: Usuário ou senha inválidos.</p>
 	</div>
 	<?php
-	endif;
-	unset($_SESSION['nao_autenticado']);
+		endif;
+		unset($_SESSION['nao_autenticado']);
 	?>
 	<!-- fim SESSION nao_autenticado -->
 	<!-- **************************************************** -->
@@ -72,8 +72,8 @@ session_start();
 		<p>Você não digitou em todos os campos.</p>
 	</div>
 	<?php
-	endif;
-	unset($_SESSION['obrigatorio_digitar']);
+		endif;
+		unset($_SESSION['obrigatorio_digitar']);
 	?>
 	<!-- fim SESSION obrigatorio_digitar -->
 	<!-- **************************************************** -->
