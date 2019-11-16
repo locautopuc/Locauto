@@ -158,9 +158,9 @@ session_start();
 	?>
 	<!-- fim SESSION senha_diferente -->
 	<!-- **************************************************** -->
-
-
-	<!-- SESSION email invalido -->
+					
+		
+<!-- SESSION email invalido -->
 	<?php
 		if(isset($_SESSION['email_invalido'])):
 	?>
@@ -170,6 +170,21 @@ session_start();
 	<?php
 	endif;
 	unset($_SESSION['email_invalido']);
+	?>
+	<!-- fim SESSION email invalido -->
+	<!-- **************************************************** -->
+
+
+	<!-- SESSION email invalido -->
+	<?php
+		if(isset($_SESSION['digite_razao_social'])):
+	?>
+	<div class="notification is-danger">
+		<p>Você escolheu CNPJ e não digitou uma Razão Social.</p>
+	</div>
+	<?php
+	endif;
+	unset($_SESSION['digite_razao_social']);
 	?>
 	<!-- fim SESSION email invalido -->
 	<!-- **************************************************** -->

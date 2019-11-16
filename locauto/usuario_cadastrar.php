@@ -214,6 +214,19 @@ else if (!preg_match("/^[a-zA-Z0-9]*$/", $estado))
 	exit();
 }
 
+
+
+/****************************************************/
+// se escolher CNPJ - precisa digitar uma razao social
+else if ($escolher == "CNPJ" && empty($razao_social))
+{        
+    $_SESSION['digite_razao_social'] = true;
+	header('Location: usuario_cadastro.php');
+	exit();    
+}
+
+
+
 /****************************************************/
 // verificar se o usuario digitou as senhas iguais para cadastrar
 // se não retorna um erro
