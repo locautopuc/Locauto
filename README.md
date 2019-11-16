@@ -83,5 +83,8 @@ Abra o seu navegador e no campo de navegação digite **localhost/phpmyadmin** e
 A página do PHPmyAdmin irá abrir <br>
 Clique na aba **SQL** e insira o código do banco encontrado dentro do arquivo **dump.sql** e clique em Executar <br>
 Agora o banco já está criado e pronto para o uso <br>
+
+<img src="Locauto Tutorial Imagens/SQL001.png" >
+
 **O PHPmyAdmin agora já está configurado** <br><br>
 ... fim tutorial.
