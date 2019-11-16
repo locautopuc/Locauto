@@ -1,6 +1,11 @@
 # Locauto
 
 # Projeto em andamento
+**Projeto Locauto - Locadora de veículos -Trabalho de Faculdade**
+
+
+--------------------------------------
+
 Coisas a fazer:
 - [x] Login: 100%
 - [x] Logout: 100%
@@ -14,10 +19,6 @@ Coisas a fazer:
 - [ ] Tela de locação: 0%
 - [x] Sobre nós: 100%
 - [x] Fale conosco: 50%
-
---------------------------------------
-
-**Projeto Locauto - Locadora de veículos -Trabalho de Faculdade**
 
 --------------------------------------
 
