@@ -3,6 +3,7 @@
 # Projeto em andamento
 Coisas a fazer:
 - [x] Login: 100%
+- [x] Logout: 100%
 - [x] Cadastro de usuários: 100%
 - [ ] Cadastro de funcionário?: 0%
 - [ ] Cadastro de motorista: 0%
