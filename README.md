@@ -1,6 +1,20 @@
 # Locauto
 
 # Projeto em andamento
+Coisas a fazer:
+- [x] Login: 100%
+- [x] Cadastro de usuários: 100%
+- [ ] Cadastro de funcionário?: 0%
+- [ ] Cadastro de motorista: 0%
+- [ ] Cadastro de veículos: 0%
+- [ ] Perfil do usuario: 0%
+- [ ] Perfil do funcionário?: 0%
+- [ ] Perfil do veículo: 0%
+- [ ] Tela de locação: 0%
+- [x] Sobre nós: 100%
+- [x] Fale conosco: 50%
+
+--------------------------------------
 
 **Projeto Locauto - Trabalho de Faculdade**
 
