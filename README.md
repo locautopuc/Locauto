@@ -6,9 +6,9 @@ Coisas a fazer:
 - [x] Logout: 100%
 - [x] Cadastro de usuários: 100%
 - [ ] Cadastro de funcionário?: 0%
-- [ ] Cadastro de motorista: 0%
-- [ ] Cadastro de veículos: 0%
-- [ ] Perfil do usuario: 0%
+- [ ] Cadastro de motorista: 50%
+- [ ] Cadastro de veículos: 50%
+- [ ] Perfil do usuario: 50%
 - [ ] Perfil do funcionário?: 0%
 - [ ] Perfil do veículo: 0%
 - [ ] Tela de locação: 0%
