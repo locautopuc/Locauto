@@ -65,12 +65,177 @@ if(empty($_POST['cpf_cnpj']) ||
 	exit();
 }
 
+
+/****************************************************/
+// verificando se está sendo digitado apenas numeros
+else if (empty($_POST["cpf_cnpj"]))
+{
+	$_SESSION['obrigatorio_digitar'] = true;
+	header('Location: cadastro.php');
+	exit();
+}
+else if (!preg_match("/^[0-9]*$/", $cpf_cnpj))
+{
+	$_SESSION['apenas_letras'] = true;
+	header('Location: cadastro.php');
+	exit();
+}
+
+else if (empty($_POST["identidade"]))
+{
+	$_SESSION['obrigatorio_digitar'] = true;
+	header('Location: cadastro.php');
+	exit();
+}
+else if (!preg_match("/^[0-9]*$/", $identidade))
+{
+	$_SESSION['apenas_letras'] = true;
+	header('Location: cadastro.php');
+	exit();
+}
+
+else if (empty($_POST["telefone"]))
+{
+	$_SESSION['obrigatorio_digitar'] = true;
+	header('Location: cadastro.php');
+	exit();
+}
+else if (!preg_match("/^[0-9]*$/", $telefone))
+{
+	$_SESSION['apenas_letras'] = true;
+	header('Location: cadastro.php');
+	exit();
+}
+
+else if (empty($_POST["numero"]))
+{
+	$_SESSION['obrigatorio_digitar'] = true;
+	header('Location: cadastro.php');
+	exit();
+}
+else if (!preg_match("/^[0-9]*$/", $numero))
+{
+	$_SESSION['apenas_letras'] = true;
+	header('Location: cadastro.php');
+	exit();
+}
+
+else if (empty($_POST["cep"]))
+{
+	$_SESSION['obrigatorio_digitar'] = true;
+	header('Location: cadastro.php');
+	exit();
+}
+else if (!preg_match("/^[0-9]*$/", $cep))
+{
+	$_SESSION['apenas_letras'] = true;
+	header('Location: cadastro.php');
+	exit();
+}
+
+
+/****************************************************/
+// verificando se está sendo digitado apenas letras e/ou numeros
+else if (empty($_POST["nome"]))
+{
+	$_SESSION['obrigatorio_digitar'] = true;
+	header('Location: cadastro.php');
+	exit();
+}
+else if (!preg_match("/^[a-zA-Z0-9]*$/", $nome))
+{
+	$_SESSION['apenas_letras_numeros'] = true;
+	header('Location: cadastro.php');
+	exit();
+}
+
+else if (empty($_POST["logradouro"]))
+{
+	$_SESSION['obrigatorio_digitar'] = true;
+	header('Location: cadastro.php');
+	exit();
+}
+else if (!preg_match("/^[a-zA-Z0-9]*$/", $logradouro))
+{
+	$_SESSION['apenas_letras_numeros'] = true;
+	header('Location: cadastro.php');
+	exit();
+}
+
+else if (empty($_POST["complemento"]))
+{
+	$_SESSION['obrigatorio_digitar'] = true;
+	header('Location: cadastro.php');
+	exit();
+}
+else if (!preg_match("/^[a-zA-Z0-9]*$/", $complemento))
+{
+	$_SESSION['apenas_letras_numeros'] = true;
+	header('Location: cadastro.php');
+	exit();
+}
+
+else if (empty($_POST["bairro"]))
+{
+	$_SESSION['obrigatorio_digitar'] = true;
+	header('Location: cadastro.php');
+	exit();
+}
+else if (!preg_match("/^[a-zA-Z0-9]*$/", $bairro))
+{
+	$_SESSION['apenas_letras_numeros'] = true;
+	header('Location: cadastro.php');
+	exit();
+}
+
+else if (empty($_POST["cidade"]))
+{
+	$_SESSION['obrigatorio_digitar'] = true;
+	header('Location: cadastro.php');
+	exit();
+}
+else if (!preg_match("/^[a-zA-Z0-9]*$/", $cidade))
+{
+	$_SESSION['apenas_letras_numeros'] = true;
+	header('Location: cadastro.php');
+	exit();
+}
+
+else if (empty($_POST["estado"]))
+{
+	$_SESSION['obrigatorio_digitar'] = true;
+	header('Location: cadastro.php');
+	exit();
+}
+else if (!preg_match("/^[a-zA-Z0-9]*$/", $estado))
+{
+	$_SESSION['apenas_letras_numeros'] = true;
+	header('Location: cadastro.php');
+	exit();
+}
+
 /****************************************************/
 // verificar se o usuario digitou as senhas iguais para cadastrar
 // se não retorna um erro
 else if($senha !== $senha_repetir)
 {
 	$_SESSION['senha_diferente'] = true;
+	header('Location: cadastro.php');
+	exit;
+}
+
+
+/****************************************************/
+// validação de senha
+else if (empty($_POST["senha"]))
+{
+	$_SESSION['obrigatorio_digitar'] = true;
+	header('Location: cadastro.php');
+	exit();
+}
+else if (!password_hash($senha, PASSWORD_DEFAULT))
+{
+	$_SESSION['digite_senha_corretamente'] = true;
 	header('Location: cadastro.php');
 	exit;
 }

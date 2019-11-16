@@ -100,6 +100,51 @@ session_start();
 	<!-- **************************************************** -->
 
 
+	<!-- SESSION obrigatorio_digitar -->
+	<?php
+		if(isset($_SESSION['apenas_letras_numeros'])):
+	?>
+	<div class="notification is-danger">
+		<p>Digite apenas letras e/ou números.</p>
+	</div>
+	<?php
+		endif;
+		unset($_SESSION['apenas_letras_numeros']);
+	?>
+	<!-- fim SESSION obrigatorio_digitar -->
+	<!-- **************************************************** -->
+
+
+	<!-- SESSION obrigatorio_digitar -->
+	<?php
+		if(isset($_SESSION['apenas_letras'])):
+	?>
+	<div class="notification is-danger">
+		<p>Digite apenas letras.</p>
+	</div>
+	<?php
+		endif;
+		unset($_SESSION['apenas_letras']);
+	?>
+	<!-- fim SESSION obrigatorio_digitar -->
+	<!-- **************************************************** -->
+					
+				
+	<!-- SESSION obrigatorio_digitar -->
+	<?php
+		if(isset($_SESSION['digite_senha_corretamente'])):
+	?>
+	<div class="notification is-danger">
+		<p>Digite a senha corretamente.</p>
+	</div>
+	<?php
+		endif;
+		unset($_SESSION['digite_senha_corretamente']);
+	?>
+	<!-- fim SESSION obrigatorio_digitar -->
+	<!-- **************************************************** -->
+
+
 	<!-- SESSION senha_diferente -->
 	<?php
 		if(isset($_SESSION['senha_diferente'])):
