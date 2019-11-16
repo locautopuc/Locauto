@@ -98,7 +98,7 @@ session_start();
 		</div>
 														  
 		<div class="field">
-			<a href="cadastro.php"><strong>Cadastrar</strong></a>
+			<a href="usuario_cadastro.php"><strong>Cadastrar</strong></a>
 		</div>
 					      
 		<!-- Botão entrar com design CSS -->
