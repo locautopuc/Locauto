@@ -21,7 +21,10 @@ $date = mysqli_real_escape_string($conexao, trim($_POST['date']));
 //$foto_verso = $_POST['foto_verso'];
 
 
-
+// cria um caminho para salvar a foto da CNH
+// é preciso separar as fotos por pastas diferentes entre usuários (CPF / CNPJ)
+// pois se dois usuários diferentes enviar uma foto com o mesmo nome e tipo
+// a última foto irá sobrescrever a foto do outro cadastro
 $target_dir = "uploads/imagens/$cpf/";
 $foto_cnh = $target_dir . basename($_FILES["foto_cnh"]["name"]);
 $uploadOk = 1;
