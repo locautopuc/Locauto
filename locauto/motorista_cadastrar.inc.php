@@ -36,7 +36,7 @@ if(isset($_POST["cadastrar_botao"])) {
         echo "File is an image - " . $check["mime"] . ".";
         $uploadOk = 1;
     } else {
-        echo "File is not an image.";
+        echo "O arquivo não é uma imagem";
         $uploadOk = 0;
     }
 }
@@ -53,7 +53,7 @@ if ($_FILES["foto_cnh"]["size"] > 500000) {
 }
 // verifica se os formatos são png jpg jpeg
 if($imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg") {
-    echo "Sorry, only JPG, JPEG, PNG files are allowed.";
+    echo "ERRO, apenas JPG, JPEG, PNG";
     $uploadOk = 0;
 }
 // checa se tudo foi ok
@@ -61,7 +61,7 @@ if ($uploadOk == 0) {
     echo "Erro ao fazer o upload";
 } else {
     if (move_uploaded_file($_FILES["foto_cnh"]["tmp_name"], $foto_cnh)) {
-        echo "The file ". basename( $_FILES["foto_cnh"]["name"]). " has been uploaded.";
+        echo "O arquivo ". basename( $_FILES["foto_cnh"]["name"]). " foi enviado.";
     } else {
         echo "Erro ao fazer upload";
     }

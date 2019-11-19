@@ -280,7 +280,7 @@ session_start();
 					this.value = "";
 				}
 			// se houver tentativa de upload e o arquivo for menor do que 5MB e o tipo for diferente de PNG JPG JPEG - ERRO
-			else if(fileInputCNH.files.length > 0 && fileInputCNH.files[0].size < 5000000 != ileInputCNH.files.type != "jpg" && ileInputCNH.files.type != "png" && ileInputCNH.files.type != "jpeg")
+			else if(fileInputCNH.files.length > 0 && fileInputCNH.files[0].size < 5000000 && fileInputCNH.files.type != "jpg" && fileInputCNH.files.type != "png" && fileInputCNH.files.type != "jpeg")
 				{
 					alert("ERRO: Arquivo com formato incorreto! Por favor, adicione um arquivo do tipo PNG, JPEG ou JPG.");
 					this.value = "";
