@@ -2,7 +2,8 @@
 
 # Projeto em andamento
 **Projeto Locauto - Locadora de veículos -Trabalho de Faculdade** (PUC)<br>
-Professor: Eugenio
+Professor: Eugenio<br>
+Alunos: Giulianno, Romario, Vinicius e Guilherme
 
 --------------------------------------
 
