@@ -58,7 +58,7 @@ Exemplo: C:\xampp\htdocs\mywebsite\locauto\ <br>
 --------------------------------------
 
 **Configuração: Dreamweaver**
-1. Instale e abra o Dreaweaver
+1. Instale e abra o Dreamweaver
 2. Clique no menu Site e depois em Novo Site
 
 <img src="Locauto Tutorial Imagens/DW001.png" >
