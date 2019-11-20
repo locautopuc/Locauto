@@ -71,7 +71,7 @@ Exemplo: C:\xampp\htdocs\mywebsite\locauto\ <br>
 <img src="Locauto Tutorial Imagens/DW005.png" >
 
 4. Agora clique em Salvar <br>
-**O Dreaweaver agora já está configurado** <br>
+**O Dreamweaver agora já está configurado** <br>
 NOTA: Para visualizar o site criado, basta clicar na opção **Visualizar** que fica embaixo na direita <br>
 Exemplo: no Dreaweaver mantenha o arquivo **index.php** aberto e clique em visualizar e selecione um navegador <br>
 O site do projeto irá abrir no seu navegador
