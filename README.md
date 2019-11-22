@@ -11,11 +11,11 @@ Coisas a fazer:
 - [x] Login: 100%
 - [x] Logout: 100%
 - [x] Cadastro de usuários: 100%
-- [ ] Cadastro de funcionário?: 0%
+- [ ] Cadastro de funcionário?: 50%
 - [x] Cadastro de motorista: 100%
-- [ ] Cadastro de veículos: 50%
+- [x] Cadastro de veículos: 100% (Ainda não enviado)
 - [x] Perfil do usuario: 90%
-- [ ] Perfil do funcionário?: 0%
+- [ ] Perfil do funcionário?: 50%
 - [ ] Perfil do veículo: 0%
 - [ ] Tela de locação: 0%
 - [x] Sobre nós: 100%
