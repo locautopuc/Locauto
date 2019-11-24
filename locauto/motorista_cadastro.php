@@ -206,7 +206,7 @@ session_start();
 		
 	<div class="field">
 		<div class="control">
-			<strong>* Categoria:</strong>
+			<strong>* Categoria:</strong> &nbsp; ( A B C D E )
 				<input name="categoria" type="text" class="input is-large" placeholder="Categoria" autofocus oninput="this.value = this.value.replace(/[^A-Za-z0-9]+/g, '').replace(/(\..*)\./g, '$1');">
 		</div>
 	</div>
@@ -234,7 +234,7 @@ session_start();
 		<div class="control"><br>
 			<strong>* Adcione a foto da sua CNH:</strong><br>
 			( Somente <strong>UMA</strong> foto com Frente e Verso )<br>
-			( A foto devem ter no máximo um tamanho de 5mb )<br>
+			( A foto deve ter no máximo um tamanho de 5mb )<br>
 			( Formatos aceitos: PNG, JPEG ou JPG )
 		</div>
 	</div>

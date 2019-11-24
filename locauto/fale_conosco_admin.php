@@ -15,16 +15,16 @@
 	
 	<?php session_start();
 	// so o usuário não estiver logado - NAO APARECE O PERFIL
-	if(!$_SESSION['cpf_cnpj'])  
+	if(!$_SESSION['admin'])  
 	{																				
 		// chamando o arquivo cabeçalho
 		require 'cabecalho.php';
 	}
 	// se o usuário estiver logado - NAO APARECE O LOGIN
-	else if($_SESSION['cpf_cnpj']) 
+	else if($_SESSION['admin']) 
 	{
 		// chamando o arquivo cabeçalho logado
-		require 'cabecalho_logado.php';
+		require 'cabecalho_admin_logado.php';
 	}
 	?>
 

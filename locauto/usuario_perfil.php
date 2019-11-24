@@ -46,10 +46,17 @@ include('verifica_login.php');
 
 			</div>
 
-
+	
 	<div class="field">
 		<div class="control"><br><br>
-			<h2><a class="button is-rounded is-block is-dark is-large is-fullwidth " href="motorista_cadastro.php">Gerenciar um Motorista</a></h2>
+			<h2><a class="button is-rounded is-block is-dark is-large is-fullwidth " href="motorista_cadastro.php">Cadastrar um Motorista</a></h2>
+		</div>
+	</div>
+					
+	
+	<div class="field">
+		<div class="control"><br>
+			<h2><a class="button is-rounded is-block is-dark is-large is-fullwidth " href="usuario_ver_motorista.php">Dados do Motorista</a></h2>
 		</div>
 	</div>
 

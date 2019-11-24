@@ -47,7 +47,6 @@ $row2 = mysqli_fetch_assoc($result2);
 // se não retorna um erro
 if(empty($_POST['cpf_cnpj']) || 
 	empty($_POST['nome']) || 
-	empty($_POST['identidade']) || 
 	empty($_POST['telefone']) || 
 	empty($_POST['email']) ||
 	empty($_POST['senha']) ||
@@ -81,18 +80,6 @@ else if (!preg_match("/^[0-9]*$/", $cpf_cnpj))
 	exit();
 }
 
-else if (empty($_POST["identidade"]))
-{
-	$_SESSION['obrigatorio_digitar'] = true;
-	header('Location: usuario_cadastro.php');
-	exit();
-}
-else if (!preg_match("/^[0-9]*$/", $identidade))
-{
-	$_SESSION['apenas_letras'] = true;
-	header('Location: usuario_cadastro.php');
-	exit();
-}
 
 else if (empty($_POST["telefone"]))
 {
@@ -221,6 +208,16 @@ else if (!preg_match("/^[a-zA-Z0-9]*$/", $estado))
 else if ($escolher == "CNPJ" && empty($razao_social))
 {        
     $_SESSION['digite_razao_social'] = true;
+	header('Location: usuario_cadastro.php');
+	exit();    
+}
+
+
+/****************************************************/
+// se escolher CPF - precisa digitar uma identidade
+else if ($escolher == "CPF" && empty($identidade))
+{        
+    $_SESSION['digite_identidade'] = true;
 	header('Location: usuario_cadastro.php');
 	exit();    
 }

@@ -22,16 +22,16 @@ session_start();
 	  
 	<?php 
 	// so o usuário não estiver logado - NAO APARECE O PERFIL
-	if(!$_SESSION['cpf_cnpj'])  
+	if(!$_SESSION['matricula'])  
 	{																				
 		// chamando o arquivo cabeçalho
 		require 'cabecalho.php';
 	}
 	// se o usuário estiver logado - NAO APARECE O LOGIN
-	else if($_SESSION['cpf_cnpj']) 
+	else if($_SESSION['matricula']) 
 	{
 		// chamando o arquivo cabeçalho logado
-		require 'cabecalho_logado.php';
+		require 'cabecalho_funcionario_logado.php';
 	}
 	?>
 		
@@ -39,10 +39,8 @@ session_start();
 	<section class="hero is-success is-fullheight">
         <div class="hero-body">
 		<div class="container has-text-centered">
-			<div class="column is-4 is-offset-4">
-				<img src="imagem/logo-locautoR-transp.png"width="50%" height="50%">
-                    		<!-- <h3 class="title has-text-grey"><strong>Locauto®</strong></h3> -->
-                    		<h3 class="title has-text-grey"><a href="" target="_blank"> </a></h3>
+			<div class="column is-4 is-offset-4"><!-- <h3 class="title has-text-grey"><strong>Locauto®</strong></h3> -->
+       		  <h3 class="title has-text-grey">Funcionário<a href="" target="_blank"> </a></h3>
 	
 	<!-- SESSIONS de ERRO -->
 	<!-- **************************************************** -->
@@ -96,31 +94,31 @@ session_start();
 	<!-- Interface -->
 	<div class="box">
 	<!-- Esta interface terá comunicação com o arquivo login.php -->
-		<form action="login.inc.php" method="POST" autocomplete="off">
+		<form action="funcionario.inc.php" method="POST" autocomplete="off">
 		<div class="field">
 			<div class="control">
-				<strong>Digite o seu CPF ou CNPJ:</strong>   &nbsp; ( Apenas números )
-				<input name="cpf_cnpj" type="text" class="input is-large" placeholder="CPF ou CNPJ" autofocus="" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');" maxlength="14">
+				<strong>Digite a sua Matrícula:</strong>   &nbsp;
+				<input name="matricula" type="text" class="input is-large" placeholder="Usuario" autofocus="" oninput="this.value = this.value.replace(/[^A-Za-z0-9]+/g, '').replace(/(\..*)\./g, '$1');">
 			</div>
 		</div>
 		
 		<div class="field">
 			<div class="control">
-				<strong>Digite a sua senha:</strong>
+				<strong>Digite a sua Senha:</strong>
 				<input name="senha" class="input is-large" type="password" placeholder="Sua senha">
 			</div>
 		</div>
 														  
 		<div class="field">
-			<a href="usuario_cadastro.php"><strong>Cadastrar</strong></a>
+			<!--<a href="funcionario_cadastro.php"><strong>Cadastrar</strong></a>-->
 		</div>
 					      
 		<!-- Botão entrar com design CSS -->
 			<button type="submit" class="button is-dark is-block  is-large is-fullwidth">Entrar</button>
 		</form>
-					</div>
-				</div>
-			</div>
+			  </div>
+		  </div>
+		  </div>
 		</div>
 	</section>
 	<?php 

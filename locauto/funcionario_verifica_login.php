@@ -2,8 +2,8 @@
 //session_start();
 
 // se não houver sessão volta para a página de login
-if(!$_SESSION['cpf_cnpj'])  {
+if(!$_SESSION['matricula'])  {
 
-	header('Location: ../index.php');
+	header('Location: admin.php');
 	exit();
 }

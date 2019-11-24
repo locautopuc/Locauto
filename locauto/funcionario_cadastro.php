@@ -1,6 +1,5 @@
 <?php
 // ao iniciar uma sessão daremos inicio a comunicação com as SESSIONS feitas no arquivo no arquivo de segurança
-// neste caso é o cadastrar.php
 session_start();
 ?>
 
@@ -19,44 +18,16 @@ session_start();
 		
 	<?php
 	// chamando o arquivo de cabeçalho
-	require 'cabecalho.php'; 
+	require 'cabecalho_admin_logado.php'; 
 	?>
 	
-	<!-- **************************************************** -->
-	<!-- Script JAVA -->
-	<!-- Controle da seleção de CPF e CNPJ -->
-	<!-- Se selecionar CPF o campo de Razão Social será desabilitado -->
-	<script type="text/javascript">
-	function findselected() 
-		{ 
-			var result = document.querySelector('input[name="escolher"]:checked').value;
-			if(result=="CPF")
-			{
-				//se o usuario selecionar que é pessoa fisica CPF
-				//o campo Razão social será desabilitado e terá os valores inserids apagados
-				document.getElementById("desabilita_campo_caso_selecionar_CPF").setAttribute('disabled', true);
-				document.getElementById('desabilita_campo_caso_selecionar_CPF').value = '';
-				document.getElementById("desabilita_campo_caso_selecionar_Identidade").removeAttribute('disabled');
-			}
-			else
-			{
-				document.getElementById("desabilita_campo_caso_selecionar_CPF").removeAttribute('disabled');
-				//se o usuario selecionar que é pessoa juridica
-				//o campo identidade será desabilitado e terá os valores inserids apagados
-				document.getElementById("desabilita_campo_caso_selecionar_Identidade").setAttribute('disabled', true);
-				document.getElementById('desabilita_campo_caso_selecionar_Identidade').value = '';
-			}
-		}
-	</script>
-	<!-- fim Script JAVA -->
-	<!-- **************************************************** -->
-	
+		
 	
     <section class="hero is-success is-fullheight">
         <div class="hero-body">
             <div class="container has-text-centered">
                 <div class="column is-4 is-offset-4">
-                    <h3 class="title has-text-grey">Faça o seu Cadastro</h3>
+                    <h3 class="title has-text-grey">Cadastro de Funcionário</h3>
 					
 	<!-- **************************************************** -->
 	<!-- SESSION status_cadastro -->
@@ -180,35 +151,6 @@ session_start();
 	<!-- **************************************************** -->
 
 
-	<!-- SESSION digite_razao_social -->
-	<?php
-		if(isset($_SESSION['digite_razao_social'])):
-	?>
-	<div class="notification is-danger">
-		<p>Você escolheu CNPJ e não digitou uma Razão Social.</p>
-	</div>
-	<?php
-	endif;
-	unset($_SESSION['digite_razao_social']);
-	?>
-	<!-- fim SESSION digite_razao_social -->
-	<!-- **************************************************** -->
-					
-					
-<!-- SESSION digite_identidade -->
-	<?php
-		if(isset($_SESSION['digite_identidade'])):
-	?>
-	<div class="notification is-danger">
-		<p>Você escolheu CPF e não digitou uma Identidade.</p>
-	</div>
-	<?php
-	endif;
-	unset($_SESSION['digite_identidade']);
-	?>
-	<!-- fim SESSION digite_identidade -->
-	<!-- **************************************************** -->
-
 
 	<!-- SESSION email_existe -->
 	<?php
@@ -228,34 +170,25 @@ session_start();
 	<!-- Interface -->
 	<div class="box">
 	<!-- Esta interface terá comunicação com o arquivo cadastrar.php -->
-	<form action="usuario_cadastrar.inc.php" method="POST" autocomplete="off">
-
-	<div class="field"><h1><strong>Cliente</strong></h1><p><br>
-		<div class="control">
-			<em>Os campos com <strong>*</strong> são Obrigatórios</em><br><br>
-			<strong>* Selecione : Você é Pessoa Fisica ou Pessoa Juridica?</strong><br><br>
-			<div class="field">
-				<div class="control">
-					<label class="radio">
-						<input class="is-checkradio" type="radio" name="escolher" value="CPF" checked="checked" onChange="findselected()">
-						Pessoa Fisica - CPF
-					</label><br>
-					<label class="radio">
-						<input class="is-checkradio" type="radio" name="escolher" value="CNPJ" onChange="findselected()">
-						Pessoa Juridica - CNPJ<br><br>
-					</label>
-				</div>
-			</div>
-		</div>
-	</div>
+	<form action="funcionario_cadastrar.inc.php" method="POST" autocomplete="off">
 
 	<div class="field">
+	  <h1><strong>Funcionário</strong></h1><p><br>
 		<div class="control">
-			<strong>* CPF ou CNPJ:</strong>  &nbsp; ( Apenas números )
-			<input name="cpf_cnpj" type="text" class="input is-large" placeholder="CPF ou CNPJ" autofocus oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');" maxlength="14">
+			<em>Os campos com <strong>*</strong> são Obrigatórios</em><br><br>
+			
+		</div>
+	</div>
+		
+		
+	<div class="field">
+		<div class="control">
+			<strong>* Matricula:</strong>  &nbsp; ( Apenas números )
+			<input name="matricula" type="text" class="input is-large" placeholder="Matricula" autofocus oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');" maxlength="10">
 		</div>
 	</div>
 
+	
 	<div class="field">
 		<div class="control">
 			<strong>* Nome Completo:</strong>
@@ -263,17 +196,12 @@ session_start();
 		</div>
 	</div>
 
-	<div class="field">
-		<div class="control">
-			<strong>Razão Social:</strong> ( Apenas para Pessoas Juridicas - CNPJ )
-			<input name="razao_social" disabled type="text" id="desabilita_campo_caso_selecionar_CPF" class="input is-large" placeholder="Razao Social" autofocus oninput="this.value = this.value.replace(/[^A-Za-z0-9]+/g, '').replace(/(\..*)\./g, '$1');">
-		</div>
-	</div>
+	
 
 	<div class="field">
 		<div class="control">
-			<strong> RG / Identidade:</strong>  &nbsp; ( Apenas para Pessoas Físicas - CPF )
-			<input name="identidade" type="text" id="desabilita_campo_caso_selecionar_Identidade" class="input is-large" placeholder="Identidade" autofocus oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');" maxlength="10">
+			<strong> * RG / Identidade:</strong>  &nbsp; ( Apenas números )
+			<input name="identidade" type="text" class="input is-large" placeholder="Identidade" autofocus oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');" maxlength="10">
 		</div>
 	</div>
 
@@ -358,7 +286,7 @@ session_start();
 
 	<!-- Botão cadastrar com design CSS -->
 	<button type="submit" name="cadastrar_botao" class="button is-block is-dark is-large is-fullwidth">Cadastrar</button>
-		<a href="index.php"><strong>Cancelar</strong></a>
+		<a href="admin_perfil.php"><strong>Cancelar</strong></a>
 		</form>
 			</div>
 		</div>
