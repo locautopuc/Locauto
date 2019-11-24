@@ -82,21 +82,6 @@ UNIQUE KEY unique_renavam (`renavam`)
 );
 
 
-
-
-/*
-CREATE TABLE tabela_cadastro_motorista (
-ID_motorista int(11) AUTO_INCREMENT PRIMARY KEY NOT NULL,
-nome VARCHAR(200) NOT NULL,
-cpf_cnpj INT,
-.
-.
-.
-CONSTRAINT FK_UsuarioMotorista FOREIGN KEY (cpf_cnpj) 
-REFERENCES tabela_cadastro_usuario (cpf_cnpj)
-);
-*/
-
 CREATE TABLE `locauto`.`tabela_cadastro_motorista` (
 `ID_motorista` int(11) AUTO_INCREMENT PRIMARY KEY NOT NULL,
 `cpf` int(14) NOT NULL,
@@ -117,6 +102,22 @@ CREATE TABLE `locauto`.`tabela_cadastro_motorista` (
 `cep` int(10) NOT NULL,
 UNIQUE KEY unique_email (`email`)
 );
+
+
+/*
+CREATE TABLE tabela_cadastro_motorista (
+ID_motorista int(11) AUTO_INCREMENT PRIMARY KEY NOT NULL,
+nome VARCHAR(200) NOT NULL,
+cpf_cnpj INT,
+.
+.
+.
+CONSTRAINT FK_UsuarioMotorista FOREIGN KEY (cpf_cnpj) 
+REFERENCES tabela_cadastro_usuario (cpf_cnpj)
+);
+*/
+
+
 
 
 
