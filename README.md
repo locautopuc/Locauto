@@ -6,8 +6,9 @@ Professor: Eugenio<br>
 Alunos: Giulianno, Romario, Vinicius e Guilherme
 
 --------------------------------------
-
-Coisas a fazer:
+Alguns arquivos ainda se encontram com comentários bagunçados... :3<br>
+Logo os mesmos serão arrumados<br><br>
+**Coisas a fazer:**
 - [x] Login: 100%
 - [x] Logout: 100%
 - [x] Cadastro de usuários: 100%
