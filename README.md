@@ -14,7 +14,7 @@ Logo os mesmos serão arrumados<br><br>
 - [x] Cadastro de usuários: 100%
 - [ ] Cadastro de funcionário?: 50%
 - [x] Cadastro de motorista: 100%
-- [x] Cadastro de veículos: 100% (Ainda não enviado)
+- [x] Cadastro de veículos: 100%
 - [x] Perfil do usuario: 90%
 - [ ] Perfil do funcionário?: 50%
 - [ ] Perfil do veículo: 0%
