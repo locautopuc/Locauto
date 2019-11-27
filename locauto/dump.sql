@@ -74,7 +74,7 @@ CREATE TABLE `locauto`.`tabela_cadastro_veiculo` (
 `kilometragem` INT(250) NOT NULL,
 `potencia` INT(10) NOT NULL,
 `capacidade_pmalas` INT(100) NOT NULL,
-`situacao VARCHAR(100) NOT NULL,
+`situacao` VARCHAR(100) NOT NULL,
 `foto_veiculo` VARCHAR(250) NOT NULL,
 UNIQUE KEY unique_placa (`placa`),
 UNIQUE KEY unique_chassi (`chassi`),
