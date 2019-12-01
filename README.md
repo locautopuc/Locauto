@@ -23,7 +23,7 @@ Logo os mesmos serão arrumados<br><br>
 - [x] Sobre nós: 100%
 - [x] Fale conosco: 50%
 - [x] Comentários: 50%
-
+<br>
 - [ ] Arrumar a bagunça: 20%  :3
 
 --------------------------------------
