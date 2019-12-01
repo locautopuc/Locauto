@@ -1,13 +1,21 @@
 <?php
-// ao iniciar uma sessão daremos inicio a comunicação com as SESSIONS feitas no arquivo no arquivo de segurança
-// neste caso é o cadastrar.php
+// ao iniciar uma sessão daremos inicio a comunicação com as SESSIONS feitas no arquivo no arquivo de controle
+// neste caso é o veiculo_cadastrar.inc.php
 require 'conexao.php';
 session_start();
+
 ?>
 
+
+
+<!-- **************************************************** -->
+<!-- **************************************************** -->
+<!-- **************************************************** -->
+<!-- **************************************************** -->
+<!-- **************************************************** -->
 <!DOCTYPE html>
 <html>
-	<head>
+	<head> <!-- Iniciando as css e cabeçalho -->
 		<meta charset="utf-8">
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
@@ -16,20 +24,37 @@ session_start();
 		<link rel="stylesheet" href="css/bulma.min.css" />
 		<link rel="stylesheet" type="text/css" href="css/config.css">
 	</head>
-	<body>
+	<body> <!-- Iniciando o corpo da página -->
 		
 	<?php
-	// chamando o arquivo de cabeçalho
-	require 'cabecalho.php'; 
-	?>
-	
+		// chamando o arquivo cabeçalho logado
+		require 'cabecalho_funcionario_logado.php'; 
+		?>
 		
+		
+		
+
+	
+						
+	<!-- **************************************************** -->
+	<!-- **************************************************** -->
+	<!-- **************************************************** -->
     <section class="hero is-success is-fullheight">
         <div class="hero-body">
             <div class="container has-text-centered">
                 <div class="column is-4 is-offset-4">
                     <h3 class="title has-text-grey">Cadastro do Veículo</h3>
 					
+					
+					
+						
+	<!-- **************************************************** -->
+	<!-- **************************************************** -->
+	<!-- **************************************************** -->
+	<!-- **************************************************** -->
+	<!-- **************************************************** -->
+	<!-- Mensagens de erro com CSS na interface -->
+	<!-- As validações e disparo dos erros são feitos na controladora veiculo_cadastrar.inc.php -->	
 	<!-- **************************************************** -->
 	<!-- SESSION status_cadastro -->
 	<?php
@@ -198,6 +223,10 @@ session_start();
 	<!-- **************************************************** -->
 
 
+	<!-- **************************************************** -->
+	<!-- **************************************************** -->
+	<!-- **************************************************** -->
+	<!-- **************************************************** -->
 	<!-- Interface -->
 	<div class="box">
 	<!-- Esta interface terá comunicação com o arquivo veiculo_cadastrar.php -->
@@ -207,12 +236,15 @@ session_start();
 	<div class="field">
 	  <h1><strong>Veículo</strong></h1>
 	  <p><br>
+		<!-- **************************************************** -->
+		<!-- Veiculo -->
 		<div class="control">
 			<em>Os campos com <strong>*</strong> são Obrigatórios</em><br><br>
-			
 		</div>
 	</div>
 
+	<!-- **************************************************** -->
+	<!-- Campo de digito Placa -->
 	<div class="field">
 		<div class="control">
 			<strong>* Placa:</strong>
@@ -220,119 +252,138 @@ session_start();
 		</div>
 	</div>
 		
-
-<!-- ************************************************* -->
-<!-- LISTA DE MODELOS DE CARROS -->
-<script type="text/javascript">
-	function populate(marca,modelo){
-	var marca = document.getElementById(marca);
-	var modelo = document.getElementById(modelo);
-	modelo.innerHTML = "";
-	if(marca.value == "Audi")
-	{
-		var optionArray = ["|","a1sportback|A1 Sportback","a3sportback|A3 Sportback","a3sedan|A3 Sedan","rs3|RS3","a4sedan|A4 Sedan","a4limitededition|A4 Limited Edition","a5sportback|A5 Sportback","a6sedan|A6 Sedan"];
-	}
-	else if(marca.value == "BMW")
-	{
-		var optionArray = ["|","bmwserie1hatch|BMW Serie 1 Hatch","bmwserie3sedan|BMW Serie 3 Sedan","bmwserie4cabrio|BMW Serie 4 Cabrio","bmwserie5sedan|BMW Serie 5 Sedan","bmwz4|BMW Z4"];
-	} 
-	else if(marca.value == "Chevrolet")
-	{
-		var optionArray = ["|","joy|Joy","onix|Onix","joyplus|Joy Plus","cobalt|Cobalt","cruze|Cruze","spin|Spin","equinox|Equinox"];
-	} 
-	else if(marca.value == "Fiat")
-	{
-		var optionArray = ["|","fiatargo|Fiat Argo","fiatcronos|Fiat Cronos","fiatmobi|Fiat Mobi","fiatpalio|Fiat Palio","fiatuno|Fiat Uno"];
-	}
-	else if(marca.value == "Ford")
-	{
-		var optionArray = ["|","fordecosport|Ford Eco Sport","fordka|Ford Ka","fordranger|Ford Ranger","fordfocushatch|Ford Focus Hatch","fordfusion|Ford Fusion"];
-	}
-	else if(marca.value == "Honda")
-	{
-		var optionArray = ["|","hondaaccord|Honda Accord","hondacity|Honda City","hondacivic|Honda Civic","hondacrv|Honda CRV","hondafit|Honda Fit"];
-	}
-	else if(marca.value == "Hyundai")
-	{
-		var optionArray = ["|","hyundaiazera|Hyundai Azera","hyundaicreta|Hyundai Creta","hyundaielantra|Hyundai Elantra","hyundaihb20|Hyundai HB20","hyundaihb20s|Hyundai HB20S"];
-	}
-	else if(marca.value == "Jeep")
-	{
-		var optionArray = ["|","fjeepcompass|Jeep Compass","jeepgrandcherokee|Jeep Grand Cherokee","jeeprenegade|Jeep Renegade","jeepwrangler|Jeep WRangler"];
-	}
-	else if(marca.value == "MercedesBenz")
-	{
-		var optionArray = ["|","mercedesbenzclassec|Mercedes Benz Classe C","mercedesbenzclassea|Mercedes Benz Classe A","mercedesbenzclasseb|Mercedes Benz Classe B","mercedesbenzclassecls|Mercedes Benz Classe CLS"];
-	}
-	else if(marca.value == "Nissan")
-	{
-		var optionArray = ["|","nissanmarch|Nissan March","nissanversa|Nissan Versa","nissansentra|Nissan Sentra","nissanleaf|Nissan Leaf"];
-	}
-	else if(marca.value == "Peugeot")
-	{
-		var optionArray = ["|","peugeot208|Peugeot 208","peugeot2008|Peugeot 2008","peugeot3008|Peugeot 3008","peugeot5008|Peugeot 5008"];
-	}
-	else if(marca.value == "Renault")
-	{
-		var optionArray = ["|","renaultduster|Renault Duster","renaultsandero|Renault Sandero","renaultkwid|Renault Kwid","renaultlogan|Renault Logan","renaultcaptur|Renault Captur"];
-	}
-	else if(marca.value == "Volkswagen")
-	{
-		var optionArray = ["|","gol|Gol","fox|Fox","novopolo|Novo Polo","golf|Golf","voyage|Voyage"];
-	}
-			
-	for(var option in optionArray){
-		var pair = optionArray[option].split("|");
-		var newOption = document.createElement("option");
-		newOption.value = pair[0];
-		newOption.innerHTML = pair[1];
-		modelo.options.add(newOption);
-	}
-}
-</script>
-<!-- fim LISTA DE MODELOS DE CARROS -->
-<!-- ************************************************* -->
 		
 
+	<!-- **************************************************************************** -->
+	<!-- **************************************************************************** -->
+	<!-- **************************************************************************** -->
+	<?php /*
+	require_once ("DBController.php");
+	$db_handle = new DBController();
+	$query = "SELECT * FROM tabela_cadastro_veiculo_marca";
+	$countryResult = $db_handle->runQuery($query); */
+	?>	
+		
+		
+
+		
+	<!-- SCRIPT AJAX -->
+	<!-- ******************************************* -->
+	<!-- ******************************************* -->
+	<!-- ******************************************* -->
+<!--	<script src="js/jquery-2.1.1.min.js"
+	type="text/javascript"></script>
+	<script>
+	function getLista() 
+	{
+		var str='';
+		var val=document.getElementById('marca-list');
+		for (i=0;i< val.length;i++) 
+		{ 
+			if(val[i].selected){
+			str += val[i].value + ','; 
+		}
+	}         
+	var str=str.slice(0,str.length -1);
+
+	$.ajax({          
+	type: "GET",
+	//url: "veiculo_cadastrar.inc.php",
+	url: "veiculo_cadastro_lista_marca_modelo_C.inc.php",
+	data:'ID_marca='+str,
+	success: function(data) { $("#modelo-list").html(data); } });
+	} 
+	</script> -->
+	<!-- ******************************************* -->
+	<!-- ******************************************* -->
+	<!-- ******************************************* -->
+	
+	
+	<!-- Selecionar Marca -->
+	<!-- ******************************************* -->
+	<!-- ******************************************* -->
+<!--	<div class="field">
+		<div class="control">
+		<strong>* Selecione uma Marca:</strong><br>
+			<div class="select is-fullwidth">
+				<select id="marca-list" name="marca[]" multiple size=5 onChange="getLista();">
+					<option value="" selected disabled>Selecione uma Marca</option>
+					<?php
+						//foreach ($countryResult as $marca) {
+					?>
+					<option value="<?php //echo $marca["ID_marca"]; ?>"><?php //echo $marca["marca"]; ?></option> 
+					<?php
+					//}
+					?>
+<!--				</select>
+			</div>
+		</div>
+	</div>
+			
+		
+	<br><br><br><br><br><br><br> -->
+
+	<!-- Selecionar Modelo -->
+	<!-- ******************************************* -->
+	<!-- ******************************************* -->
+<!--	<div class="field">
+		<div class="control">
+			<strong>* Selecione um Modelo:</strong><br>
+			<div class="select is-loading is-fullwidth">
+				<select id="modelo-list" name="modelo[]" multiple size=5>
+					<option value="" selected disabled>Você deve selecionar um Modelo primeiro</option>
+				</select>
+			</div>
+		</div>
+	</div>  -->
+	<!-- **************************************************************************** -->
+	<!-- **************************************************************************** -->
+	<!-- **************************************************************************** -->
+	<!-- **************************************************************************** -->
+		
+<!--	<br><br><br><br><br><br><br>  -->
+		
+		
+		
+ 		
+<!-- ************************************************* -->
+<!-- ************************************************* -->
+<!-- JAVA SCRIPT -->
+<!-- LISTA DE MODELOS DE CARROS -->
+<?php require 'veiculo_lista_modelo.js'; ?>
+
+<!-- LISTA DE MARCAS DE CARROS -->
+<!-- ************************************************* -->
+<!-- ************************************************* -->
 	<div class="field">
 		<div class="control">
 			<strong>* Selecione uma Marca:</strong><br>
-				<div class="select">
+				<div class="select is-fullwidth">
 					<select id="marca" name="marca" onChange="populate(this.id,'modelo')">
 						<option disabled selected value="">Selecione uma Marca</option>
-						<option value="Audi">Audi</option>
-						<option value="BMW">BMW</option>
-						<option value="Chevrolet">Chevrolet</option>
-						<option value="Fiat">Fiat</option>
-						<option value="Ford">Ford</option>
-						<option value="Honda">Honda</option>
-						<option value="Hyundai">Hyundai</option>
-						<option value="Jeep">Jeep</option>
-						<option value="MercedesBenz">Mercedes</option>
-						<option value="Nissan">Nissan</option>
-						<option value="Peugeot">Peugeot</option>
-						<option value="Renault">Renault</option>
-						<option value="Volkswagen">Volkswagen</option>
+						<?php require 'veiculo_lista_marca.php'; ?>
 					</select>
 				</div>
 		</div>
 	</div>
+		
+		
 
-
-
+	<!-- **************************************************** -->
+	<!-- Campo de escolha de Modelos -->
 	<div class="field">
 		<div class="control">
 			<strong>* Selecione um Modelo:</strong><br>
-			<div class="select">
+			<div class="select is-fullwidth">
 				<select id="modelo" name="modelo">
 					<option disabled selected value="">Selecione uma Marca primeiro</option>
 				</select>
 			</div>
 		</div>
-	</div>
+	</div> 
 
-	
-
+	<!-- **************************************************** -->
+	<!-- Campo de digito Chassi -->
 	<div class="field">
 		<div class="control">
 			<strong>* Chassi:</strong>
@@ -340,17 +391,21 @@ session_start();
 		</div>
 	</div>
 
+	<!-- **************************************************** -->
+	<!-- Campo de digito Renavam -->
 	<div class="field">
 		<div class="control">
 			<strong>* Renavam: </strong>
 			<input name="renavam" type="text" class="input is-large" placeholder="Renavam" autofocus oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');" >
 		</div>
 	</div>
-
+		
+	<!-- **************************************************** -->
+	<!-- Campo de seleção de categoria -->
 	<div class="field">
 		<div class="control">
 			<strong>* Selecione uma Categoria:</strong><br>
-				<div class="select">
+				<div class="select is-fullwidth">
 					<select id="categoria" name="categoria">
 						<option disabled selected value="">Selecione uma Categoria</option>
 						<option value="economico">Economico</option>
@@ -362,7 +417,37 @@ session_start();
 				</div>
 		</div>
 	</div>
+			
+		
+		
+		
+	<!-- **************************************************** -->
+	<!-- Campo de seleção de categoria -->
+<!--	<div class="field">
+		<div class="control">
+			<strong>* Selecione uma Categoria:</strong><br>
+				<div class="select is-fullwidth">
+					<select id="categoria" name="categoria">
+						<option value="" selected disabled>Selecione uma Categoria</option>
+						<?php 
+							/*$tabela_cadastro_veiculo_categoria = "SELECT * FROM tabela_cadastro_veiculo_categoria ORDER BY categoria ASC";
+							$resultado_categoria = mysqli_query($conexao, $tabela_cadastro_veiculo_categoria);
+							while($row_resultado = mysqli_fetch_assoc($resultado_categoria))
+							{ 
+							?>
+							<option value="<?php echo $row_resultado['ID_categoria']; ?>"><?php echo $row_resultado['categoria'];?></option> 
+							<?php
+							}
+							*/?>
+					</select>
+				</div>
+		</div>
+	</div>
+-->
+		
 
+	<!-- **************************************************** -->
+	<!-- Campo de digito Preço de Compra -->
 	<div class="field">
 		<div class="control">
 			<strong>* Preço de Compra: </strong>
@@ -370,6 +455,8 @@ session_start();
 		</div>
 	</div>
 
+	<!-- **************************************************** -->
+	<!-- Campo de digito Preço de Venda -->
 	<div class="field">
 		<div class="control">
 			<strong>* Preço de Venda: </strong>
@@ -377,7 +464,8 @@ session_start();
 		</div>
 	</div><p><br>
 
-	
+	<!-- **************************************************** -->
+	<!-- Campo de digito Número de Passageiros -->
 	<div class="field">
 		<div class="control">
 			<strong>* Número de Passageiros: </strong>
@@ -385,6 +473,8 @@ session_start();
 		</div>
 	</div>
 
+	<!-- **************************************************** -->
+	<!-- Campo de digito Ano de Fabricação -->
 	<div class="field">
 		<div class="control">
 			<strong>* Ano de Fabricação: </strong> &nbsp; ( Apenas 1900 até o ano atual )
@@ -392,6 +482,8 @@ session_start();
 		</div>
 	</div>
 
+	<!-- **************************************************** -->
+	<!-- Campo de digito Ano do Modelo -->
 	<div class="field">
 		<div class="control">
 			<strong>* Ano Modelo: </strong>  &nbsp; ( Apenas 1900 até o ano atual )
@@ -399,6 +491,8 @@ session_start();
 		</div>
 	</div> 
 
+	<!-- **************************************************** -->
+	<!-- Campo de digito Tipo de Combustivel -->
 	<div class="field">
 		<div class="control">
 			<strong>* Tipo de Combustivel: </strong>
@@ -406,6 +500,8 @@ session_start();
 		</div>
 	</div>
 
+	<!-- **************************************************** -->
+	<!-- Campo de digito Kilometragem -->
 	<div class="field">
 		<div class="control">
 			<strong>* Kilometragem: </strong>
@@ -413,6 +509,8 @@ session_start();
 		</div>
 	</div>
 
+	<!-- **************************************************** -->
+	<!-- Campo de digito Potencia -->
 	<div class="field">
 		<div class="control">
 			<strong>* Potência: </strong>
@@ -420,19 +518,21 @@ session_start();
 		</div>
 	</div>
 
+	<!-- **************************************************** -->
+	<!-- Campo de digito Capacidade do porta malas -->
 	<div class="field">
 		<div class="control">
 			<strong>* Capacidade do Porta Malas: </strong>
 			<input name="capacidade_pmalas" class="input is-large" type="text" placeholder="Capacidade do Porta Malas" autofocus oninput="this.value = this.value.replace(/[^0-9]+/g, '').replace(/(\..*)\./g, '$1');" >
 		</div>
 	</div>
-		
-		
 	
-	
+	<!-- **************************************************** -->
+	<!-- Campo de selecionar Situação do Veiculo -->
+	<!-- Disponivel / Locado / Vendido -->
 	<div class="field">
 		<div class="control">
-			<br><strong>* Situação do Veículo : Disponível ou Locado?</strong><br><br>
+			<br><strong>* Situação do Veículo : </strong><br><br>
 			<label class="radio">
 				<input class="is-checkradio" type="radio" name="situacao" value="Disponivel" checked="checked" onChange="findselected()">
 				Disponível
@@ -446,10 +546,11 @@ session_start();
 			</label>
 		</div>
 	</div>
-		
 	
-
 	<!-- FOTO VEICULO -->
+	<!-- ***************************************************** -->
+	<!-- ***************************************************** -->
+	<!-- ***************************************************** -->
 	<!-- ***************************************************** -->
 	<div class="field">
 		<div class="control"><br>
@@ -482,7 +583,7 @@ session_start();
 		</div>
 	</div>
 		
-		
+	<!-- JAVA SCRIPT -->	
 	<script>
 		const fileInputVEICULO = document.querySelector('#script_foto_veiculo input[type=file]');
 		fileInputVEICULO.onchange = () => 
@@ -509,18 +610,29 @@ session_start();
 		}
 	</script> 
 	<!-- ***************************************************** -->
+	<!-- ***************************************************** -->
+	<!-- ***************************************************** -->
+	<!-- ***************************************************** -->
 		
 		<br><br>
 
 	<!-- Botão cadastrar com design CSS -->
 	<button type="submit" name="cadastrar_botao" class="button is-block is-dark is-large is-fullwidth">Cadastrar</button>
-		<a href="index.php"><strong>Cancelar</strong></a>
+		<!-- Botão cancelar -->
+		<a href="funcionario_perfil.php"><strong>Cancelar</strong></a>
 		</form>
 			</div>
 		</div>
 	</div>
 </div>
 </section>
+	
+		
+	<!-- **************************************************** -->
+	<!-- **************************************************** -->
+	<!-- **************************************************** -->
+	<!-- **************************************************** -->
+	<!-- **************************************************** -->
 	<?php 
 	// chamando o arquivo rodape
 	require 'rodape.php'; 

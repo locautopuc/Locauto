@@ -1,6 +1,6 @@
 <?php
 // ao iniciar uma sessão daremos inicio a comunicação com as SESSIONS feitas no arquivo no arquivo de segurança
-// neste caso é o cadastrar.php
+// neste caso é o veiculo_marca_cadastrar.inc.php
 session_start();
 ?>
 
@@ -37,7 +37,7 @@ session_start();
 	?>
 	<div class="notification is-success">
 		<p>Seu cadastro foi feito com sucesso!</p>
-		<p>Faça login informando o seu usuário e senha <a href="funcionario_perfil.php">aqui</a></p>
+		<p>Caso desejar, cadastre outra Marca</p>
 	</div>
 	<?php
 		endif;
@@ -120,7 +120,7 @@ session_start();
 
 	<!-- Botão cadastrar com design CSS -->
 	<button type="submit" name="cadastrar_botao" class="button is-block is-dark is-large is-fullwidth">Cadastrar</button>
-		<a href="index.php"><strong>Cancelar</strong></a>
+		<a href="funcionario_perfil.php"><strong>Cancelar</strong></a>
 		</form>
 			</div>
 		</div>

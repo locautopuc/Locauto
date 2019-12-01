@@ -1,11 +1,19 @@
 <?php
-// ao iniciar uma sessão daremos inicio a comunicação com as SESSIONS feitas no arquivo no arquivo de segurança
+// ao iniciar uma sessão daremos inicio a comunicação com as SESSIONS feitas no arquivo no arquivo de controle
+// neste caso é o funcionario_cadastrar.inc.php
 session_start();
 ?>
 
+
+
+<!-- **************************************************** -->
+<!-- **************************************************** -->
+<!-- **************************************************** -->
+<!-- **************************************************** -->
+<!-- **************************************************** -->
 <!DOCTYPE html>
 <html>
-	<head>
+	<head> <!-- Iniciando as css e cabeçalho -->
 		<meta charset="utf-8">
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
@@ -14,21 +22,40 @@ session_start();
 		<link rel="stylesheet" href="css/bulma.min.css" />
 		<link rel="stylesheet" type="text/css" href="css/config.css">
 	</head>
-	<body>
+	<body> <!-- Iniciando o corpo da página -->
+		
 		
 	<?php
-	// chamando o arquivo de cabeçalho
+	// chamando o arquivo de cabeçalho para o admin
 	require 'cabecalho_admin_logado.php'; 
-	?>
-	
+	?>				
 		
-	
+		
+		
+	<!-- **************************************************** -->
+	<!-- **************************************************** -->
+	<!-- **************************************************** -->
+	<!-- **************************************************** -->
+	<!-- **************************************************** -->	
+	<!-- **************************************************** -->
     <section class="hero is-success is-fullheight">
         <div class="hero-body">
             <div class="container has-text-centered">
                 <div class="column is-4 is-offset-4">
                     <h3 class="title has-text-grey">Cadastro de Funcionário</h3>
 					
+		
+					
+					
+					
+					
+	<!-- **************************************************** -->
+	<!-- **************************************************** -->
+	<!-- **************************************************** -->
+	<!-- **************************************************** -->
+	<!-- **************************************************** -->
+	<!-- Mensagens de erro com CSS na interface -->
+	<!-- As validações e disparo dos erros são feitos na controladora funcionario_cadastrar.inc.php -->	
 	<!-- **************************************************** -->
 	<!-- SESSION status_cadastro -->
 	<?php
@@ -167,11 +194,18 @@ session_start();
 	<!-- **************************************************** -->
 
 
+					
+					
+	<!-- **************************************************** -->
+	<!-- **************************************************** -->
+	<!-- **************************************************** -->
+	<!-- **************************************************** -->
 	<!-- Interface -->
 	<div class="box">
-	<!-- Esta interface terá comunicação com o arquivo cadastrar.php -->
+	<!-- Esta interface terá comunicação com o arquivo funcionario_cadastrar.inc.php -->
 	<form action="funcionario_cadastrar.inc.php" method="POST" autocomplete="off">
-
+	<!-- **************************************************** -->
+	<!-- Funcionario -->
 	<div class="field">
 	  <h1><strong>Funcionário</strong></h1><p><br>
 		<div class="control">
@@ -180,24 +214,26 @@ session_start();
 		</div>
 	</div>
 		
-		
+	<!-- **************************************************** -->
+	<!-- Campo de digito de Matricula -->	
 	<div class="field">
 		<div class="control">
 			<strong>* Matricula:</strong>  &nbsp; ( Apenas números )
-			<input name="matricula" type="text" class="input is-large" placeholder="Matricula" autofocus oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');" maxlength="10">
+			<input name="matricula" type="text" class="input is-large" placeholder="Matricula" autofocus oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');" maxlength="11">
 		</div>
 	</div>
 
-	
+	<!-- **************************************************** -->
+	<!-- Campo de digito de Nome Completo -->	
 	<div class="field">
 		<div class="control">
 			<strong>* Nome Completo:</strong>
-				<input name="nome" type="text" class="input is-large" placeholder="Nome Completo" autofocus oninput="this.value = this.value.replace(/[^A-Za-z0-9]+/g, '').replace(/(\..*)\./g, '$1');">
+				<input name="nome" type="text" class="input is-large" placeholder="Nome Completo" autofocus oninput="this.value = this.value.replace(/[^A-Za-z0-9]+/g, '').replace(/(\..*)\./g, '$1');" maxlength="250">
 		</div>
 	</div>
-
 	
-
+	<!-- **************************************************** -->
+	<!-- Campo de digito de Identidade -->	
 	<div class="field">
 		<div class="control">
 			<strong> * RG / Identidade:</strong>  &nbsp; ( Apenas números )
@@ -205,6 +241,8 @@ session_start();
 		</div>
 	</div>
 
+	<!-- **************************************************** -->
+	<!-- Campo de digito de Telefone -->	
 	<div class="field">
 		<div class="control">
 			<strong>* Telefone: </strong>  &nbsp; ( Apenas números )
@@ -212,36 +250,45 @@ session_start();
 		</div>
 	</div>
 
+	<!-- **************************************************** -->
+	<!-- Campo de digito de Email -->	
 	<div class="field">
 		<div class="control">
 			<strong>* Email:</strong> &nbsp; ( exemplo@mail.com )
-			<input name="email" type="text" class="input is-large" placeholder="E-mail" autofocus>
+			<input name="email" type="text" class="input is-large" placeholder="E-mail" autofocus maxlength="100">
 		</div>
 	</div>
 
+	<!-- **************************************************** -->
+	<!-- Campo de digito de Senha -->	
 	<div class="field">
 		<div class="control">
-			<strong>* Senha: </strong>
-			<input name="senha" type="password" class="input is-large" placeholder="Senha" autofocus >
-		</div>
+			<strong>* Senha: </strong>    &nbsp; ( Máximo de 8 dígitos )
+			<input name="senha" type="password" class="input is-large" placeholder="Senha" autofocus maxlength="8">
 	</div>
 
+	<!-- **************************************************** -->
+	<!-- Campo de digito de Repita a Senha -->
 	<div class="field">
 		<div class="control">
-			<strong>* Repita a Senha: </strong>
-			<input name="senha_repetir" type="password" class="input is-large" placeholder="Repita a Senha" autofocus >
+			<strong>* Repita a Senha: </strong>    &nbsp; ( Máximo de 8 dígitos )
+			<input name="senha_repetir" type="password" class="input is-large" placeholder="Repita a Senha" autofocus maxlength="8">
 		</div>
 	</div><p><br>
 
 	<h1><strong>Endereço</strong></h1><p><br>
 
+	<!-- **************************************************** -->
+	<!-- Campo de digito de Logradouro -->
 	<div class="field">
 		<div class="control">
 			<strong>* Logradouro: </strong>
-			<input name="logradouro" type="text" class="input is-large" placeholder="Logradouro" autofocus oninput="this.value = this.value.replace(/[^A-Za-z0-9]+/g, '').replace(/(\..*)\./g, '$1');">
+			<input name="logradouro" type="text" class="input is-large" placeholder="Logradouro" autofocus oninput="this.value = this.value.replace(/[^A-Za-z0-9]+/g, '').replace(/(\..*)\./g, '$1');" maxlength="50">
 		</div>
 	</div>
 
+	<!-- **************************************************** -->
+	<!-- Campo de digito de Número -->
 	<div class="field">
 		<div class="control">
 			<strong>* Número: </strong>  &nbsp; ( Apenas números )
@@ -249,34 +296,44 @@ session_start();
 		</div>
 	</div>
 
+	<!-- **************************************************** -->
+	<!-- Campo de digito de Complemento -->
 	<div class="field">
 		<div class="control">
 			<strong>* Complemento: </strong>
-			<input name="complemento" type="text" class="input is-large" placeholder="Complemento" autofocus oninput="this.value = this.value.replace(/[^A-Za-z0-9]+/g, '').replace(/(\..*)\./g, '$1');">
+			<input name="complemento" type="text" class="input is-large" placeholder="Complemento" autofocus oninput="this.value = this.value.replace(/[^A-Za-z0-9]+/g, '').replace(/(\..*)\./g, '$1');" maxlength="250">
 		</div>
 	</div>
 
+	<!-- **************************************************** -->
+	<!-- Campo de digito de Bairro -->
 	<div class="field">
 		<div class="control">
 			<strong>* Bairro: </strong>
-			<input name="bairro" type="text" class="input is-large" placeholder="Bairro" autofocus oninput="this.value = this.value.replace(/[^A-Za-z0-9]+/g, '').replace(/(\..*)\./g, '$1');">
+			<input name="bairro" type="text" class="input is-large" placeholder="Bairro" autofocus oninput="this.value = this.value.replace(/[^A-Za-z0-9]+/g, '').replace(/(\..*)\./g, '$1');" maxlength="50">
 		</div>
 	</div>
 
+	<!-- **************************************************** -->
+	<!-- Campo de digito de Cidade -->
 	<div class="field">
 		<div class="control">
 			<strong>* Cidade: </strong>
-			<input name="cidade" type="text" class="input is-large" placeholder="Cidade" autofocus oninput="this.value = this.value.replace(/[^A-Za-z0-9]+/g, '').replace(/(\..*)\./g, '$1');">
+			<input name="cidade" type="text" class="input is-large" placeholder="Cidade" autofocus oninput="this.value = this.value.replace(/[^A-Za-z0-9]+/g, '').replace(/(\..*)\./g, '$1');" maxlength="50">
 		</div>
 	</div>
 
+	<!-- **************************************************** -->
+	<!-- Campo de digito de Estado -->
 	<div class="field">
 		<div class="control">
 			<strong>* Estado: </strong>
-			<input name="estado" type="text" class="input is-large" placeholder="Estado" autofocus oninput="this.value = this.value.replace(/[^A-Za-z0-9]+/g, '').replace(/(\..*)\./g, '$1');">
+			<input name="estado" type="text" class="input is-large" placeholder="Estado" autofocus oninput="this.value = this.value.replace(/[^A-Za-z0-9]+/g, '').replace(/(\..*)\./g, '$1');" maxlength="50">
 		</div>
 	</div>
 
+	<!-- **************************************************** -->
+	<!-- Campo de digito de Cep -->
 	<div class="field">
 		<div class="control">
 			<strong>* Cep: </strong> &nbsp; ( Apenas números )
@@ -286,6 +343,8 @@ session_start();
 
 	<!-- Botão cadastrar com design CSS -->
 	<button type="submit" name="cadastrar_botao" class="button is-block is-dark is-large is-fullwidth">Cadastrar</button>
+		<!-- **************************************************** -->
+		<!-- Botão cancelar -->
 		<a href="admin_perfil.php"><strong>Cancelar</strong></a>
 		</form>
 			</div>
@@ -293,6 +352,13 @@ session_start();
 	</div>
 </div>
 </section>
+	
+		
+	<!-- **************************************************** -->
+	<!-- **************************************************** -->
+	<!-- **************************************************** -->
+	<!-- **************************************************** -->
+	<!-- **************************************************** -->
 	<?php 
 	// chamando o arquivo rodape
 	require 'rodape.php'; 

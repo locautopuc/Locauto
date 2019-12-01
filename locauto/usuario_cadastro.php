@@ -1,12 +1,19 @@
 <?php
-// ao iniciar uma sessão daremos inicio a comunicação com as SESSIONS feitas no arquivo no arquivo de segurança
-// neste caso é o cadastrar.php
+// ao iniciar uma sessão daremos inicio a comunicação com as SESSIONS feitas no arquivo no arquivo de controle
+// neste caso é o usuario_cadastrar.inc.php
 session_start();
 ?>
 
+
+
+<!-- **************************************************** -->
+<!-- **************************************************** -->
+<!-- **************************************************** -->
+<!-- **************************************************** -->
+<!-- **************************************************** -->
 <!DOCTYPE html>
 <html>
-	<head>
+	<head> <!-- Iniciando as css e cabeçalho -->
 		<meta charset="utf-8">
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
@@ -15,17 +22,26 @@ session_start();
 		<link rel="stylesheet" href="css/bulma.min.css" />
 		<link rel="stylesheet" type="text/css" href="css/config.css">
 	</head>
-	<body>
+	<body> <!-- Iniciando o corpo da página -->
 		
 	<?php
 	// chamando o arquivo de cabeçalho
 	require 'cabecalho.php'; 
 	?>
-	
+			
+		
+		
+		
+	<!-- **************************************************** -->
+	<!-- **************************************************** -->
+	<!-- **************************************************** -->
+	<!-- **************************************************** -->
+	<!-- **************************************************** -->	
 	<!-- **************************************************** -->
 	<!-- Script JAVA -->
 	<!-- Controle da seleção de CPF e CNPJ -->
 	<!-- Se selecionar CPF o campo de Razão Social será desabilitado -->
+	<!-- Se selecionar CNPJ o campo de Identidade será desabilitado -->
 	<script type="text/javascript">
 	function findselected() 
 		{ 
@@ -33,31 +49,51 @@ session_start();
 			if(result=="CPF")
 			{
 				//se o usuario selecionar que é pessoa fisica CPF
-				//o campo Razão social será desabilitado e terá os valores inserids apagados
-				document.getElementById("desabilita_campo_caso_selecionar_CPF").setAttribute('disabled', true);
-				document.getElementById('desabilita_campo_caso_selecionar_CPF').value = '';
-				document.getElementById("desabilita_campo_caso_selecionar_Identidade").removeAttribute('disabled');
+				//o campo Razão social será desabilitado e terá os valores inseridos apagados
+				document.getElementById("desabilita_campo_RZ_caso_selecionar_CPF").setAttribute('disabled', true); // desabilita o campo razão social
+				document.getElementById('desabilita_campo_RZ_caso_selecionar_CPF').value = ''; // apaga o valor digitado no campo razão social
+				document.getElementById('cpf_cnpj').value = ''; // apaga o campo de CPF ou CNPJ
+				document.getElementById("desabilita_campo_ID_caso_selecionar_cnpj").removeAttribute('disabled'); //hablita digitar no campo identidade
+				document.getElementById('cpf_cnpj').maxLength = "11"; // máximo digito para CPF = 11
+				document.getElementById('cpf_cnpj').size = "11"; // máximo digito para CPF = 11
 			}
 			else
 			{
-				document.getElementById("desabilita_campo_caso_selecionar_CPF").removeAttribute('disabled');
+				document.getElementById("desabilita_campo_RZ_caso_selecionar_CPF").removeAttribute('disabled'); //habilita digitar no campo razão social
 				//se o usuario selecionar que é pessoa juridica
 				//o campo identidade será desabilitado e terá os valores inserids apagados
-				document.getElementById("desabilita_campo_caso_selecionar_Identidade").setAttribute('disabled', true);
-				document.getElementById('desabilita_campo_caso_selecionar_Identidade').value = '';
+				document.getElementById("desabilita_campo_ID_caso_selecionar_cnpj").setAttribute('disabled', true); // desabilita campo idenidade
+				document.getElementById('cpf_cnpj').value = ''; // apaga o campo de CPF ou CNPJ
+				document.getElementById('desabilita_campo_ID_caso_selecionar_cnpj').value = ''; // apaga o valor digitado no campo de identidade
+				document.getElementById('cpf_cnpj').maxLength = "14"; // máximo digito para CNPJ = 14
+				document.getElementById('cpf_cnpj').size = "14"; // máximo digito para CNPJ = 14
 			}
 		}
 	</script>
 	<!-- fim Script JAVA -->
 	<!-- **************************************************** -->
 	
+		
+		
+		
 	
     <section class="hero is-success is-fullheight">
         <div class="hero-body">
             <div class="container has-text-centered">
                 <div class="column is-4 is-offset-4">
                     <h3 class="title has-text-grey">Faça o seu Cadastro</h3>
+	
 					
+					
+					
+					
+	<!-- **************************************************** -->
+	<!-- **************************************************** -->
+	<!-- **************************************************** -->
+	<!-- **************************************************** -->
+	<!-- **************************************************** -->
+	<!-- Mensagens de erro com CSS na interface -->
+	<!-- As validações e disparo dos erros são feitos na controladora usuario_cadastrar.inc.php -->	
 	<!-- **************************************************** -->
 	<!-- SESSION status_cadastro -->
 	<?php
@@ -225,58 +261,81 @@ session_start();
 	<!-- **************************************************** -->
 
 
+					
+					
+	<!-- **************************************************** -->
+	<!-- **************************************************** -->
+	<!-- **************************************************** -->
+	<!-- **************************************************** -->
 	<!-- Interface -->
 	<div class="box">
-	<!-- Esta interface terá comunicação com o arquivo cadastrar.php -->
+	<!-- Esta interface terá comunicação com o arquivo usuario_cadastrar.inc.php -->
 	<form action="usuario_cadastrar.inc.php" method="POST" autocomplete="off">
-
+	<!-- **************************************************** -->
+	<!-- Cliente -->
 	<div class="field"><h1><strong>Cliente</strong></h1><p><br>
 		<div class="control">
-			<em>Os campos com <strong>*</strong> são Obrigatórios</em><br><br>
-			<strong>* Selecione : Você é Pessoa Fisica ou Pessoa Juridica?</strong><br><br>
+			<p><em>Os campos com <strong>*</strong> são Obrigatórios</em><br><br>
+			  <strong>* Selecione : Você é Pessoa Fisica ou Pessoa Juridica?</strong></p>
+			<p>* É obrigatório digitar nos campos CPF/Identidade ou &nbsp;&nbsp;&nbsp;CNPJ/Razão Social logo apos a escolha desejada.<br>
+			  <br>
+			  </p>
+			
+			<!-- **************************************************** -->
+			<!-- Escolha de CPF ou CNPJ -->
 			<div class="field">
-				<div class="control">
+			  <div class="control">
 					<label class="radio">
-						<input class="is-checkradio" type="radio" name="escolher" value="CPF" checked="checked" onChange="findselected()">
+						<input class="is-checkradio" type="radio" name="escolher" value="CPF" checked="checked" onChange="findselected(this);">
 						Pessoa Fisica - CPF
 					</label><br>
 					<label class="radio">
-						<input class="is-checkradio" type="radio" name="escolher" value="CNPJ" onChange="findselected()">
+						<input class="is-checkradio" type="radio" name="escolher" value="CNPJ" onChange="findselected(this);">
 						Pessoa Juridica - CNPJ<br><br>
 					</label>
 				</div>
 			</div>
 		</div>
 	</div>
-
+		
+	<!-- **************************************************** -->
+	<!-- Campo de digito CPF ou CNPJ -->	
 	<div class="field">
 		<div class="control">
 			<strong>* CPF ou CNPJ:</strong>  &nbsp; ( Apenas números )
-			<input name="cpf_cnpj" type="text" class="input is-large" placeholder="CPF ou CNPJ" autofocus oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');" maxlength="14">
+			<input name="cpf_cnpj" type="text" class="input is-large" id="cpf_cnpj"  placeholder="CPF ou CNPJ" autofocus oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');" maxlength="11">
 		</div>
 	</div>
-
-	<div class="field">
-		<div class="control">
-			<strong>* Nome Completo:</strong>
-				<input name="nome" type="text" class="input is-large" placeholder="Nome Completo" autofocus oninput="this.value = this.value.replace(/[^A-Za-z0-9]+/g, '').replace(/(\..*)\./g, '$1');">
-		</div>
-	</div>
-
-	<div class="field">
-		<div class="control">
-			<strong>Razão Social:</strong> ( Apenas para Pessoas Juridicas - CNPJ )
-			<input name="razao_social" disabled type="text" id="desabilita_campo_caso_selecionar_CPF" class="input is-large" placeholder="Razao Social" autofocus oninput="this.value = this.value.replace(/[^A-Za-z0-9]+/g, '').replace(/(\..*)\./g, '$1');">
-		</div>
-	</div>
-
+		
+	<!-- **************************************************** -->
+	<!-- Campo de digito RG Identidade -->
 	<div class="field">
 		<div class="control">
 			<strong> RG / Identidade:</strong>  &nbsp; ( Apenas para Pessoas Físicas - CPF )
-			<input name="identidade" type="text" id="desabilita_campo_caso_selecionar_Identidade" class="input is-large" placeholder="Identidade" autofocus oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');" maxlength="10">
+			<input name="identidade" type="text" id="desabilita_campo_ID_caso_selecionar_cnpj" class="input is-large" placeholder="Identidade" autofocus oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');" maxlength="10">
+		</div>
+	</div>
+	
+	<!-- **************************************************** -->
+	<!-- Campo de digito Razão Social -->
+	<div class="field">
+		<div class="control">
+			<strong>Razão Social:</strong> ( Apenas para Pessoas Juridicas - CNPJ )
+			<input name="razao_social" disabled type="text" id="desabilita_campo_RZ_caso_selecionar_CPF" class="input is-large" placeholder="Razao Social" autofocus oninput="this.value = this.value.replace(/[^A-Za-z0-9]+/g, '').replace(/(\..*)\./g, '$1');" maxlength="50">
+		</div>
+	</div>
+	
+	<!-- **************************************************** -->
+	<!-- Campo de digito Nome Completo -->	
+	<div class="field">
+		<div class="control">
+			<strong>* Nome Completo:</strong>
+				<input name="nome" type="text" class="input is-large" placeholder="Nome Completo" autofocus oninput="this.value = this.value.replace(/[^A-Za-z0-9]+/g, '').replace(/(\..*)\./g, '$1');" maxlength="250">
 		</div>
 	</div>
 
+	<!-- **************************************************** -->
+	<!-- Campo de digito Telefone -->
 	<div class="field">
 		<div class="control">
 			<strong>* Telefone: </strong>  &nbsp; ( Apenas números )
@@ -287,33 +346,41 @@ session_start();
 	<div class="field">
 		<div class="control">
 			<strong>* Email:</strong> &nbsp; ( exemplo@mail.com )
-			<input name="email" type="text" class="input is-large" placeholder="E-mail" autofocus>
+			<input name="email" type="text" class="input is-large" placeholder="E-mail" autofocus maxlength="100">
 		</div>
 	</div>
 
+	<!-- **************************************************** -->
+	<!-- Campo de digito Senha -->
 	<div class="field">
 		<div class="control">
-			<strong>* Senha: </strong>
-			<input name="senha" type="password" class="input is-large" placeholder="Senha" autofocus >
+			<strong>* Senha: </strong>    &nbsp; ( Máximo de 8 dígitos )
+			<input name="senha" type="password" class="input is-large" placeholder="Senha" autofocus maxlength="8">
 		</div>
 	</div>
 
+	<!-- **************************************************** -->
+	<!-- Campo de digito Repita a Senha -->
 	<div class="field">
 		<div class="control">
-			<strong>* Repita a Senha: </strong>
-			<input name="senha_repetir" type="password" class="input is-large" placeholder="Repita a Senha" autofocus >
+			<strong>* Repita a Senha: </strong>    &nbsp; ( Máximo de 8 dígitos )
+			<input name="senha_repetir" type="password" class="input is-large" placeholder="Repita a Senha" autofocus maxlength="8">
 		</div>
 	</div><p><br>
 
 	<h1><strong>Endereço</strong></h1><p><br>
 
+	<!-- **************************************************** -->
+	<!-- Campo de digito Logradouro -->
 	<div class="field">
 		<div class="control">
 			<strong>* Logradouro: </strong>
-			<input name="logradouro" type="text" class="input is-large" placeholder="Logradouro" autofocus oninput="this.value = this.value.replace(/[^A-Za-z0-9]+/g, '').replace(/(\..*)\./g, '$1');">
+			<input name="logradouro" type="text" class="input is-large" placeholder="Logradouro" autofocus oninput="this.value = this.value.replace(/[^A-Za-z0-9]+/g, '').replace(/(\..*)\./g, '$1');" maxlength="50">
 		</div>
 	</div>
 
+	<!-- **************************************************** -->
+	<!-- Campo de digito Número -->
 	<div class="field">
 		<div class="control">
 			<strong>* Número: </strong>  &nbsp; ( Apenas números )
@@ -321,34 +388,44 @@ session_start();
 		</div>
 	</div>
 
+	<!-- **************************************************** -->
+	<!-- Campo de digito Complemento -->
 	<div class="field">
 		<div class="control">
 			<strong>* Complemento: </strong>
-			<input name="complemento" type="text" class="input is-large" placeholder="Complemento" autofocus oninput="this.value = this.value.replace(/[^A-Za-z0-9]+/g, '').replace(/(\..*)\./g, '$1');">
+			<input name="complemento" type="text" class="input is-large" placeholder="Complemento" autofocus oninput="this.value = this.value.replace(/[^A-Za-z0-9]+/g, '').replace(/(\..*)\./g, '$1');" maxlength="250">
 		</div>
 	</div>
 
+	<!-- **************************************************** -->
+	<!-- Campo de digito Bairro -->
 	<div class="field">
 		<div class="control">
 			<strong>* Bairro: </strong>
-			<input name="bairro" type="text" class="input is-large" placeholder="Bairro" autofocus oninput="this.value = this.value.replace(/[^A-Za-z0-9]+/g, '').replace(/(\..*)\./g, '$1');">
+			<input name="bairro" type="text" class="input is-large" placeholder="Bairro" autofocus oninput="this.value = this.value.replace(/[^A-Za-z0-9]+/g, '').replace(/(\..*)\./g, '$1');" maxlength="50">
 		</div>
 	</div>
 
+	<!-- **************************************************** -->
+	<!-- Campo de digito Cidade -->
 	<div class="field">
 		<div class="control">
 			<strong>* Cidade: </strong>
-			<input name="cidade" type="text" class="input is-large" placeholder="Cidade" autofocus oninput="this.value = this.value.replace(/[^A-Za-z0-9]+/g, '').replace(/(\..*)\./g, '$1');">
+			<input name="cidade" type="text" class="input is-large" placeholder="Cidade" autofocus oninput="this.value = this.value.replace(/[^A-Za-z0-9]+/g, '').replace(/(\..*)\./g, '$1');" maxlength="50">
 		</div>
 	</div>
 
+	<!-- **************************************************** -->
+	<!-- Campo de digito Estado -->
 	<div class="field">
 		<div class="control">
 			<strong>* Estado: </strong>
-			<input name="estado" type="text" class="input is-large" placeholder="Estado" autofocus oninput="this.value = this.value.replace(/[^A-Za-z0-9]+/g, '').replace(/(\..*)\./g, '$1');">
+			<input name="estado" type="text" class="input is-large" placeholder="Estado" autofocus oninput="this.value = this.value.replace(/[^A-Za-z0-9]+/g, '').replace(/(\..*)\./g, '$1');" maxlength="50">
 		</div>
 	</div>
 
+	<!-- **************************************************** -->
+	<!-- Campo de digito Cep -->
 	<div class="field">
 		<div class="control">
 			<strong>* Cep: </strong> &nbsp; ( Apenas números )
@@ -358,13 +435,23 @@ session_start();
 
 	<!-- Botão cadastrar com design CSS -->
 	<button type="submit" name="cadastrar_botao" class="button is-block is-dark is-large is-fullwidth">Cadastrar</button>
+		<!-- **************************************************** -->
+		<!-- Botão cancelar -->
 		<a href="index.php"><strong>Cancelar</strong></a>
 		</form>
+		
 			</div>
 		</div>
 	</div>
 </div>
 </section>
+	
+		
+	<!-- **************************************************** -->
+	<!-- **************************************************** -->
+	<!-- **************************************************** -->
+	<!-- **************************************************** -->
+	<!-- **************************************************** -->
 	<?php 
 	// chamando o arquivo rodape
 	require 'rodape.php'; 

@@ -1,12 +1,19 @@
 <?php
 // ao iniciar uma sessão daremos inicio a comunicação com as SESSIONS feitas no arquivo no arquivo de segurança
-// neste caso é o cadastrar.php
+// neste caso é o motorista_cadastrar.inc.php
 session_start();
 ?>
 
+
+
+<!-- **************************************************** -->
+<!-- **************************************************** -->
+<!-- **************************************************** -->
+<!-- **************************************************** -->
+<!-- **************************************************** -->
 <!DOCTYPE html>
 <html>
-	<head>
+	<head> <!-- Iniciando as css e cabeçalho -->
 		<meta charset="utf-8">
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
@@ -15,8 +22,16 @@ session_start();
 		<link rel="stylesheet" href="css/bulma.min.css" />
 		<link rel="stylesheet" type="text/css" href="css/config.css">
 	</head>
-	<body>
+	<body> <!-- Iniciando o corpo da página -->
+			
 		
+		
+		
+	<!-- **************************************************** -->
+	<!-- **************************************************** -->
+	<!-- **************************************************** -->
+	<!-- **************************************************** -->	
+	<!-- **************************************************** -->		
 	<?php 
 		// so o usuário não estiver logado - NAO APARECE O PERFIL
 	  if(!$_SESSION['cpf_cnpj'])  
@@ -24,21 +39,38 @@ session_start();
 		// chamando o arquivo cabeçalho
 		require 'cabecalho.php';
 	  }
-		// se o usuário estiver logado - NAO APARECE O LOGIN
+		// se o usuário estiver logado - NAO APARECE O LOGIN até ele DESLOGAR
 		else if($_SESSION['cpf_cnpj']) 
 		{
 			// chamando o arquivo cabeçalho logado
 			require 'cabecalho_logado.php';
 		}
 	?>
-	
+			
+		
+		
+		
+	<!-- **************************************************** -->
+	<!-- **************************************************** -->
+	<!-- **************************************************** -->
+	<!-- **************************************************** -->	
+	<!-- **************************************************** -->
     <section class="hero is-success is-fullheight">
         <div class="hero-body">
             <div class="container has-text-centered">
                 <div class="column is-4 is-offset-4">
                     <h3 class="title has-text-grey">Cadastro do Motorista</h3>
-	
-	<!-- SESSIONS DE ERRO -->
+			
+		
+		
+		
+	<!-- **************************************************** -->
+	<!-- **************************************************** -->
+	<!-- **************************************************** -->
+	<!-- **************************************************** -->
+	<!-- **************************************************** -->
+	<!-- Mensagens de erro com CSS na interface -->
+	<!-- As validações e disparo dos erros são feitos na controladora motorista_cadastrar.inc.php -->	
 	<!-- **************************************************** -->
 	 <!-- SESSION status_cadastro -->
 	<?php
@@ -147,33 +179,45 @@ session_start();
 	<!-- **************************************************** -->
 
 
+					
+					
+	<!-- **************************************************** -->
+	<!-- **************************************************** -->
+	<!-- **************************************************** -->
+	<!-- **************************************************** -->
 	<!-- Interface -->
 	<div class="box">
-	<!-- Esta interface terá comunicação com o arquivo motorista_cadastrar.php -->
+	<!-- Esta interface terá comunicação com o arquivo motorista_cadastrar.inc.php -->
 	<!-- Para o UPLOAD de fotos funcionar é preciso adicionar enctype="multipart/form-data" ao FORM -->
 	<form action="motorista_cadastrar.inc.php" method="POST" autocomplete="off" enctype="multipart/form-data">
-
+	<!-- **************************************************** -->
+	<!-- Motorista -->
 	<div class="field"><h1><strong>Motorista</strong></h1><p><br>
 		<div class="control">
 			<em>Os campos com <strong>*</strong> são Obrigatórios</em><br><br>
-			
 		</div>
 	</div>
 
+	<!-- **************************************************** -->
+	<!-- Campo de digito CPF -->	
 	<div class="field">
 		<div class="control">
 			<strong>* CPF:</strong>  &nbsp; ( Apenas números )
-			<input name="cpf" type="text" class="input is-large" placeholder="CPF" autofocus oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');" maxlength="14">
+			<input name="cpf" type="text" class="input is-large" placeholder="CPF" autofocus oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');" maxlength="11">
 		</div>
 	</div>
 
+	<!-- **************************************************** -->
+	<!-- Campo de digito Nome Completo -->	
 	<div class="field">
 		<div class="control">
 			<strong>* Nome Completo:</strong>
-				<input name="nome" type="text" class="input is-large" placeholder="Nome Completo" autofocus oninput="this.value = this.value.replace(/[^A-Za-z0-9]+/g, '').replace(/(\..*)\./g, '$1');">
+				<input name="nome" type="text" class="input is-large" placeholder="Nome Completo" autofocus oninput="this.value = this.value.replace(/[^A-Za-z0-9]+/g, '').replace(/(\..*)\./g, '$1');" maxlength="250">
 		</div>
 	</div>
 
+	<!-- **************************************************** -->
+	<!-- Campo de digito RG Identidade -->	
 	<div class="field">
 		<div class="control">
 			<strong>* RG / Identidade:</strong>  &nbsp; ( Apenas números )
@@ -181,6 +225,8 @@ session_start();
 		</div>
 	</div>
 
+	<!-- **************************************************** -->
+	<!-- Campo de digito Telefone -->	
 	<div class="field">
 		<div class="control">
 			<strong>* Telefone: </strong>  &nbsp; ( Apenas números )
@@ -188,15 +234,19 @@ session_start();
 		</div>
 	</div>
 
+	<!-- **************************************************** -->
+	<!-- Campo de digito Email -->	
 	<div class="field">
 		<div class="control">
 			<strong>* Email:</strong> &nbsp; ( exemplo@mail.com )
-			<input name="email" type="text" class="input is-large" placeholder="E-mail" autofocus>
+			<input name="email" type="text" class="input is-large" placeholder="E-mail" autofocus maxlength="100">
 		</div>
 	</div>
 		
 	<h1><strong>CNH - Carteira Nacional de Habilitação</strong></h1><p><br>
-		
+	
+	<!-- **************************************************** -->
+	<!-- Campo de digito Número de Registro -->	
 	<div class="field">
 		<div class="control">
 			<strong>* Número de Registro: </strong>  &nbsp; ( Apenas números )
@@ -204,10 +254,12 @@ session_start();
 		</div>
 	</div>
 		
+	<!-- **************************************************** -->
+	<!-- Campo de digito Categoria -->	
 	<div class="field">
 		<div class="control">
-			<strong>* Categoria:</strong> &nbsp; ( A B C D E )
-				<input name="categoria" type="text" class="input is-large" placeholder="Categoria" autofocus oninput="this.value = this.value.replace(/[^A-Za-z0-9]+/g, '').replace(/(\..*)\./g, '$1');">
+			<strong>* Categoria:</strong> &nbsp; ( ABCDE )
+				<input name="categoria" type="text" class="input is-large" placeholder="Categoria" autofocus oninput="this.value = this.value.replace(/[^A-Za-z0-9]+/g, '').replace(/(\..*)\./g, '$1');" maxlength="5">
 		</div>
 	</div>
 		
@@ -215,20 +267,32 @@ session_start();
 	<!-- VENCIMENTO CNH -->
 	<!-- DATAS VENCIDAS NÃO SERÃO ACEITAS -->
 	<!-- ***************************************************** -->
+	<!-- ***************************************************** -->
+	<!-- ***************************************************** -->
+	<!-- ***************************************************** -->
 	<script src="css/jquery.min.js"></script>
 	<div class="field">
 		<div class="control">
-			<strong>* Data de Validade:</strong> ( Datas já vencidas, não serão aceitas )
+			<strong>* Data de Validade:</strong> ( Datas já vencidas não serão aceitas )
 				<input name="date" type="date" class="input is-large" >
 		</div>
-	</div>
-		
-	<script>
+	</div>		
+	<script> // javascript
+		// Pega o valor da data mais atual
 		var hoje = new Date().toISOString().split('T')[0];
 		document.getElementsByName("date")[0].setAttribute('min', hoje);
 	</script>
+	<!-- ***************************************************** -->
+	<!-- ***************************************************** -->
+	<!-- ***************************************************** -->
+	<!-- ***************************************************** -->
 	
+		
 	<!-- FOTO CNH -->
+	<!-- ***************************************************** -->
+	<!-- ***************************************************** -->
+	<!-- ***************************************************** -->
+	<!-- ***************************************************** -->
 	<!-- ***************************************************** -->
 	<div class="field">
 		<div class="control"><br>
@@ -237,14 +301,14 @@ session_start();
 			( A foto deve ter no máximo um tamanho de 5mb )<br>
 			( Formatos aceitos: PNG, JPEG ou JPG )
 		</div>
-	</div>
-	
+	</div>	
 	<!-- FOTO CNH -->
 	<!-- ***************************************************** -->
 	<strong>Frente:</strong>
 	<div class="field">
 		<div id="script_foto_cnh" class="file is-centered is-boxed has-name">
 			<label class="file-label">
+				<!-- Input onde o usuário irá adiocionar a foto da sua CNH -->
 				<input class="file-input" type="file" name="foto_cnh" accept=".png,.jpeg,.jpg">
 				<span class="file-cta">
 					<span class="file-icon">
@@ -260,13 +324,15 @@ session_start();
 			</label>
 		</div>
 	</div>
-		
-		
+	<!-- ***************************************************** -->		
+	<!-- JAVA SCRIPT -->
 	<script>
 		const fileInputCNH = document.querySelector('#script_foto_cnh input[type=file]');
 		fileInputCNH.onchange = () => 
 		{
-			// se houver tentativa de upload e o arquivo for menor do que 5MB - OK
+			// se houver tentativa de upload e o arquivo for menor do que 5MB
+			// o upload será aceito e o campo do upload irá se tornar da cor verde através de CSS
+			// o arquivo será adicionado ao campo
 			if (fileInputCNH.files.length > 0 && fileInputCNH.files[0].size < 5000000) 
 			{
 				document.getElementById("script_foto_cnh").className = "file is-centered is-boxed is-success has-name";
@@ -288,17 +354,24 @@ session_start();
 		}
 	</script>
 	<!-- ***************************************************** -->
+	<!-- ***************************************************** -->
+	<!-- ***************************************************** -->
+	<!-- ***************************************************** -->
 		
 	
 	<br><h1><strong>Endereço</strong></h1><p><br>
 
+	<!-- **************************************************** -->
+	<!-- Campo de digito Logradouro -->	
 	<div class="field">
 		<div class="control">
 			<strong>* Logradouro: </strong>
-			<input name="logradouro" type="text" class="input is-large" placeholder="Logradouro" autofocus oninput="this.value = this.value.replace(/[^A-Za-z0-9]+/g, '').replace(/(\..*)\./g, '$1');">
+			<input name="logradouro" type="text" class="input is-large" placeholder="Logradouro" autofocus oninput="this.value = this.value.replace(/[^A-Za-z0-9]+/g, '').replace(/(\..*)\./g, '$1');" maxlength="50">
 		</div>
 	</div>
 
+	<!-- **************************************************** -->
+	<!-- Campo de digito Número -->	
 	<div class="field">
 		<div class="control">
 			<strong>* Número: </strong>  &nbsp; ( Apenas números )
@@ -306,34 +379,44 @@ session_start();
 		</div>
 	</div>
 
+	<!-- **************************************************** -->
+	<!-- Campo de digito Complemento -->	
 	<div class="field">
 		<div class="control">
 			<strong>* Complemento: </strong>
-			<input name="complemento" type="text" class="input is-large" placeholder="Complemento" autofocus oninput="this.value = this.value.replace(/[^A-Za-z0-9]+/g, '').replace(/(\..*)\./g, '$1');">
+			<input name="complemento" type="text" class="input is-large" placeholder="Complemento" autofocus oninput="this.value = this.value.replace(/[^A-Za-z0-9]+/g, '').replace(/(\..*)\./g, '$1');" maxlength="250">
 		</div>
 	</div>
 
+	<!-- **************************************************** -->
+	<!-- Campo de digito Bairro -->	
 	<div class="field">
 		<div class="control">
 			<strong>* Bairro: </strong>
-			<input name="bairro" type="text" class="input is-large" placeholder="Bairro" autofocus oninput="this.value = this.value.replace(/[^A-Za-z0-9]+/g, '').replace(/(\..*)\./g, '$1');">
+			<input name="bairro" type="text" class="input is-large" placeholder="Bairro" autofocus oninput="this.value = this.value.replace(/[^A-Za-z0-9]+/g, '').replace(/(\..*)\./g, '$1');" maxlength="50">
 		</div>
 	</div>
 
+	<!-- **************************************************** -->
+	<!-- Campo de digito Cidade -->	
 	<div class="field">
 		<div class="control">
 			<strong>* Cidade: </strong>
-			<input name="cidade" type="text" class="input is-large" placeholder="Cidade" autofocus oninput="this.value = this.value.replace(/[^A-Za-z0-9]+/g, '').replace(/(\..*)\./g, '$1');">
+			<input name="cidade" type="text" class="input is-large" placeholder="Cidade" autofocus oninput="this.value = this.value.replace(/[^A-Za-z0-9]+/g, '').replace(/(\..*)\./g, '$1');" maxlength="50">
 		</div>
 	</div>
 
+	<!-- **************************************************** -->
+	<!-- Campo de digito Estado -->	
 	<div class="field">
 		<div class="control">
 			<strong>* Estado: </strong>
-			<input name="estado" type="text" class="input is-large" placeholder="Estado" autofocus oninput="this.value = this.value.replace(/[^A-Za-z0-9]+/g, '').replace(/(\..*)\./g, '$1');">
+			<input name="estado" type="text" class="input is-large" placeholder="Estado" autofocus oninput="this.value = this.value.replace(/[^A-Za-z0-9]+/g, '').replace(/(\..*)\./g, '$1');" maxlength="50">
 		</div>
 	</div>
 
+	<!-- **************************************************** -->
+	<!-- Campo de digito Cep -->	
 	<div class="field">
 		<div class="control">
 			<strong>* Cep: </strong> &nbsp; ( Apenas números )
@@ -343,13 +426,22 @@ session_start();
 
 	<!-- Botão cadastrar com design CSS -->
 	<button type="submit" name="cadastrar_botao" class="button is-block is-dark is-large is-fullwidth">Cadastrar</button>
-		<a href="usuario_perfil.php"><strong>Cancelar</strong></a>
+		<!-- **************************************************** -->
+		<!-- Botão cancelar -->
+		<a href="usuario_perfil.php"><strong>Cancelar Locação</strong></a>
 		</form>
 			</div>
 		</div>
 	</div>
 </div>
 </section>
+			
+		
+	<!-- **************************************************** -->
+	<!-- **************************************************** -->
+	<!-- **************************************************** -->
+	<!-- **************************************************** -->
+	<!-- **************************************************** -->
 	<?php 
 	// chamando o arquivo rodape
 	require 'rodape.php'; 

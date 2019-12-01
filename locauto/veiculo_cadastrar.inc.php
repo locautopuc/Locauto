@@ -1,12 +1,13 @@
-
 <?php
 session_start();
 include("conexao.php");
+
 
 // STATEMENTS
 // Aqui será feito diversas validações de segurança
 // Os dados apenas serão salvos no banco caso todas as validações forem aceitas
 
+/****************************************************/
 /****************************************************/
 // validando
 $placa = mysqli_real_escape_string($conexao, trim($_POST['placa'])); // valor único
@@ -24,37 +25,39 @@ $tipo_combustivel = mysqli_real_escape_string($conexao, trim($_POST['tipo_combus
 $kilometragem = mysqli_real_escape_string($conexao, trim($_POST['kilometragem']));
 $potencia = mysqli_real_escape_string($conexao, trim($_POST['potencia']));
 $capacidade_pmalas = mysqli_real_escape_string($conexao, trim($_POST['capacidade_pmalas']));
-// radio ( locado / disponivel )
+// radio ( locado / disponivel / vendido )
 $situacao = mysqli_real_escape_string($conexao, trim($_POST['situacao']));
 
 
 // cria um caminho para salvar a foto do VEICULO
-// é preciso separar as fotos por pastas diferentes entre usuários (CPF / CNPJ)
-// pois se dois usuários diferentes enviar uma foto com o mesmo nome e tipo
-// a última foto irá sobrescrever a foto do outro cadastro
+// é preciso separar as fotos por pastas diferentes entre pastas
+// pois se duas fotos forem enviadas com o mesmo nome e tipo
+// a última foto irá sobrescrever a foto do cadastro passado
 
 $target_dir = "uploads/imagens/veiculo/".$marca."/".$modelo."/";
 
-
 // cria uma pasta se não existir
-if (!file_exists($target_dir)) {
+if (!file_exists($target_dir)) 
+{
    mkdir( $target_dir,0777,false );
 }
 
 // se já existir um arquivo na pasta - deleta ele
-else if (file_exists($foto_veiculo)) {
+else if (file_exists($foto_veiculo)) 
+{
    unlink($foto_veiculo);
-}   
-
+} 
 
 // adicionando nova foto
 $foto_veiculo = $target_dir . basename($_FILES["foto_veiculo"]["name"]);
 $uploadOk = 1;
 $imageFileType = strtolower(pathinfo($foto_veiculo,PATHINFO_EXTENSION));
 // Check if image file is a actual image or fake image
-if(isset($_POST["cadastrar_botao"])) {
+if(isset($_POST["cadastrar_botao"])) 
+{
     $check = getimagesize($_FILES["foto_veiculo"]["tmp_name"]);
-    if($check !== false) {
+    if($check !== false) 
+	{
         echo "File is an image - " . $check["mime"] . ".";
         $uploadOk = 1;
     } else {
@@ -64,33 +67,46 @@ if(isset($_POST["cadastrar_botao"])) {
 }
 /*
 // verifica se o arquivo já existe
-if (file_exists($foto_veiculo)) {
+if (file_exists($foto_veiculo)) 
+{
     echo "Este arquivo já existe.";
     $uploadOk = 0;
 }*/
 // verifica o tamanho do arquivo - max 5mb
-if ($_FILES["foto_veiculo"]["size"] > 500000) {
+if ($_FILES["foto_veiculo"]["size"] > 500000) 
+{
     echo "O arquivo é grande demais";
     $uploadOk = 0;
 }
 // verifica se os formatos são png jpg jpeg
-if($imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg") {
+if($imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg") 
+{
     echo "ERRO, apenas JPG, JPEG, PNG";
     $uploadOk = 0;
 }
-// checa se tudo foi ok
-if ($uploadOk == 0) {
+
+if ($uploadOk == 0) // se não tiver nenhum arquivo - ERRO
+{
     echo "Erro ao fazer o upload";
-} else {
-    if (move_uploaded_file($_FILES["foto_veiculo"]["tmp_name"], $foto_veiculo)) {
+} 
+else 
+{	// se tiver algum arquivo e for tudo ok - FAZ O UPLOAD
+    if (move_uploaded_file($_FILES["foto_veiculo"]["tmp_name"], $foto_veiculo)) 
+	{
         echo "O arquivo ". basename( $_FILES["foto_veiculo"]["name"]). " foi enviado.";
-    } else {
+    } 
+	else 
+	{	// se tiver um arquivo e acontecer algum problema - ERRO
         echo "Erro ao fazer upload";
     }
 }
 
 
 
+
+
+/****************************************************/
+/****************************************************/
 /****************************************************/
 //selecionando o total de placas cadastradas no banco de dados
 $sql = "select count(*) as total from tabela_cadastro_veiculo where placa = '$placa'";
@@ -109,6 +125,8 @@ $sql3 = "select count(*) as total from tabela_cadastro_veiculo where renavam = '
 $result3 = mysqli_query($conexao, $sql3);
 $row3 = mysqli_fetch_assoc($result3);
 
+/****************************************************/
+/****************************************************/
 /****************************************************/
 // verificando se o usuario digitou em todos os campos
 // se não retorna um erro
@@ -136,6 +154,9 @@ if(empty($_POST['placa']) ||
 
 
 /****************************************************/
+/****************************************************/
+/****************************************************/
+/****************************************************/
 // verificando se está sendo digitado apenas numeros
 else if (empty($_POST["renavam"]))
 {
@@ -149,7 +170,7 @@ else if (!preg_match("/^[0-9]*$/", $renavam))
 	header('Location: veiculo_cadastro.php');
 	exit();
 }
-
+/****************************************************/
 else if (empty($_POST["numero_passageiro"]))
 {
 	$_SESSION['obrigatorio_digitar'] = true;
@@ -162,7 +183,7 @@ else if (!preg_match("/^[0-9]*$/", $numero_passageiro))
 	header('Location: veiculo_cadastro.php');
 	exit();
 }
-
+/****************************************************/
 else if (empty($_POST["ano_fabricacao"]))
 {
 	$_SESSION['obrigatorio_digitar'] = true;
@@ -175,7 +196,7 @@ else if (!preg_match("/^[0-9]*$/", $ano_fabricacao))
 	header('Location: veiculo_cadastro.php');
 	exit();
 }
-
+/****************************************************/
 else if (empty($_POST["ano_modelo"]))
 {
 	$_SESSION['obrigatorio_digitar'] = true;
@@ -188,7 +209,7 @@ else if (!preg_match("/^[0-9]*$/", $ano_modelo))
 	header('Location: veiculo_cadastro.php');
 	exit();
 }
-
+/****************************************************/
 else if (empty($_POST["kilometragem"]))
 {
 	$_SESSION['obrigatorio_digitar'] = true;
@@ -201,7 +222,7 @@ else if (!preg_match("/^[0-9]*$/", $kilometragem))
 	header('Location: veiculo_cadastro.php');
 	exit();
 }
-
+/****************************************************/
 else if (empty($_POST["capacidade_pmalas"]))
 {
 	$_SESSION['obrigatorio_digitar'] = true;
@@ -216,9 +237,9 @@ else if (!preg_match("/^[0-9]*$/", $capacidade_pmalas))
 	exit();
 }
 
-
-
-
+/****************************************************/
+/****************************************************/
+/****************************************************/
 /****************************************************/
 // verificando se está sendo digitado apenas letras e/ou numeros
 else if (empty($_POST["placa"]))
@@ -233,8 +254,7 @@ else if (!preg_match("/^[a-zA-Z0-9]*$/", $placa))
 	header('Location: veiculo_cadastro.php');
 	exit();
 }
-
-
+/****************************************************/
 else if (empty($_POST["chassi"]))
 {
 	$_SESSION['obrigatorio_digitar'] = true;
@@ -247,8 +267,7 @@ else if (!preg_match("/^[a-zA-Z0-9]*$/", $chassi))
 	header('Location: veiculo_cadastro.php');
 	exit();
 }
-
-
+/****************************************************/
 else if (empty($_POST["tipo_combustivel"]))
 {
 	$_SESSION['obrigatorio_digitar'] = true;
@@ -262,7 +281,7 @@ else if (!preg_match("/^[a-zA-Z0-9]*$/", $tipo_combustivel))
 	exit();
 }
 
-
+/****************************************************/
 /****************************************************/
 else if (empty($_POST["situacao"]))
 {
@@ -270,8 +289,7 @@ else if (empty($_POST["situacao"]))
 	header('Location: veiculo_cadastro.php');
 	exit();
 }
-
-
+/****************************************************/
 /****************************************************/
 else if (empty($_POST["categoria"]))
 {
@@ -279,8 +297,7 @@ else if (empty($_POST["categoria"]))
 	header('Location: veiculo_cadastro.php');
 	exit();
 }
-
-
+/****************************************************/
 /****************************************************/
 else if (empty($_POST["marca"]))
 {
@@ -288,7 +305,7 @@ else if (empty($_POST["marca"]))
 	header('Location: veiculo_cadastro.php');
 	exit();
 }
-
+/****************************************************/
 /****************************************************/
 else if (empty($_POST["modelo"]))
 {
@@ -298,7 +315,9 @@ else if (empty($_POST["modelo"]))
 }
 
 
-
+/****************************************************/
+/****************************************************/
+/****************************************************/
 /****************************************************/
 //verifica se já existe uma placa cadastrada
 //se sim - retorna uma mensagem de erro dizendo que a placa já existe
@@ -310,6 +329,9 @@ if($row['total'] == 1) {
 
 
 /****************************************************/
+/****************************************************/
+/****************************************************/
+/****************************************************/
 //verifica se já existe um chassi cadastrado
 //se sim - retorna uma mensagem de erro dizendo que o chassi já existe
 if($row2['total'] == 1) {
@@ -318,6 +340,9 @@ if($row2['total'] == 1) {
 	exit;
 }
 
+/****************************************************/
+/****************************************************/
+/****************************************************/
 /****************************************************/
 //verifica se já existe um renavam cadastrado
 //se sim - retorna uma mensagem de erro dizendo que o renavam já existe
@@ -328,13 +353,15 @@ if($row3['total'] == 1) {
 }
 
 
-
+/****************************************************/
+/****************************************************/
 /****************************************************/
 //preparando para inserir os dados na tabela
 $sql = "INSERT INTO tabela_cadastro_veiculo (placa,marca,modelo,chassi,renavam,categoria,preco_compra,preco_venda,numero_passageiro,ano_fabricacao,ano_modelo,tipo_combustivel,kilometragem,potencia,capacidade_pmalas,situacao,foto_veiculo) VALUES ('$placa','$marca','$modelo','$chassi','$renavam','$categoria','$preco_compra','$preco_venda','$numero_passageiro','$ano_fabricacao','$ano_modelo','$tipo_combustivel','$kilometragem','$potencia','$capacidade_pmalas','$situacao','$foto_veiculo')"; 
 
 //$sql = "INSERT INTO tabela_cadastro_veiculo (placa,marca,modelo,chassi,renavam,categoria,preco_compra,preco_venda,numero_passageiro,ano_frabricacao,ano_modelo) VALUES ('$placa','$marca','$modelo','$chassi','$renavam','$categoria','$preco_compra','$preco_venda','$numero_passageiro','$ano_frabricacao','$ano_modelo')"; 
 
+//$sql = "INSERT INTO tabela_cadastro_veiculo (ID_modelo,placa,marca,modelo,chassi,renavam,categoria,preco_compra,preco_venda,numero_passageiro,ano_fabricacao,ano_modelo,tipo_combustivel,kilometragem,potencia,capacidade_pmalas,situacao,foto_veiculo) SELECT tabela_cadastro_veiculo_modelo.ID_modelo, SELECT tabela_cadastro_veiculo_categoria.ID_categoria, '$placa','$marca','$modelo','$chassi','$renavam','$categoria','$preco_compra','$preco_venda','$numero_passageiro','$ano_fabricacao','$ano_modelo','$tipo_combustivel','$kilometragem','$potencia','$capacidade_pmalas','$situacao','$foto_veiculo' FROM tabela_cadastro_veiculo_modelo WHERE tabela_cadastro_veiculo_modelo.ID_modelo = $modelo"; 
 
 /****************************************************/
 // se tudo ocorreu bem o cadastro é salvo no banco

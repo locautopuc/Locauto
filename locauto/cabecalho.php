@@ -11,6 +11,8 @@
 		<div class="navbar-brand">
           <a class="navbar-item" title="Pagina inicial" style="font-weight:bold;">
           <strong>Locauto®</strong></a>
+			<a href="admin.php" class="navbar-item is-active"><strong>A</strong></a>
+			<a href="funcionario.php" class="navbar-item"><strong>F</strong></a>
           <span class="navbar-burger burger" data-target="navMenu">
             <span></span>
             <span></span>

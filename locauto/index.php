@@ -1,13 +1,20 @@
 <?php
 // ao iniciar uma sessão daremos inicio a comunicação com as SESSIONS feitas no arquivo de segurança
-// neste caso é o login.php
+// neste caso é o login.inc.php
 session_start();
 ?>
 
+
+
+<!-- **************************************************** -->
+<!-- **************************************************** -->
+<!-- **************************************************** -->
+<!-- **************************************************** -->
+<!-- **************************************************** -->
 <!DOCTYPE html>
 <html>
     
-<head>
+<head> <!-- Iniciando as css e cabeçalho -->
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -18,8 +25,12 @@ session_start();
 </head>
 
 
-<body>
+<body> <!-- Iniciando o corpo da página -->
 	  
+	
+	<!-- **************************************************** -->
+	<!-- **************************************************** -->
+	<!-- **************************************************** -->
 	<?php 
 	// so o usuário não estiver logado - NAO APARECE O PERFIL
 	if(!$_SESSION['cpf_cnpj'])  
@@ -27,7 +38,7 @@ session_start();
 		// chamando o arquivo cabeçalho
 		require 'cabecalho.php';
 	}
-	// se o usuário estiver logado - NAO APARECE O LOGIN
+	// se o usuário estiver logado - NAO APARECE O LOGIN até ele DESLOGAR
 	else if($_SESSION['cpf_cnpj']) 
 	{
 		// chamando o arquivo cabeçalho logado
@@ -35,16 +46,29 @@ session_start();
 	}
 	?>
 		
-	
+	<!-- **************************************************** -->
+	<!-- **************************************************** -->
+	<!-- **************************************************** -->
+	<!-- **************************************************** -->
+	<!-- **************************************************** -->
 	<section class="hero is-success is-fullheight">
         <div class="hero-body">
 		<div class="container has-text-centered">
 			<div class="column is-4 is-offset-4">
+				<!-- Imagem da Logo Locauto -->
 				<img src="imagem/logo-locautoR-transp.png"width="50%" height="50%">
                     		<!-- <h3 class="title has-text-grey"><strong>Locauto®</strong></h3> -->
                     		<h3 class="title has-text-grey"><a href="" target="_blank"> </a></h3>
 	
-	<!-- SESSIONS de ERRO -->
+				
+				
+	<!-- **************************************************** -->
+	<!-- **************************************************** -->
+	<!-- **************************************************** -->
+	<!-- **************************************************** -->
+	<!-- **************************************************** -->
+	<!-- Mensagens de erro com CSS na interface -->
+	<!-- As validações e disparo dos erros são feitos na controladora login.inc.php -->	
 	<!-- **************************************************** -->
 	<!-- SESSION status_cadastro -->
 	<?php
@@ -92,11 +116,19 @@ session_start();
 	<!-- fim SESSION obrigatorio_digitar -->
 	<!-- **************************************************** -->
 
+				
 
+	<!-- **************************************************** -->
+	<!-- **************************************************** -->
+	<!-- **************************************************** -->
+	<!-- **************************************************** -->
 	<!-- Interface -->
 	<div class="box">
-	<!-- Esta interface terá comunicação com o arquivo login.php -->
+	<!-- Esta interface terá comunicação com o arquivo login.inc.php -->
 		<form action="login.inc.php" method="POST" autocomplete="off">
+			
+		<!-- **************************************************** -->
+		<!-- Campo de digito CPF ou CNPJ -->
 		<div class="field">
 			<div class="control">
 				<strong>Digite o seu CPF ou CNPJ:</strong>   &nbsp; ( Apenas números )
@@ -104,13 +136,17 @@ session_start();
 			</div>
 		</div>
 		
+		<!-- **************************************************** -->
+		<!-- Campo de digito Senha -->
 		<div class="field">
 			<div class="control">
-				<strong>Digite a sua senha:</strong>
-				<input name="senha" class="input is-large" type="password" placeholder="Sua senha">
+				<strong>Digite a sua senha:</strong>   &nbsp; ( Máximo de 8 dígitos )
+				<input name="senha" class="input is-large" type="password" placeholder="Sua senha" maxlength="8">
 			</div>
 		</div>
-														  
+			
+		<!-- **************************************************** -->
+		<!-- Botão cadastrar -->
 		<div class="field">
 			<a href="usuario_cadastro.php"><strong>Cadastrar</strong></a>
 		</div>
@@ -123,6 +159,13 @@ session_start();
 			</div>
 		</div>
 	</section>
+	
+		
+	<!-- **************************************************** -->
+	<!-- **************************************************** -->
+	<!-- **************************************************** -->
+	<!-- **************************************************** -->
+	<!-- **************************************************** -->
 	<?php 
 		// chamando o arquivo rodape
 		require 'rodape.php';

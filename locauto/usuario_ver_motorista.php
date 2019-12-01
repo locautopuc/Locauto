@@ -20,7 +20,7 @@ include('verifica_login.php');
 		<link rel="stylesheet" type="text/css" href="css/config.css">
 		
 	<script type="text/javascript">	
-		function random_pic($dir = 'uploads/imagens/veiculo/'.$cpf.'/')
+		function random_pic($dir = 'uploads/imagens/'.$cpf.'/')
 {
     $files = glob($dir . '/*.*');
     $file = array_rand($files);
@@ -45,7 +45,7 @@ include('verifica_login.php');
 		<div class="hero-body">
 			<div class="container has-text-centered">
 				<div class="column is-4 is-offset-4">
-					<h3 class="title has-text-grey">Funcionário</h3>
+					<h3 class="title has-text-grey">Dados do Motorista</h3>
 
 
 	<!-- Interface -->
@@ -54,7 +54,7 @@ include('verifica_login.php');
 		<form action="usuario_perfil.php" method="POST" autocomplete="off" enctype="multipart/form-data">
 
 			<div class="field">
-			  <h1><strong>Dados do Motorista</strong></h1>
+			  <h1><strong>Motorista</strong></h1>
 			  <p><br>
 
 				<h3>Olá, <strong></h3>

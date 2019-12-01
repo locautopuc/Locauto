@@ -9,10 +9,10 @@ include("conexao.php");
 
 
 
-/*$modelo=$_POST["marca"];
-  $result=mysql_query("select * FROM tabela_cadastro_veiculo_modelo where modelo='{$marca['ID_marca']}' ");
-  while($modelo=mysql_fetch_array($result)){
-   echo"<option value=$modelo[modelo]>$venue[modelo]</option>";
+/*$categoria=$_POST["categoria"];
+  $result=mysql_query("select * FROM tabela_cadastro_veiculo where categoria='{$categoria['ID_categoria']}' ");
+  while($categoria=mysql_fetch_array($result)){
+   echo"<option value=$categoria[categoria]>$venue[categoria]</option>";
 
  }*/
 
@@ -20,12 +20,12 @@ include("conexao.php");
 
 /****************************************************/
 // validando
-$marca = mysqli_real_escape_string($conexao, trim($_POST['marca']));
+$categoria = mysqli_real_escape_string($conexao, trim($_POST['categoria']));
 
 
 /****************************************************/
 //selecionando o total de marcas cadastradas no banco de dados
-$sql = "select count(*) as total from tabela_cadastro_veiculo_marca where marca = '$marca'";
+$sql = "select count(*) as total from tabela_cadastro_veiculo_categoria where categoria = '$categoria'";
 $result = mysqli_query($conexao, $sql);
 $row = mysqli_fetch_assoc($result);
 
@@ -33,43 +33,43 @@ $row = mysqli_fetch_assoc($result);
 /****************************************************/
 // verificando se o usuario digitou em todos os campos
 // se não retorna um erro
-if(empty($_POST['marca'])) 
+if(empty($_POST['categoria'])) 
 {
 	$_SESSION['obrigatorio_digitar'] = true;
-	header('Location: veiculo_marca_cadastro.php');
+	header('Location: veiculo_categoria_cadastro.php');
 	exit();
 }
 
 
 /****************************************************/
 // verificando se está sendo digitado apenas letras e/ou numeros
-else if (empty($_POST["marca"]))
+else if (empty($_POST["categoria"]))
 {
 	$_SESSION['obrigatorio_digitar'] = true;
-	header('Location: veiculo_marca_cadastro.php');
+	header('Location: veiculo_categoria_cadastro.php');
 	exit();
 }
-else if (!preg_match("/^[a-zA-Z0-9]*$/", $marca))
+else if (!preg_match("/^[a-zA-Z0-9]*$/", $categoria))
 {
 	$_SESSION['apenas_letras_numeros'] = true;
-	header('Location: veiculo_marca_cadastro.php');
+	header('Location: veiculo_categoria_cadastro.php');
 	exit();
 }
 
 
 /****************************************************/
-//verifica se já existe uma marca cadastrada
-//se sim - retorna uma mensagem de erro dizendo que a marca já existe
+//verifica se já existe uma categoria cadastrada
+//se sim - retorna uma mensagem de erro dizendo que a categoria já existe
 if($row['total'] == 1) {
-	$_SESSION['marca_existe'] = true;
-	header('Location: veiculo_marca_cadastro.php');
+	$_SESSION['categoria_existe'] = true;
+	header('Location: veiculo_categoria_cadastro.php');
 	exit;
 }
 
 
 /****************************************************/
 //preparando para inserir os dados na tabela
-$sql = "INSERT INTO tabela_cadastro_veiculo_marca (marca) VALUES ('$marca')";
+$sql = "INSERT INTO tabela_cadastro_veiculo_categoria (categoria) VALUES ('$categoria')";
 
 
 /****************************************************/
@@ -82,6 +82,6 @@ if($conexao->query($sql) === TRUE) {
 
 $conexao->close();
 // se o cadastro foi tudo bem a tela retorna para a tela de login para o usuário logar
-header('Location: veiculo_marca_cadastro.php');
+header('Location: veiculo_categoria_cadastro.php');
 exit;
 ?>

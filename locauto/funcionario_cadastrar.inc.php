@@ -7,6 +7,7 @@ include("conexao.php");
 // Os dados apenas serão salvos no banco caso todas as validações forem aceitas
 
 /****************************************************/
+/****************************************************/
 // validando
 $matricula = mysqli_real_escape_string($conexao, trim($_POST['matricula']));
 $nome = mysqli_real_escape_string($conexao, trim($_POST['nome']));
@@ -29,17 +30,20 @@ $estado = mysqli_real_escape_string($conexao, trim($_POST['estado']));
 $cep = mysqli_real_escape_string($conexao, trim($_POST['cep']));
 
 /****************************************************/
-//selecionando o total de pessoas (CPF / CNPJ) cadastradas no banco de dados
+/****************************************************/
+//selecionando o total de matriculas cadastradas no banco de dados
 $sql = "select count(*) as total from tabela_cadastro_funcionario where matricula = '$matricula'";
 $result = mysqli_query($conexao, $sql);
 $row = mysqli_fetch_assoc($result);
 
+/****************************************************/
 /****************************************************/
 //selecionando o total de emails cadastrados no banco de dados
 $sql2 = "select count(*) as total from tabela_cadastro_funcionario where email = '$email'";
 $result2 = mysqli_query($conexao, $sql2);
 $row2 = mysqli_fetch_assoc($result2);
 
+/****************************************************/
 /****************************************************/
 // verificando se o usuario digitou em todos os campos
 // se não retorna um erro
@@ -65,6 +69,9 @@ if(empty($_POST['matricula']) ||
 
 
 /****************************************************/
+/****************************************************/
+/****************************************************/
+/****************************************************/
 // verificando se está sendo digitado apenas numeros
 else if (empty($_POST["matricula"]))
 {
@@ -78,8 +85,7 @@ else if (!preg_match("/^[0-9]*$/", $matricula))
 	header('Location: funcionario_cadastro.php');
 	exit();
 }
-
-
+/****************************************************/
 else if (empty($_POST["identidade"]))
 {
 	$_SESSION['obrigatorio_digitar'] = true;
@@ -92,8 +98,7 @@ else if (!preg_match("/^[0-9]*$/", $identidade))
 	header('Location: funcionario_cadastro.php');
 	exit();
 }
-
-
+/****************************************************/
 else if (empty($_POST["telefone"]))
 {
 	$_SESSION['obrigatorio_digitar'] = true;
@@ -106,7 +111,7 @@ else if (!preg_match("/^[0-9]*$/", $telefone))
 	header('Location: funcionario_cadastro.php');
 	exit();
 }
-
+/****************************************************/
 else if (empty($_POST["numero"]))
 {
 	$_SESSION['obrigatorio_digitar'] = true;
@@ -119,7 +124,7 @@ else if (!preg_match("/^[0-9]*$/", $numero))
 	header('Location: funcionario_cadastro.php');
 	exit();
 }
-
+/****************************************************/
 else if (empty($_POST["cep"]))
 {
 	$_SESSION['obrigatorio_digitar'] = true;
@@ -133,7 +138,9 @@ else if (!preg_match("/^[0-9]*$/", $cep))
 	exit();
 }
 
-
+/****************************************************/
+/****************************************************/
+/****************************************************/
 /****************************************************/
 // verificando se está sendo digitado apenas letras e/ou numeros
 else if (empty($_POST["nome"]))
@@ -148,7 +155,7 @@ else if (!preg_match("/^[a-zA-Z0-9]*$/", $nome))
 	header('Location: funcionario_cadastro.php');
 	exit();
 }
-
+/****************************************************/
 else if (empty($_POST["logradouro"]))
 {
 	$_SESSION['obrigatorio_digitar'] = true;
@@ -161,7 +168,7 @@ else if (!preg_match("/^[a-zA-Z0-9]*$/", $logradouro))
 	header('Location: funcionario_cadastro.php');
 	exit();
 }
-
+/****************************************************/
 else if (empty($_POST["complemento"]))
 {
 	$_SESSION['obrigatorio_digitar'] = true;
@@ -174,7 +181,7 @@ else if (!preg_match("/^[a-zA-Z0-9]*$/", $complemento))
 	header('Location: funcionario_cadastro.php');
 	exit();
 }
-
+/****************************************************/
 else if (empty($_POST["bairro"]))
 {
 	$_SESSION['obrigatorio_digitar'] = true;
@@ -187,7 +194,7 @@ else if (!preg_match("/^[a-zA-Z0-9]*$/", $bairro))
 	header('Location: funcionario_cadastro.php');
 	exit();
 }
-
+/****************************************************/
 else if (empty($_POST["cidade"]))
 {
 	$_SESSION['obrigatorio_digitar'] = true;
@@ -200,7 +207,7 @@ else if (!preg_match("/^[a-zA-Z0-9]*$/", $cidade))
 	header('Location: funcionario_cadastro.php');
 	exit();
 }
-
+/****************************************************/
 else if (empty($_POST["estado"]))
 {
 	$_SESSION['obrigatorio_digitar'] = true;
@@ -215,7 +222,9 @@ else if (!preg_match("/^[a-zA-Z0-9]*$/", $estado))
 }
 
 
-
+/****************************************************/
+/****************************************************/
+/****************************************************/
 /****************************************************/
 // verificar se o usuario digitou as senhas iguais para cadastrar
 // se não retorna um erro
@@ -225,8 +234,6 @@ else if($senha !== $senha_repetir)
 	header('Location: funcionario_cadastro.php');
 	exit;
 }
-
-
 /****************************************************/
 // validação de senha
 else if (empty($_POST["senha"]))
@@ -243,6 +250,9 @@ else if (!password_hash($senha, PASSWORD_DEFAULT))
 }
 
 /****************************************************/
+/****************************************************/
+/****************************************************/
+/****************************************************/
 //validação de email
 //se o usuario não digitar um email válido - retorna um erro
 //exemplo de email valido - exemplo@mail.com
@@ -252,7 +262,6 @@ else if(!filter_var($email, FILTER_VALIDATE_EMAIL))
 	header('Location: funcionario_cadastro.php');
 	exit;
 }
-
 /****************************************************/
 // validação de email
 else if(!empty($email) && filter_var($email, FILTER_VALIDATE_EMAIL) === false)
@@ -262,9 +271,11 @@ else if(!empty($email) && filter_var($email, FILTER_VALIDATE_EMAIL) === false)
 	exit;
 }
 
-
 /****************************************************/
-//verifica se já existe um usuário cadastrado
+/****************************************************/
+/****************************************************/
+/****************************************************/
+//verifica se já existe um usuário cadastrado (matricula)
 //se sim - retorna uma mensagem de erro dizendo que o usuario já existe
 if($row['total'] == 1) {
 	$_SESSION['usuario_existe'] = true;
@@ -272,8 +283,9 @@ if($row['total'] == 1) {
 	exit;
 }
 
-
-
+/****************************************************/
+/****************************************************/
+/****************************************************/
 /****************************************************/
 //verifica se já existe um email cadastrado
 //se sim - retorna uma mensagem de erro dizendo que o email já existe
@@ -283,7 +295,9 @@ if($row2['total'] == 1) {
 	exit;
 }
 
-
+/****************************************************/
+/****************************************************/
+/****************************************************/
 /****************************************************/
 //preparando para inserir os dados na tabela
 $sql = "INSERT INTO tabela_cadastro_funcionario (matricula,nome,identidade,telefone,email,senha,logradouro,numero,complemento,bairro,cidade,estado,cep,data_cadastro) VALUES ('$matricula','$nome','$identidade','$telefone','$email','$senha','$logradouro','$numero','$complemento','$bairro','$cidade', '$estado','$cep',NOW())";

@@ -1,4 +1,5 @@
 <?php
+// http://localhost/mywebsite/Locauto-master/locauto/admin.php
 // ao iniciar uma sessão daremos inicio a comunicação com as SESSIONS feitas no arquivo de segurança
 // neste caso é o login.php
 session_start();

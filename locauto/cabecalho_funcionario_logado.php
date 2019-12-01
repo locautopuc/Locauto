@@ -5,7 +5,7 @@
 <!-- https://bulma.io/documentation/components/navbar/ -->
 
 
-<!-- CASO O USUARIO LOGAR -->
+<!-- CASO O FUNCIONARIO LOGAR -->
 <!-- ESTE ARQUIVO SERA ATIVADO -->
 <!-- Uma luz verde irá acender no cabeçalho -->
 

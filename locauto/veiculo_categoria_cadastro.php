@@ -1,7 +1,6 @@
 <?php
 // ao iniciar uma sessão daremos inicio a comunicação com as SESSIONS feitas no arquivo no arquivo de segurança
-// neste caso é o veiculo_modelo_cadastrar.inc.php
-require 'conexao.php';
+// neste caso é o veiculo_categoria_cadastrar.inc.php
 session_start();
 ?>
 
@@ -28,7 +27,7 @@ session_start();
         <div class="hero-body">
             <div class="container has-text-centered">
                 <div class="column is-4 is-offset-4">
-                    <h3 class="title has-text-grey">Cadastre um Modelo</h3>
+                    <h3 class="title has-text-grey">Cadastre uma Categoria</h3>
 					
 
 	<!-- **************************************************** -->
@@ -38,7 +37,7 @@ session_start();
 	?>
 	<div class="notification is-success">
 		<p>Seu cadastro foi feito com sucesso!</p>
-		<p>Caso desejar, cadastre outro Modelo</p>
+		<p>Caso desejar, cadastre outra Categoria</p>
 	</div>
 	<?php
 		endif;
@@ -48,36 +47,20 @@ session_start();
 	<!-- **************************************************** -->
 
 
-	<!-- SESSION marca_existe -->
+	<!-- SESSION categoria_existe -->
 	<?php
-		if(isset($_SESSION['modelo_existe'])):
+		if(isset($_SESSION['categoria_existe'])):
 	?>
 	<div class="notification is-danger">
-		<p>O modelo escolhido já existe. Informe outro e tente novamente.</p>
+		<p>A categoria escolhida já existe. Informe outra e tente novamente.</p>
 	</div>
 	<?php
 		endif;
-		unset($_SESSION['modelo_existe']);
+		unset($_SESSION['categoria_existe']);
 	?>
-	<!-- fim SESSION marca_existe -->
+	<!-- fim SESSION categoria_existe -->
 	<!-- **************************************************** -->
 
-					
-
-	<!-- SESSION obrigatorio_selecionar -->
-	<?php
-		if(isset($_SESSION['obrigatorio_selecionar'])):
-	?>
-	<div class="notification is-danger">
-		<p>Você não selecionou uma marca.</p>
-	</div>
-	<?php
-		endif;
-		unset($_SESSION['obrigatorio_selecionar']);
-	?>
-	<!-- fim SESSION obrigatorio_selecionar -->
-	<!-- **************************************************** -->
-					
 
 	<!-- SESSION obrigatorio_digitar -->
 	<?php
@@ -113,37 +96,23 @@ session_start();
 	<!-- Interface -->
 	<div class="box">
 	<!-- Esta interface terá comunicação com o arquivo cadastrar.php -->
-	<form action="veiculo_modelo_cadastrar.inc.php" method="POST" autocomplete="off">
+	<form action="veiculo_categoria_cadastrar.inc.php" method="POST" autocomplete="off">
 
 	<div class="field">
-	  <h1><strong>Modelo</strong></h1>
+	  <h1><strong>Categoria</strong></h1>
 	  <p><br>
 		<div class="control">
 			<em>Os campos com <strong>*</strong> são Obrigatórios</em><br><br>
 			
 		</div>
 	</div>
-		
-	<div class="select">
-	<select class="is-focused" name="marca">
-		<option disabled selected>Selecione uma Marca</option>
-		<?php
-			$tabela_cadastro_veiculo_marca = "SELECT * FROM tabela_cadastro_veiculo_marca";
-			$resultado_marca = mysqli_query($conexao, $tabela_cadastro_veiculo_marca);
-			while($row_resultado = mysqli_fetch_assoc($resultado_marca))
-			{ 
-			?>
-			<option value="<?php echo $row_resultado['ID_marca']; ?>"><?php echo $row_resultado['marca'];?></option> 
-		<?php
-			}
-		?>
-	</select>
-	</div>
+
+
 
 	<div class="field">
 		<div class="control">
-			<strong>* Modelo:</strong>
-				<input name="modelo" type="text" class="input is-large" placeholder="Modelo" autofocus oninput="this.value = this.value.replace(/[^A-Za-z0-9]+/g, '').replace(/(\..*)\./g, '$1');">
+			<strong>* Categoria:</strong>
+				<input name="categoria" type="text" class="input is-large" placeholder="Marca" autofocus oninput="this.value = this.value.replace(/[^A-Za-z0-9]+/g, '').replace(/(\..*)\./g, '$1');">
 		</div>
 	</div>
 

@@ -14,7 +14,7 @@ include('conexao.php');
 }*/
 
 
-
+/****************************************************/
 /****************************************************/
 // validando
 $cpf_cnpj = mysqli_real_escape_string($conexao, $_POST['cpf_cnpj']);
@@ -29,6 +29,8 @@ $result = mysqli_query($conexao, $query);
 $row = mysqli_num_rows($result);
 
 /****************************************************/
+/****************************************************/
+/****************************************************/
 // o usuário deve digitar a senha
 if(!empty($_POST['cpf_cnpj']) && empty($_POST['senha']))
 {
@@ -37,6 +39,8 @@ if(!empty($_POST['cpf_cnpj']) && empty($_POST['senha']))
 	exit();
 }
 
+/****************************************************/
+/****************************************************/
 /****************************************************/
 // o usuário deve digitar o cpf ou cnpj
 else if(empty($_POST['cpf_cnpj']) && !empty($_POST['senha']))
@@ -47,6 +51,8 @@ else if(empty($_POST['cpf_cnpj']) && !empty($_POST['senha']))
 }
 
 /****************************************************/
+/****************************************************/
+/****************************************************/
 // o usuário deve digitar nos dois campos
 else if(empty($_POST['cpf_cnpj']) && empty($_POST['senha']))
 {
@@ -55,6 +61,8 @@ else if(empty($_POST['cpf_cnpj']) && empty($_POST['senha']))
 	exit();
 }
 
+/****************************************************/
+/****************************************************/
 /****************************************************/
 // se o usuário existir no cadastro deixa ele logar
 if($row == 1) {
@@ -69,9 +77,10 @@ if($row == 1) {
 } 
 
 
-
 /****************************************************/
-// se não / tente logar novamente
+/****************************************************/
+/****************************************************/
+// se o usuário não for autenticado / tente logar novamente
 else 
 {
 	$_SESSION['nao_autenticado'] = true;

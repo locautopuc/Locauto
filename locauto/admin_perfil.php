@@ -51,7 +51,7 @@ include('admin_verifica_login.php');
 		<div class="control"><br>
 			<table class="table is-bordered is-striped is-narrow is-hoverable is-fullwidth" bgcolor="#9FD3FF"><tbody ><tr class="is-selected"><td >Funcionários</td></tr></tbody></table>
 			
-			<h2><a class="button is-rounded is-block is-dark is-large is-fullwidth " href="funcionario_cadastro.php">Cadastrar um Funcionário</a></h2>
+			<h2><a class="button is-rounded is-block is-dark is-large is-fullwidth " href="funcionario_cadastro.php">Cadastro de Funcionários</a></h2>
 		</div>
 	</div>
 					
@@ -90,6 +90,15 @@ include('admin_verifica_login.php');
 	
 	<br>
 	<table class="table is-bordered is-striped is-narrow is-hoverable is-fullwidth" bgcolor="#9FD3FF"><tbody ><tr class="is-selected"><td >Veículos</td></tr></tbody></table>
+					
+					
+	<div class="field">
+		<div class="control">
+			<h2><a class="button is-rounded is-block is-dark is-large is-fullwidth " href="#">Cadastro de Veículos</a></h2>
+		</div>
+	</div><br>					
+					
+					
 	<div class="field">
 		<div class="control">
 			<h2><a class="button is-rounded is-block is-dark is-large is-fullwidth " href="#">Lista de Veículos Disponíveis</a></h2>

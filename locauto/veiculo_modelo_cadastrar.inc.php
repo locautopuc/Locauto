@@ -82,6 +82,6 @@ if($conexao->query($sql) === TRUE) {
 
 $conexao->close();
 // se o cadastro foi tudo bem a tela retorna para a tela de perfil do funcionario
-header('Location: funcionario_perfil.php');
+header('Location: veiculo_modelo_cadastro.php');
 exit;
 ?>

@@ -77,6 +77,15 @@ include('funcionario_verifica_login.php');
 	
 	<br>
 	<table class="table is-bordered is-striped is-narrow is-hoverable is-fullwidth" bgcolor="#9FD3FF"><tbody ><tr class="is-selected"><td >Veículos</td></tr></tbody></table>
+					
+	
+	<div class="field">
+		<div class="control">
+			<h2><a class="button is-rounded is-block is-dark is-large is-fullwidth " href="veiculo_cadastro.php">Cadastro de Veículos</a></h2>
+		</div>
+	</div><br>
+					
+					
 	<div class="field">
 		<div class="control">
 			<h2><a class="button is-rounded is-block is-dark is-large is-fullwidth " href="#">Lista de Veículos Disponíveis</a></h2>
