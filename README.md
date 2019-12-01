@@ -11,16 +11,20 @@ Logo os mesmos serão arrumados<br><br>
 **Coisas a fazer:**
 - [x] Login: 100%
 - [x] Logout: 100%
+- [ ] Master Admin: 30%
 - [x] Cadastro de usuários: 100%
-- [ ] Cadastro de funcionário?: 50%
+- [x] Cadastro de funcionário: 100%
 - [x] Cadastro de motorista: 100%
 - [x] Cadastro de veículos: 100%
-- [x] Perfil do usuario: 90%
-- [ ] Perfil do funcionário?: 50%
-- [ ] Perfil do veículo: 0%
-- [ ] Tela de locação: 0%
+- [x] Perfil do usuario: 50%
+- [x] Perfil do funcionário: 50%
+- [ ] Perfil do veículo: 30%
+- [ ] Tela de locação: 20%
 - [x] Sobre nós: 100%
 - [x] Fale conosco: 50%
+- [x] Comentários: 50%
+
+- [ ] Arrumar a bagunça: 20%  :3
 
 --------------------------------------
 
