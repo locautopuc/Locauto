@@ -63,7 +63,7 @@ REFERENCES `locauto`.`tabela_cadastro_usuario` (`cpf_cnpj`)
 
 /* tabela de admin */
 CREATE TABLE `locauto`.`tabela_admin` (
-`ID_admin` int(1) AUTO_INCREMENT PRIMARY KEY NOT NULL,
+`ID_admin` int AUTO_INCREMENT PRIMARY KEY NOT NULL,
 `admin` VARCHAR(5) NOT NULL,
 `senha` VARCHAR(5) NOT NULL
 );
