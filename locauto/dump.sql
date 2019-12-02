@@ -1,8 +1,5 @@
 
 
-/* ESTE BANCO AINDA NÃO ESTA COMPLETO */
-/* ainda falta criar mais tabelas e fazer a FOREIGN KEY corretamente */
-
 CREATE DATABASE locauto;
 USE locauto;
 
@@ -18,7 +15,7 @@ CREATE TABLE `locauto`.`tabela_cadastro_usuario` (
 `email` VARCHAR(100) NOT NULL,
 `senha` VARCHAR(8) NOT NULL,
 `logradouro` VARCHAR(50) NOT NULL,
-`numero` int(10) NOT NULL,
+`numero` int(5) NOT NULL,
 `complemento` VARCHAR(255) NOT NULL,
 `bairro` VARCHAR(50) NOT NULL,
 `cidade` VARCHAR(50) NOT NULL,
@@ -29,6 +26,30 @@ UNIQUE KEY unique_cpf_cnpj (`cpf_cnpj`)
 );
 
 
+/* tabela de locacao */
+/*
+CREATE TABLE `locauto`.`tabela_cadastro_locacao` (
+`ID_locacao` int AUTO_INCREMENT PRIMARY KEY NOT NULL,
+`placa` VARCHAR,
+`cpf_cnpj` INT,
+`cpf` INT,
+`data_retirada` DATETIME NOT NULL,
+`data_devolucao` DATE NOT NULL,
+`kilometragem_inicial` INT(10) NOT NULL,
+`kilometragem_final` INT(10) NOT NULL,
+`valor_locacao` INT(10) NOT NULL,
+`valor_calcao` INT(10) NOT NULL,
+`valor_seguro` INT(10) NOT NULL,
+`pagamento_final` INT*10) NOT NULL,
+CONSTRAINT FK_LocacaoVeiculo FOREIGN KEY (`placa`) 
+REFERENCES `locauto`.`tabela_cadastro_veiculo` (`placa`),
+CONSTRAINT FK_LocacaoMotorista FOREIGN KEY (`cpf`) 
+REFERENCES `locauto`.`tabela_cadastro_motorista` (`cpf`),
+CONSTRAINT FK_LocacaoUsuario FOREIGN KEY (`cpf_cnpj`) 
+REFERENCES `locauto`.`tabela_cadastro_usuario` (`cpf_cnpj`)
+);*/
+
+
 /* tabela de admin */
 CREATE TABLE `locauto`.`tabela_admin` (
 `ID_admin` int(1) AUTO_INCREMENT PRIMARY KEY NOT NULL,
@@ -37,7 +58,7 @@ CREATE TABLE `locauto`.`tabela_admin` (
 );
 
 
-/* tabela de cadastro de usuario */
+/* tabela de cadastro de funcionario */
 CREATE TABLE `locauto`.`tabela_cadastro_funcionario` (
 `ID_funcionario` int AUTO_INCREMENT PRIMARY KEY NOT NULL,
 `matricula` int(11) NOT NULL,
@@ -120,7 +141,7 @@ CREATE TABLE `locauto`.`tabela_cadastro_veiculo` (
 `modelo` VARCHAR(50) NOT NULL,
 `chassi` VARCHAR(17) NOT NULL,
 `renavam` INT(11) NOT NULL,
-`categoria` VARCHAR(50) NOT NULL,
+`categoria` VARCHAR(20) NOT NULL,
 `preco_compra` INT(10) NOT NULL,
 `preco_venda` INT(10)NOT NULL,
 `numero_passageiro` INT(10) NOT NULL,
@@ -130,7 +151,7 @@ CREATE TABLE `locauto`.`tabela_cadastro_veiculo` (
 `kilometragem` INT(250) NOT NULL,
 `potencia` INT(10) NOT NULL,
 `capacidade_pmalas` INT(100) NOT NULL,
-`situacao` VARCHAR(100) NOT NULL,
+`situacao` VARCHAR(10) NOT NULL,
 `foto_veiculo` VARCHAR(250) NOT NULL,
 UNIQUE KEY unique_placa (`placa`),
 UNIQUE KEY unique_chassi (`chassi`),
@@ -154,22 +175,6 @@ CREATE TABLE `locauto`.`tabela_cadastro_veiculo_modelo` (
 
 
 
-
-
-
-
-/*
-CREATE TABLE tabela_cadastro_motorista (
-ID_motorista int(11) AUTO_INCREMENT PRIMARY KEY NOT NULL,
-nome VARCHAR(200) NOT NULL,
-cpf_cnpj INT,
-.
-.
-.
-CONSTRAINT FK_UsuarioMotorista FOREIGN KEY (cpf_cnpj) 
-REFERENCES tabela_cadastro_usuario (cpf_cnpj)
-);
-*/
 
 /* tabela de cadastro de motorista */
 CREATE TABLE `locauto`.`tabela_cadastro_motorista` (
