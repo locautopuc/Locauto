@@ -1,4 +1,4 @@
-
+/* OS cruds abaixo são apenas para mostrar para o professor */
 
 CREATE DATABASE locauto;
 USE locauto;
@@ -25,6 +25,16 @@ UNIQUE KEY unique_email (`email`),
 UNIQUE KEY unique_cpf_cnpj (`cpf_cnpj`)
 );
 
+INSERT INTO tabela_cadastro_usuario (escolher,cpf_cnpj,nome,razao_social,identidade,telefone,email,senha,logradouro,numero,complemento,bairro,cidade,estado,cep)
+VALUE ('cpf','12345678912','alguem','','1231231245','1231231245','hue@hue.com','123','ali','100','rua','centro','goiania','go','1231231245');
+
+SELECT * from tabela_cadastro_usuario WHERE ID_usuario = 1;
+
+UPDATE tabela_cadastro_usuario SET senha = 'admin' WHERE ID_usuario = 1;
+
+DELETE FROM tabela_cadastro_usuario WHERE ID_usuario = 1;
+
+/************************************************************************/
 
 /* tabela de locacao */
 /*
@@ -49,6 +59,7 @@ CONSTRAINT FK_LocacaoUsuario FOREIGN KEY (`cpf_cnpj`)
 REFERENCES `locauto`.`tabela_cadastro_usuario` (`cpf_cnpj`)
 );*/
 
+/************************************************************************/
 
 /* tabela de admin */
 CREATE TABLE `locauto`.`tabela_admin` (
@@ -57,6 +68,16 @@ CREATE TABLE `locauto`.`tabela_admin` (
 `senha` VARCHAR(5) NOT NULL
 );
 
+INSERT INTO tabela_admin (admin,senha)
+VALUE ('admin','admin');
+
+SELECT * from tabela_admin WHERE ID_admin = 1;
+
+UPDATE tabela_admin SET senha = 'hue' WHERE ID_admin = 1;
+
+DELETE FROM tabela_admin WHERE ID_admin = 1;
+
+/************************************************************************/
 
 /* tabela de cadastro de funcionario */
 CREATE TABLE `locauto`.`tabela_cadastro_funcionario` (
@@ -80,18 +101,49 @@ UNIQUE KEY unique_email (`email`)
 );
 
 
-/*
+INSERT INTO tabela_cadastro_funcionario (matricula,nome,identidade,telefone,email,senha,logradouro,numero,complemento,bairro,cidade,estado,cep,data_cadastro)
+VALUE ('12312312321','eu','1231231232','12312321232','senha','lol@lol.com','casa','321','predio','centro','rio','rio','1236548752',NOW());
+
+SELECT * from tabela_cadastro_funcionario WHERE ID_funcionario = 1;
+
+UPDATE tabela_cadastro_funcionario SET senha = '123' WHERE ID_funcionario = 1;
+
+DELETE FROM tabela_cadastro_funcionario WHERE ID_funcionario = 1;
+
+/************************************************************************/
+
+
 CREATE TABLE `locauto`.`tabela_cadastro_veiculo_categoria` (
 `ID_categoria` int AUTO_INCREMENT PRIMARY KEY NOT NULL,
 `categoria` VARCHAR(50) NOT NULL
 );
 
+INSERT INTO tabela_cadastro_veiculo_categoria (categoria)
+VALUE ('suv');
+
+SELECT * from tabela_cadastro_veiculo_categoria WHERE ID_categoria = 1;
+
+UPDATE tabela_cadastro_veiculo_categoria SET categoria = 'esportivo' WHERE ID_categoria = 1;
+
+DELETE FROM tabela_cadastro_veiculo_categoria WHERE ID_categoria = 1;
+
+/************************************************************************/
 
 CREATE TABLE `locauto`.`tabela_cadastro_veiculo_marca` (
 `ID_marca` int AUTO_INCREMENT PRIMARY KEY NOT NULL,
 `marca` VARCHAR(50) NOT NULL
 );
 
+INSERT INTO tabela_cadastro_veiculo_marca (marca)
+VALUE ('BMW');
+
+SELECT * from tabela_cadastro_veiculo_marca WHERE ID_marca = 1;
+
+UPDATE tabela_cadastro_veiculo_marca SET marca = 'Jeep' WHERE ID_marca = 1;
+
+DELETE FROM tabela_cadastro_veiculo_marca WHERE ID_marca = 1;
+
+/************************************************************************/
 
 CREATE TABLE `locauto`.`tabela_cadastro_veiculo_modelo` (
 `ID_modelo` int AUTO_INCREMENT PRIMARY KEY NOT NULL,
@@ -100,8 +152,17 @@ CREATE TABLE `locauto`.`tabela_cadastro_veiculo_modelo` (
 CONSTRAINT FK_MarcaModelo FOREIGN KEY (`ID_marca`) 
 REFERENCES `locauto`.`tabela_cadastro_veiculo_marca` (`ID_marca`)
 );
-*/
 
+INSERT INTO tabela_cadastro_veiculo_modelo (ID_marca,modelo) SELECT tabela_cadastro_veiculo_marca.ID_marca, 'JeepVerde' FROM tabela_cadastro_veiculo_marca WHERE tabela_cadastro_veiculo_marca.ID_marca = $marca;
+
+SELECT * from tabela_cadastro_veiculo_modelo WHERE ID_modelo = 1;
+
+UPDATE tabela_cadastro_veiculo_modelo SET modelo = 'S20' WHERE ID_modelo = 1;
+
+DELETE FROM tabela_cadastro_veiculo_modelo WHERE ID_modelo = 1;
+
+
+/************************************************************************/
 
 /*CREATE TABLE `locauto`.`tabela_cadastro_veiculo` (
 `ID_veiculo` int AUTO_INCREMENT PRIMARY KEY NOT NULL,
@@ -133,6 +194,7 @@ CONSTRAINT FK_VeiculoCategoria FOREIGN KEY (`ID_categoria`)
 REFERENCES `locauto`.`tabela_cadastro_veiculo_categoria` (`ID_categoria`)
 );*/
 
+/************************************************************************/
 
 CREATE TABLE `locauto`.`tabela_cadastro_veiculo` (
 `ID_veiculo` int AUTO_INCREMENT PRIMARY KEY NOT NULL,
@@ -158,22 +220,7 @@ UNIQUE KEY unique_chassi (`chassi`),
 UNIQUE KEY unique_renavam (`renavam`)
 );
 
-
-/*
-CREATE TABLE `locauto`.`tabela_cadastro_veiculo_marca` (
-`ID_marca` int AUTO_INCREMENT PRIMARY KEY NOT NULL  REFERENCES `locauto`.`tabela_cadastro_veiculo` (`ID_veiculo`),
-`marca` VARCHAR(250) NOT NULL,
-UNIQUE KEY unique_placa (`marca`)
-);
-
-
-CREATE TABLE `locauto`.`tabela_cadastro_veiculo_modelo` (
-`ID_modelo` int AUTO_INCREMENT PRIMARY KEY NOT NULL REFERENCES `locauto`.`tabela_cadastro_veiculo_marca` (`ID_marca`),
-`modelo` VARCHAR(50) NOT NULL
-);
-*/
-
-
+/************************************************************************/
 
 
 /* tabela de cadastro de motorista */
