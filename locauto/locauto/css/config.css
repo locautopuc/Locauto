@@ -1,0 +1,79 @@
+/* Este é o arquivo de CSS básico */
+/* Aqui é onde a configuração de telas, cores, tamanhos, tabelas, etc... acontece */
+
+html,body {
+  font-family: 'Open Sans', serif;
+  font-size: 14px;
+  font-weight: 300;
+	
+}
+.hero.is-success {
+  background: #f2f7fa;
+}
+.hero .nav, .hero.is-success .nav {
+  -webkit-box-shadow: none;
+  box-shadow: none;
+}
+input {
+  font-weight: 300;
+}
+p {
+  font-weight: 700;
+}
+
+.is-tall {
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+}
+.is-tall-container {
+  flex: 1;
+}
+
+.bgg {
+  background-color: #A8AFFB;
+	color: white;
+}
+
+/* Fixar rodape na pagina */
+/* ainda não funcionando */
+.Site {
+  display: flex;
+  flex-direction: column;
+  height: 100%; /* 1, 3 */
+}
+
+.Site-header,
+.Site-footer {
+  flex: none; /* 2 */
+}
+
+.Site-content {
+  flex: 1 0 auto; /* 2 */
+  padding: var(--space) var(--space) 0;
+  width: 100%;
+}
+.Site-content::after {
+  content: '\00a0'; /* &nbsp; */
+  display: block;
+  margin-top: var(--space);
+  height: 0px;
+  visibility: hidden;
+}
+@media (--break-lg) {
+  .Site-content {
+    padding-top: var(--space-lg);
+  }
+  .Site-content::after {
+    margin-top: var(--space-lg);
+  }
+}
+
+.Site-content--full {
+  padding: 0;
+}
+.Site-content--full::after {
+  content: none;
+}
+
+
