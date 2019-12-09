@@ -140,8 +140,8 @@ session_start();
 		<!-- Campo de digito Senha -->
 		<div class="field">
 			<div class="control">
-				<strong>Digite a sua senha:</strong>   &nbsp; ( Máximo de 8 dígitos )
-				<input name="senha" class="input is-large" type="password" placeholder="Sua senha" maxlength="8">
+				<strong>Digite a sua senha:</strong>   &nbsp;
+				<input name="senha" class="input is-large" type="password" placeholder="Sua senha" oninput="this.value = this.value.replace(/[^A-Za-z0-9]+/g, '').replace(/(\..*)\./g, '$1');">
 			</div>
 		</div>
 			

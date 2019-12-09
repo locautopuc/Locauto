@@ -241,7 +241,7 @@ else if (empty($_POST["nome"]))
 	header('Location: motorista_cadastro.php');
 	exit();
 }
-else if (!preg_match("/^[a-zA-Z0-9]*$/", $nome))
+else if (!preg_match("/^[a-zA-Z0-9- ]*$/", $nome))
 {
 	$_SESSION['apenas_letras_numeros'] = true;
 	header('Location: motorista_cadastro.php');
@@ -254,7 +254,7 @@ else if (empty($_POST["categoria"]))
 	header('Location: motorista_cadastro.php');
 	exit();
 }
-else if (!preg_match("/^[a-zA-Z0-9]*$/", $categoria))
+else if (!preg_match("/^[a-zA-Z0-9- ]*$/", $categoria))
 {
 	$_SESSION['apenas_letras_numeros'] = true;
 	header('Location: motorista_cadastro.php');
@@ -267,7 +267,7 @@ else if (empty($_POST["logradouro"]))
 	header('Location: motorista_cadastro.php');
 	exit();
 }
-else if (!preg_match("/^[a-zA-Z0-9]*$/", $logradouro))
+else if (!preg_match("/^[a-zA-Z0-9- ]*$/", $logradouro))
 {
 	$_SESSION['apenas_letras_numeros'] = true;
 	header('Location: motorista_cadastro.php');
@@ -280,7 +280,7 @@ else if (empty($_POST["complemento"]))
 	header('Location: motorista_cadastro.php');
 	exit();
 }
-else if (!preg_match("/^[a-zA-Z0-9]*$/", $complemento))
+else if (!preg_match("/^[a-zA-Z0-9- ]*$/", $complemento))
 {
 	$_SESSION['apenas_letras_numeros'] = true;
 	header('Location: motorista_cadastro.php');
@@ -293,7 +293,7 @@ else if (empty($_POST["bairro"]))
 	header('Location: motorista_cadastro.php');
 	exit();
 }
-else if (!preg_match("/^[a-zA-Z0-9]*$/", $bairro))
+else if (!preg_match("/^[a-zA-Z0-9- ]*$/", $bairro))
 {
 	$_SESSION['apenas_letras_numeros'] = true;
 	header('Location: motorista_cadastro.php');
@@ -306,7 +306,7 @@ else if (empty($_POST["cidade"]))
 	header('Location: motorista_cadastro.php');
 	exit();
 }
-else if (!preg_match("/^[a-zA-Z0-9]*$/", $cidade))
+else if (!preg_match("/^[a-zA-Z0-9- ]*$/", $cidade))
 {
 	$_SESSION['apenas_letras_numeros'] = true;
 	header('Location: motorista_cadastro.php');
@@ -319,7 +319,7 @@ else if (empty($_POST["estado"]))
 	header('Location: motorista_cadastro.php');
 	exit();
 }
-else if (!preg_match("/^[a-zA-Z0-9]*$/", $estado))
+else if (!preg_match("/^[a-zA-Z0-9- ]*$/", $estado))
 {
 	$_SESSION['apenas_letras_numeros'] = true;
 	header('Location: motorista_cadastro.php');

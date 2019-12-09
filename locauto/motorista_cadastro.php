@@ -58,7 +58,7 @@ session_start();
     <section class="hero is-success is-fullheight">
         <div class="hero-body">
             <div class="container has-text-centered">
-                <div class="column is-4 is-offset-4">
+                <div class="column is-20 is-offset-0">
                     <h3 class="title has-text-grey">Cadastro do Motorista</h3>
 			
 		
@@ -192,79 +192,136 @@ session_start();
 	<form action="motorista_cadastrar.inc.php" method="POST" autocomplete="off" enctype="multipart/form-data">
 	<!-- **************************************************** -->
 	<!-- Motorista -->
-	<div class="field"><h1><strong>Motorista</strong></h1><p><br>
+	<div class="field"><h1>&nbsp;</h1><p><br>
 		<div class="control">
-			<em>Os campos com <strong>*</strong> são Obrigatórios</em><br><br>
+			<em><strong>Os campos com * são Obrigatórios</strong></em><br>
+			<strong>Informação de Sigla:</strong> CNH ( Carteira Nacional de habilitação )
 		</div>
 	</div>
-
-	<!-- **************************************************** -->
-	<!-- Campo de digito CPF -->	
+		
+	<table width="1270" border="0">
+  <tbody>
+    <tr>
+      <td width="608"><!-- Campo de digito CPF -->	
 	<div class="field">
 		<div class="control">
 			<strong>* CPF:</strong>  &nbsp; ( Apenas números )
-			<input name="cpf" type="text" class="input is-large" placeholder="CPF" autofocus oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');" maxlength="11">
+			<input name="cpf" type="text" class="input " placeholder="CPF" autofocus oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');" maxlength="11">
 		</div>
-	</div>
-
-	<!-- **************************************************** -->
-	<!-- Campo de digito Nome Completo -->	
+	</div>&nbsp;</td>
+      <td width="31">&nbsp;</td>
+      <td width="621"><!-- Campo de digito Logradouro -->	
+	<div class="field">
+		<div class="control">
+			<strong>* Logradouro: </strong>
+			<input name="logradouro" type="text" class="input " placeholder="Logradouro" autofocus oninput="this.value = this.value.replace(/[^A-Za-z0-9- ]+/g, '').replace(/(\..*)\./g, '$1');" maxlength="50">
+		</div>
+	</div>&nbsp;</td>
+    </tr>
+    <tr>
+      <td><!-- Campo de digito Nome Completo -->	
 	<div class="field">
 		<div class="control">
 			<strong>* Nome Completo:</strong>
-				<input name="nome" type="text" class="input is-large" placeholder="Nome Completo" autofocus oninput="this.value = this.value.replace(/[^A-Za-z0-9]+/g, '').replace(/(\..*)\./g, '$1');" maxlength="250">
+				<input name="nome" type="text" class="input " placeholder="Nome Completo" autofocus oninput="this.value = this.value.replace(/[^A-Za-z0-9- ]+/g, '').replace(/(\..*)\./g, '$1');" maxlength="250">
 		</div>
-	</div>
-
-	<!-- **************************************************** -->
-	<!-- Campo de digito RG Identidade -->	
+	</div>&nbsp;</td>
+      <td>&nbsp;</td>
+      <td><!-- Campo de digito Número -->	
+	<div class="field">
+		<div class="control">
+			<strong>* Número do Endereço: </strong>  &nbsp; ( Apenas números )
+			<input name="numero" type="text" class="input " placeholder="Numero" autofocus oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');" maxlength="10">
+		</div>
+	</div>&nbsp;</td>
+    </tr>
+    <tr>
+      <td><!-- Campo de digito RG Identidade -->	
 	<div class="field">
 		<div class="control">
 			<strong>* RG / Identidade:</strong>  &nbsp; ( Apenas números )
-			<input name="identidade" type="text" class="input is-large" placeholder="Identidade" autofocus oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');" maxlength="10">
+			<input name="identidade" type="text" class="input " placeholder="Identidade" autofocus oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');" maxlength="10">
 		</div>
-	</div>
-
-	<!-- **************************************************** -->
-	<!-- Campo de digito Telefone -->	
+	</div>&nbsp;</td>
+      <td>&nbsp;</td>
+      <td><!-- Campo de digito Complemento -->	
+	<div class="field">
+		<div class="control">
+			<strong>* Complemento: </strong>
+			<input name="complemento" type="text" class="input " placeholder="Complemento" autofocus oninput="this.value = this.value.replace(/[^A-Za-z0-9- ]+/g, '').replace(/(\..*)\./g, '$1');" maxlength="250">
+		</div>
+	</div>&nbsp;</td>
+    </tr>
+    <tr>
+      <td><!-- Campo de digito Telefone -->	
 	<div class="field">
 		<div class="control">
 			<strong>* Telefone: </strong>  &nbsp; ( Apenas números )
-			<input name="telefone" type="text" class="input is-large" placeholder="Telefone" autofocus oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');" maxlength="11">
+			<input name="telefone" type="text" class="input " placeholder="Telefone" autofocus oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');" maxlength="11">
 		</div>
-	</div>
-
-	<!-- **************************************************** -->
-	<!-- Campo de digito Email -->	
+	</div>&nbsp;</td>
+      <td>&nbsp;</td>
+      <td><!-- Campo de digito Bairro -->	
+	<div class="field">
+		<div class="control">
+			<strong>* Bairro: </strong>
+			<input name="bairro" type="text" class="input " placeholder="Bairro" autofocus oninput="this.value = this.value.replace(/[^A-Za-z0-9- ]+/g, '').replace(/(\..*)\./g, '$1');" maxlength="50">
+		</div>
+	</div>&nbsp;</td>
+    </tr>
+    <tr>
+      <td><!-- Campo de digito Email -->	
 	<div class="field">
 		<div class="control">
 			<strong>* Email:</strong> &nbsp; ( exemplo@mail.com )
-			<input name="email" type="text" class="input is-large" placeholder="E-mail" autofocus maxlength="100">
+			<input name="email" type="text" class="input " placeholder="E-mail" oninput="this.value = this.value.replace(/[^A-Za-z0-9-@.]+/g, '').replace(/(\..*)\./g, '$1');" autofocus maxlength="100">
 		</div>
-	</div>
-		
-	<h1><strong>CNH - Carteira Nacional de Habilitação</strong></h1><p><br>
-	
-	<!-- **************************************************** -->
-	<!-- Campo de digito Número de Registro -->	
+	</div>&nbsp;</td>
+      <td>&nbsp;</td>
+      <td><!-- Campo de digito Cidade -->	
 	<div class="field">
 		<div class="control">
-			<strong>* Número de Registro: </strong>  &nbsp; ( Apenas números )
-			<input name="numero_registro" type="text" class="input is-large" placeholder="Nº Registro" autofocus oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');" maxlength="11">
+			<strong>* Cidade: </strong>
+			<input name="cidade" type="text" class="input is-large" placeholder="Cidade" autofocus oninput="this.value = this.value.replace(/[^A-Za-z0-9]+/g, '').replace(/(\..*)\./g, '$1');" maxlength="50">
 		</div>
-	</div>
-		
-	<!-- **************************************************** -->
-	<!-- Campo de digito Categoria -->	
+	</div>&nbsp;</td>
+    </tr>
+    <tr >
+      <td><!-- Campo de digito Número de Registro -->	
 	<div class="field">
 		<div class="control">
-			<strong>* Categoria:</strong> &nbsp; ( ABCDE )
-				<input name="categoria" type="text" class="input is-large" placeholder="Categoria" autofocus oninput="this.value = this.value.replace(/[^A-Za-z0-9]+/g, '').replace(/(\..*)\./g, '$1');" maxlength="5">
+			<strong>* Número de Registro da CNH: </strong>  &nbsp; ( Apenas números )
+			<input name="numero_registro" type="text" class="input " placeholder="Nº Registro" autofocus oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');" maxlength="11">
 		</div>
-	</div>
-		
-	
-	<!-- VENCIMENTO CNH -->
+	</div></td>
+      <td bgcolor="#FFFFFF">&nbsp;</td>
+      <td bgcolor="#FFFFFF"><!-- Campo de digito Estado -->	
+	<div class="field">
+		<div class="control">
+			<strong>* Estado: </strong>
+			<input name="estado" type="text" class="input " placeholder="Estado" autofocus oninput="this.value = this.value.replace(/[^A-Za-z0-9- ]+/g, '').replace(/(\..*)\./g, '$1');" maxlength="50">
+		</div>
+	</div>&nbsp;</td>
+    </tr>
+    <tr>
+      <td><!-- Campo de digito Categoria -->	
+	<div class="field">
+		<div class="control">
+			<strong>* Categoria da CNH:</strong> &nbsp; ( ABCDE )
+				<input name="categoria" type="text" class="input " placeholder="Categoria" autofocus oninput="this.value = this.value.replace(/[^A-Za-z0-9]+/g, '').replace(/(\..*)\./g, '$1');" maxlength="5">
+		</div>
+	</div>&nbsp;</td>
+      <td>&nbsp;</td>
+      <td><!-- Campo de digito Cep -->	
+	<div class="field">
+		<div class="control">
+			<strong>* Cep: </strong> &nbsp; ( Apenas números )
+			<input name="cep" class="input " type="text" placeholder="Cep" autofocus oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');" maxlength="10">
+		</div>
+		  </div>&nbsp;</td>
+    </tr>
+    <tr>
+      <td><!-- VENCIMENTO CNH -->
 	<!-- DATAS VENCIDAS NÃO SERÃO ACEITAS -->
 	<!-- ***************************************************** -->
 	<!-- ***************************************************** -->
@@ -273,8 +330,8 @@ session_start();
 	<script src="css/jquery.min.js"></script>
 	<div class="field">
 		<div class="control">
-			<strong>* Data de Validade:</strong> ( Datas já vencidas não serão aceitas )
-				<input name="date" type="date" class="input is-large" >
+			<strong>* Data de Validade da CNH:</strong> ( Datas já vencidas não serão aceitas )
+				<input name="date" type="date" class="input " >
 		</div>
 	</div>		
 	<script> // javascript
@@ -285,48 +342,68 @@ session_start();
 	<!-- ***************************************************** -->
 	<!-- ***************************************************** -->
 	<!-- ***************************************************** -->
-	<!-- ***************************************************** -->
-	
-		
-	<!-- FOTO CNH -->
-	<!-- ***************************************************** -->
-	<!-- ***************************************************** -->
-	<!-- ***************************************************** -->
-	<!-- ***************************************************** -->
-	<!-- ***************************************************** -->
-	<div class="field">
-		<div class="control"><br>
-			<strong>* Adcione a foto da sua CNH:</strong><br>
-			( Somente <strong>UMA</strong> foto com Frente e Verso )<br>
-			( A foto deve ter no máximo um tamanho de 5mb )<br>
-			( Formatos aceitos: PNG, JPEG ou JPG )
-		</div>
-	</div>	
-	<!-- FOTO CNH -->
-	<!-- ***************************************************** -->
-	<strong>Frente:</strong>
-	<div class="field">
-		<div id="script_foto_cnh" class="file is-centered is-boxed has-name">
-			<label class="file-label">
-				<!-- Input onde o usuário irá adiocionar a foto da sua CNH -->
-				<input class="file-input" type="file" name="foto_cnh" accept=".png,.jpeg,.jpg">
-				<span class="file-cta">
-					<span class="file-icon">
- 						<i class="fas fa-upload"></i>
-					</span>
-					<span class="file-label">
-  						Arquivo ...
-					</span>
-				</span>
-				<span class="file-name">
-					Nenhum arquivo foi inserido ...
-				</span>
-			</label>
-		</div>
-	</div>
-	<!-- ***************************************************** -->		
-	<!-- JAVA SCRIPT -->
-	<script>
+	<!-- ***************************************************** -->&nbsp;</td>
+      <td>&nbsp;</td>
+      <td>&nbsp;</td>
+    </tr>
+    <tr align="center">
+      <td align="center" colspan="3"><div class="field">
+        <div class="control ">
+          <p>&nbsp;</p>
+          <table width="1270" border="0">
+            <tbody>
+              <tr>
+                <td width="361">&nbsp;</td>
+                <td width="876"><strong>* Adcione a foto da sua CNH:</strong>
+            ( Somente <strong>UMA</strong> foto com Frente e Verso ) <br>
+            ( A foto deve ter no máximo o tamanho de <strong>5mb</strong> ) -
+            ( Formatos aceitos: <strong>PNG, JPEG ou JPG</strong> )&nbsp;</td>
+                <td width="19">&nbsp;</td>
+              </tr>
+              <tr>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+              </tr>
+            </tbody>
+          </table>
+          <p>
+            
+          </p>
+        </div>
+        </div>&nbsp;
+        <!-- FOTO CNH -->
+        <!-- ***************************************************** -->
+        <!-- ***************************************************** -->
+        <!-- ***************************************************** -->
+        <!-- ***************************************************** -->
+        <!-- ***************************************************** -->
+        
+        <!-- FOTO CNH -->
+        <!-- ***************************************************** -->
+        <strong></strong>
+        <div class="field">
+          <div id="script_foto_cnh" class="file is-centered is-boxed has-name">
+            <label class="file-label">
+              <!-- Input onde o usuário irá adiocionar a foto da sua CNH -->
+              <input class="file-input" type="file" name="foto_cnh" accept=".png,.jpeg,.jpg">
+              <span class="file-cta">
+                <span class="file-icon">
+                  <i class="fas fa-upload"></i>
+                  </span>
+                <span class="file-label">
+                  Arquivo ...
+                  </span>
+                </span>
+              <span class="file-name">
+                Nenhum arquivo foi inserido ...
+                </span>
+              </label>
+            </div>
+        </div>
+        <!-- ***************************************************** -->		
+        <!-- JAVA SCRIPT -->
+        <script>
 		const fileInputCNH = document.querySelector('#script_foto_cnh input[type=file]');
 		fileInputCNH.onchange = () => 
 		{
@@ -353,76 +430,67 @@ session_start();
 				}
 		}
 	</script>
-	<!-- ***************************************************** -->
-	<!-- ***************************************************** -->
-	<!-- ***************************************************** -->
-	<!-- ***************************************************** -->
+        <!-- ***************************************************** -->
+        <!-- ***************************************************** -->
+        <!-- ***************************************************** -->
+        <!-- ***************************************************** -->&nbsp;</td>
+    </tr>
+    </tbody>
+</table>
+
+
+	<!-- **************************************************** -->
+	
+
+	<!-- **************************************************** -->
+	
+
+	<!-- **************************************************** -->
+	
+
+	<!-- **************************************************** -->
+	
+
+	<!-- **************************************************** -->
+	
+		
+	<p><br>
+	
+	<!-- **************************************************** -->
+	
+		
+	<!-- **************************************************** -->
+	
 		
 	
-	<br><h1><strong>Endereço</strong></h1><p><br>
+	
+	
+		
+	
+		
+	
+	
 
 	<!-- **************************************************** -->
-	<!-- Campo de digito Logradouro -->	
-	<div class="field">
-		<div class="control">
-			<strong>* Logradouro: </strong>
-			<input name="logradouro" type="text" class="input is-large" placeholder="Logradouro" autofocus oninput="this.value = this.value.replace(/[^A-Za-z0-9]+/g, '').replace(/(\..*)\./g, '$1');" maxlength="50">
-		</div>
-	</div>
+	
 
 	<!-- **************************************************** -->
-	<!-- Campo de digito Número -->	
-	<div class="field">
-		<div class="control">
-			<strong>* Número: </strong>  &nbsp; ( Apenas números )
-			<input name="numero" type="text" class="input is-large" placeholder="Numero" autofocus oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');" maxlength="10">
-		</div>
-	</div>
+	
 
 	<!-- **************************************************** -->
-	<!-- Campo de digito Complemento -->	
-	<div class="field">
-		<div class="control">
-			<strong>* Complemento: </strong>
-			<input name="complemento" type="text" class="input is-large" placeholder="Complemento" autofocus oninput="this.value = this.value.replace(/[^A-Za-z0-9]+/g, '').replace(/(\..*)\./g, '$1');" maxlength="250">
-		</div>
-	</div>
+	
 
 	<!-- **************************************************** -->
-	<!-- Campo de digito Bairro -->	
-	<div class="field">
-		<div class="control">
-			<strong>* Bairro: </strong>
-			<input name="bairro" type="text" class="input is-large" placeholder="Bairro" autofocus oninput="this.value = this.value.replace(/[^A-Za-z0-9]+/g, '').replace(/(\..*)\./g, '$1');" maxlength="50">
-		</div>
-	</div>
+	
 
 	<!-- **************************************************** -->
-	<!-- Campo de digito Cidade -->	
-	<div class="field">
-		<div class="control">
-			<strong>* Cidade: </strong>
-			<input name="cidade" type="text" class="input is-large" placeholder="Cidade" autofocus oninput="this.value = this.value.replace(/[^A-Za-z0-9]+/g, '').replace(/(\..*)\./g, '$1');" maxlength="50">
-		</div>
-	</div>
+	
 
 	<!-- **************************************************** -->
-	<!-- Campo de digito Estado -->	
-	<div class="field">
-		<div class="control">
-			<strong>* Estado: </strong>
-			<input name="estado" type="text" class="input is-large" placeholder="Estado" autofocus oninput="this.value = this.value.replace(/[^A-Za-z0-9]+/g, '').replace(/(\..*)\./g, '$1');" maxlength="50">
-		</div>
-	</div>
+	
 
 	<!-- **************************************************** -->
-	<!-- Campo de digito Cep -->	
-	<div class="field">
-		<div class="control">
-			<strong>* Cep: </strong> &nbsp; ( Apenas números )
-			<input name="cep" class="input is-large" type="text" placeholder="Cep" autofocus oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');" maxlength="10">
-		</div>
-	</div>
+	
 
 	<!-- Botão cadastrar com design CSS -->
 	<button type="submit" name="cadastrar_botao" class="button is-block is-dark is-large is-fullwidth">Cadastrar</button>

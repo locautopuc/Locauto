@@ -195,7 +195,13 @@ else if (!preg_match("/^[0-9]*$/", $ano_fabricacao))
 	$_SESSION['apenas_letras'] = true;
 	header('Location: veiculo_cadastro.php');
 	exit();
-}
+}/*
+else if (empty($_POST["ano_fabricacao"]))
+{
+	$_SESSION['ano_fabricacao_escolher'] = true;
+	header('Location: veiculo_cadastro.php');
+	exit();
+}*/
 /****************************************************/
 else if (empty($_POST["ano_modelo"]))
 {
@@ -208,7 +214,13 @@ else if (!preg_match("/^[0-9]*$/", $ano_modelo))
 	$_SESSION['apenas_letras'] = true;
 	header('Location: veiculo_cadastro.php');
 	exit();
-}
+}/*
+else if (empty($_POST["ano_modelo"]))
+{
+	$_SESSION['ano_fabricacao_escolher'] = true;
+	header('Location: veiculo_cadastro.php');
+	exit();
+}*/
 /****************************************************/
 else if (empty($_POST["kilometragem"]))
 {
@@ -248,7 +260,7 @@ else if (empty($_POST["placa"]))
 	header('Location: veiculo_cadastro.php');
 	exit();
 }
-else if (!preg_match("/^[a-zA-Z0-9]*$/", $placa))
+else if (!preg_match("/^[a-zA-Z0-9- ]*$/", $placa))
 {
 	$_SESSION['apenas_letras_numeros'] = true;
 	header('Location: veiculo_cadastro.php');
@@ -274,7 +286,7 @@ else if (empty($_POST["tipo_combustivel"]))
 	header('Location: veiculo_cadastro.php');
 	exit();
 }
-else if (!preg_match("/^[a-zA-Z0-9]*$/", $tipo_combustivel))
+else if (!preg_match("/^[a-zA-Z0-9- ]*$/", $tipo_combustivel))
 {
 	$_SESSION['apenas_letras_numeros'] = true;
 	header('Location: veiculo_cadastro.php');

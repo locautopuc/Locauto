@@ -42,7 +42,7 @@ session_start();
     <section class="hero is-success is-fullheight">
         <div class="hero-body">
             <div class="container has-text-centered">
-                <div class="column is-4 is-offset-4">
+                <div class="column is-20 is-offset-0">
                     <h3 class="title has-text-grey">Locacao</h3>
 					
 					
@@ -234,23 +234,125 @@ session_start();
 	<form action="locacao_cadastrar.inc.php" method="POST" autocomplete="off" enctype="multipart/form-data">
 
 	<div class="field">
-	  <h1><strong>Locacao</strong></h1>
+	  <h1>&nbsp;</h1>
 	  <p><br>
 		<!-- **************************************************** -->
 		<!-- Veiculo -->
 		<div class="control">
-			<em>Os campos com <strong>*</strong> são Obrigatórios</em><br><br>
+			<em><strong>Os campos com * são Obrigatórios</strong></em><br><br>
 		</div>
 	</div>
-
-	<!-- **************************************************** -->
-	<!-- Campo de digito Placa -->
+		
+		<table width="1270" border="0">
+  <tbody>
+    <tr>
+      <td width="624"><!-- Campo de digito Placa -->
 	<div class="field">
 		<div class="control">
 			<strong>* Placa do Veículo:</strong>
-			<input name="placa" type="text" class="input is-large" placeholder="Placa" autofocus oninput="this.value = this.value.replace(/[^A-Za-z0-9]+/g, '').replace(/(\..*)\./g, '$1');" maxlength="10">
+			<input name="placa" type="text" class="input " disabled placeholder="Placa" autofocus oninput="this.value = this.value.replace(/[^A-Za-z0-9- ]+/g, '').replace(/(\..*)\./g, '$1');" maxlength="10">
 		</div>
-	</div>
+	</div>&nbsp;</td>
+      <td width="20">&nbsp;</td>
+      <td width="612"><!-- Campo de digito Número de Passageiros -->
+	<div class="field">
+		<div class="control">
+			<strong>* Quilometragem Inicial: </strong>
+			<input name="kilometragem_inicial" type="text" class="input " disabled placeholder="Quilometragem Inicial" autofocus oninput="this.value = this.value.replace(/[^0-9]+/g, '').replace(/(\..*)\./g, '$1');">
+		</div>
+	</div>&nbsp;</td>
+    </tr>
+    <tr>
+      <td><!-- Campo de digito Chassi -->
+	<div class="field">
+		<div class="control">
+			<strong>* CPF ou CNPJ:</strong>
+			<input name="cpf_cnpj" type="text" class="input " disabled placeholder="CPF ou CNPJ" autofocus oninput="this.value = this.value.replace(/[^0-9]+/g, '').replace(/(\..*)\./g, '$1');" maxlength="14">
+		</div>
+	</div>&nbsp;</td>
+      <td>&nbsp;</td>
+      <td><!-- Campo de digito Ano de Fabricação -->
+	<div class="field">
+		<div class="control">
+			<strong>* Quilometragem Final:</strong>
+			<input name="kilometragem_final" class="input " placeholder="Quilometragem Final" disabled autofocus oninput="this.value = this.value.replace(/[^0-9]/g, '').replace(/(\..*)\./g, '$1');" >
+		</div>
+	</div>&nbsp;</td>
+    </tr>
+    <tr>
+      <td><!-- **************************************************** -->
+	<!-- Campo de digito Renavam -->
+	<div class="field">
+		<div class="control">
+			<strong>* CPF do Motorista: </strong>
+			<input name="cpf" type="text" class="input " disabled placeholder="CPF do Motorista" autofocus oninput="this.value = this.value.replace(/[^0-9]/g, '').replace(/(\..*)\./g, '$1');" >
+		</div>
+	</div>&nbsp;</td>
+      <td>&nbsp;</td>
+      <td><!-- Campo de digito Ano do Modelo -->
+	<div class="field">
+		<div class="control">
+			<strong>* Valor da Locação:</strong>
+			<input name="valor_locacao" type="text" class="input " placeholder="Valor da Locacao" disabled autofocus oninput="this.value = this.value.replace(/[^A-Za-z0-9.]/g, '').replace(/(\..*)\./g, '$1');" >
+		</div>
+	</div>&nbsp;</td>
+    </tr>
+    <tr>
+      <td><!-- Campo de digito Preço de Compra -->
+	<div class="field">
+		<div class="control">
+			<strong>* Data da Retirada: </strong>
+			<input name="data_retirada" type="text" class="input " disabled placeholder="Data de Retirada" autofocus oninput="this.value = this.value.replace(/[^0-9]+/g, '').replace(/(\..*)\./g, '$1');">
+		</div>
+	</div>&nbsp;</td>
+      <td>&nbsp;</td>
+      <td><!-- Campo de digito Tipo de Combustivel -->
+	<div class="field">
+		<div class="control">
+			<strong>* Valor do Calção: </strong>
+			<input name="valor_calcao" type="text" class="input " placeholder="Valor do Calção" disabled autofocus oninput="this.value = this.value.replace(/[^A-Za-z0-9.]+/g, '').replace(/(\..*)\./g, '$1');">
+		</div>
+	</div>&nbsp;</td>
+    </tr>
+    <tr>
+      <td><!-- Campo de digito Preço de Venda -->
+	<div class="field">
+		<div class="control">
+			<strong>* Data da Devolução: </strong>
+			<input name="data_devolucao" type="text" class="input " disabled placeholder="Data de Retirada" autofocus oninput="this.value = this.value.replace(/[^0-9]+/g, '').replace(/(\..*)\./g, '$1');">
+		</div>
+	</div>&nbsp;</td>
+      <td>&nbsp;</td>
+      <td><!-- Campo de digito Kilometragem -->
+	<div class="field">
+		<div class="control">
+			<strong>* Valor do Seguro: </strong>
+			<input name="kilometragem" type="text" class="input " placeholder="Kilometragem" disabled autofocus oninput="this.value = this.value.replace(/[^0-9.]+/g, '').replace(/(\..*)\./g, '$1');">
+		</div>
+	</div>&nbsp;</td>
+    </tr>
+    <tr>
+      <td><!-- Campo de digito Potencia -->
+	<div class="field">
+		<div class="control">
+			<strong>* Pagamento Final: </strong>
+			<input name="potencia" type="text" class="input " disabled placeholder="Potência" autofocus oninput="this.value = this.value.replace(/[^A-Za-z0-9.]+/g, '').replace(/(\..*)\./g, '$1');">
+		</div>
+	</div>&nbsp;</td>
+      <td>&nbsp;</td>
+      <td>&nbsp;</td>
+    </tr>
+    <tr>
+      <td>&nbsp;</td>
+      <td>&nbsp;</td>
+      <td>&nbsp;</td>
+    </tr>
+  </tbody>
+</table>
+
+
+	<!-- **************************************************** -->
+	
 	
 		
 <!-- Trigger -->
@@ -308,102 +410,41 @@ else $('#zoom_reset').addClass('disabled');
 
 
 	<!-- **************************************************** -->
-	<!-- Campo de digito Chassi -->
-	<div class="field">
-		<div class="control">
-			<strong>* CPF ou CNPJ:</strong>
-			<input name="cpf_cnpj" type="text" class="input is-large" placeholder="CPF ou CNPJ" autofocus oninput="this.value = this.value.replace(/[^A-Za-z0-9]+/g, '').replace(/(\..*)\./g, '$1');" maxlength="14">
-		</div>
-	</div>
+	
 
-	<!-- **************************************************** -->
-	<!-- Campo de digito Renavam -->
-	<div class="field">
-		<div class="control">
-			<strong>* CPF do Motorista: </strong>
-			<input name="cpf" type="text" class="input is-large" placeholder="CPF do Motorista" autofocus oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');" >
-		</div>
-	</div>
+	
 	
 
 	<!-- **************************************************** -->
-	<!-- Campo de digito Preço de Compra -->
-	<div class="field">
-		<div class="control">
-			<strong>* Data da Retirada: </strong>
-			<input name="data_retirada" type="text" class="input is-large" placeholder="Data de Retirada" autofocus oninput="this.value = this.value.replace(/[^0-9]+/g, '').replace(/(\..*)\./g, '$1');">
-		</div>
-	</div>
+	
 
 	<!-- **************************************************** -->
-	<!-- Campo de digito Preço de Venda -->
-	<div class="field">
-		<div class="control">
-			<strong>* Data da Devolução: </strong>
-			<input name="data_devolucao" type="text" class="input is-large" placeholder="Data de Retirada" autofocus oninput="this.value = this.value.replace(/[^0-9]+/g, '').replace(/(\..*)\./g, '$1');">
-		</div>
-	</div><p><br>
+	<p><br>
 
 	<!-- **************************************************** -->
-	<!-- Campo de digito Número de Passageiros -->
-	<div class="field">
-		<div class="control">
-			<strong>* Quilometragem Inicial: </strong>
-			<input name="kilometragem_inicial" type="text" class="input is-large" placeholder="Quilometragem Inicial" autofocus oninput="this.value = this.value.replace(/[^0-9]+/g, '').replace(/(\..*)\./g, '$1');">
-		</div>
-	</div>
+	
 
 	<!-- **************************************************** -->
-	<!-- Campo de digito Ano de Fabricação -->
-	<div class="field">
-		<div class="control">
-			<strong>* Quilometragem Final:</strong>
-			<input name="kilometragem_final" class="input is-large" placeholder="Quilometragem Final" autofocus oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');" >
-		</div>
-	</div>
+	
 
 	<!-- **************************************************** -->
-	<!-- Campo de digito Ano do Modelo -->
-	<div class="field">
-		<div class="control">
-			<strong>* Valor da Locação:</strong>
-			<input name="valor_locacao" type="text" class="input is-large" placeholder="Valor da Locacao" autofocus oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');" >
-		</div>
-	</div> 
+	 
 
 	<!-- **************************************************** -->
-	<!-- Campo de digito Tipo de Combustivel -->
-	<div class="field">
-		<div class="control">
-			<strong>* Valor do Calção: </strong>
-			<input name="valor_calcao" type="text" class="input is-large" placeholder="Valor do Calção" autofocus >
-		</div>
-	</div>
+	
 
 	<!-- **************************************************** -->
-	<!-- Campo de digito Kilometragem -->
-	<div class="field">
-		<div class="control">
-			<strong>* Valor do Seguro: </strong>
-			<input name="kilometragem" type="text" class="input is-large" placeholder="Kilometragem" autofocus oninput="this.value = this.value.replace(/[^A-Za-z0-9]+/g, '').replace(/(\..*)\./g, '$1');">
-		</div>
-	</div>
+	
 
 	<!-- **************************************************** -->
-	<!-- Campo de digito Potencia -->
-	<div class="field">
-		<div class="control">
-			<strong>* Pagamento Final: </strong>
-			<input name="potencia" type="text" class="input is-large" placeholder="Potência" autofocus oninput="this.value = this.value.replace(/[^A-Za-z0-9]+/g, '').replace(/(\..*)\./g, '$1');">
-		</div>
-	</div>
+	
 
 	
 
 	<!-- Botão cadastrar com design CSS -->
-	<button type="submit" name="cadastrar_botao" class="button is-block is-dark is-large is-fullwidth">Cadastrar</button>
+	<button type="submit" name="cadastrar_botao" class="button is-block is-dark is-large is-fullwidth">Realizar Pagamento</button>
 		<!-- Botão cancelar -->
-		<a href="index.php"><strong>Cancelar</strong></a>
+		<a href="usuario_perfil.php"><strong>Cancelar</strong></a>
 		</form>
 			</div>
 		</div>

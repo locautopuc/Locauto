@@ -49,7 +49,7 @@ $row2 = mysqli_fetch_assoc($result2);
 /****************************************************/
 // verificando se o usuario digitou em todos os campos
 // se não retorna um erro
-if(empty($_POST['cpf_cnpj']) || 
+if(//empty($_POST['cpf_cnpj']) || 
 	empty($_POST['nome']) || 
 	empty($_POST['telefone']) || 
 	empty($_POST['email']) ||
@@ -81,10 +81,11 @@ else if (empty($_POST["cpf_cnpj"]))
 }
 else if (!preg_match("/^[0-9]*$/", $cpf_cnpj))
 {
-	$_SESSION['apenas_letras'] = true;
+	$_SESSION['apenas_numeros'] = true;
 	header('Location: usuario_cadastro.php');
 	exit();
 }
+
 /****************************************************/
 else if (empty($_POST["telefone"]))
 {
@@ -94,7 +95,7 @@ else if (empty($_POST["telefone"]))
 }
 else if (!preg_match("/^[0-9]*$/", $telefone))
 {
-	$_SESSION['apenas_letras'] = true;
+	$_SESSION['apenas_numeros'] = true;
 	header('Location: usuario_cadastro.php');
 	exit();
 }
@@ -107,7 +108,7 @@ else if (empty($_POST["numero"]))
 }
 else if (!preg_match("/^[0-9]*$/", $numero))
 {
-	$_SESSION['apenas_letras'] = true;
+	$_SESSION['apenas_numeros'] = true;
 	header('Location: usuario_cadastro.php');
 	exit();
 }
@@ -120,7 +121,7 @@ else if (empty($_POST["cep"]))
 }
 else if (!preg_match("/^[0-9]*$/", $cep))
 {
-	$_SESSION['apenas_letras'] = true;
+	$_SESSION['apenas_numeros'] = true;
 	header('Location: usuario_cadastro.php');
 	exit();
 }
@@ -136,12 +137,13 @@ else if (empty($_POST["nome"]))
 	header('Location: usuario_cadastro.php');
 	exit();
 }
-else if (!preg_match("/^[a-zA-Z0-9]*$/", $nome))
+else if (!preg_match("/^[a-zA-Z0-9- ]*$/", $nome))
 {
 	$_SESSION['apenas_letras_numeros'] = true;
 	header('Location: usuario_cadastro.php');
 	exit();
 }
+
 /****************************************************/
 else if (empty($_POST["logradouro"]))
 {
@@ -149,7 +151,7 @@ else if (empty($_POST["logradouro"]))
 	header('Location: usuario_cadastro.php');
 	exit();
 }
-else if (!preg_match("/^[a-zA-Z0-9]*$/", $logradouro))
+else if (!preg_match("/^[a-zA-Z0-9- ]*$/", $logradouro))
 {
 	$_SESSION['apenas_letras_numeros'] = true;
 	header('Location: usuario_cadastro.php');
@@ -162,7 +164,7 @@ else if (empty($_POST["complemento"]))
 	header('Location: usuario_cadastro.php');
 	exit();
 }
-else if (!preg_match("/^[a-zA-Z0-9]*$/", $complemento))
+else if (!preg_match("/^[a-zA-Z0-9- ]*$/", $complemento))
 {
 	$_SESSION['apenas_letras_numeros'] = true;
 	header('Location: usuario_cadastro.php');
@@ -175,7 +177,7 @@ else if (empty($_POST["bairro"]))
 	header('Location: usuario_cadastro.php');
 	exit();
 }
-else if (!preg_match("/^[a-zA-Z0-9]*$/", $bairro))
+else if (!preg_match("/^[a-zA-Z0-9- ]*$/", $bairro))
 {
 	$_SESSION['apenas_letras_numeros'] = true;
 	header('Location: usuario_cadastro.php');
@@ -188,7 +190,7 @@ else if (empty($_POST["cidade"]))
 	header('Location: usuario_cadastro.php');
 	exit();
 }
-else if (!preg_match("/^[a-zA-Z0-9]*$/", $cidade))
+else if (!preg_match("/^[a-zA-Z0-9- ]*$/", $cidade))
 {
 	$_SESSION['apenas_letras_numeros'] = true;
 	header('Location: usuario_cadastro.php');
@@ -201,7 +203,7 @@ else if (empty($_POST["estado"]))
 	header('Location: usuario_cadastro.php');
 	exit();
 }
-else if (!preg_match("/^[a-zA-Z0-9]*$/", $estado))
+else if (!preg_match("/^[a-zA-Z0-9- ]*$/", $estado))
 {
 	$_SESSION['apenas_letras_numeros'] = true;
 	header('Location: usuario_cadastro.php');
