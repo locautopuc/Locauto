@@ -1,5 +1,6 @@
 
 <?php
+include("conexao.php");
 session_start();
 include('verifica_login.php');
 ?>
@@ -75,8 +76,17 @@ include('verifica_login.php');
 	<!-- **************************************************** -->
 	<!-- Botão -->
 	<div class="field">
-		<div class="control"><br>
+		<div class="control"><br><?php
+			 
+			$tabela_cadastro_usuario = "SELECT * FROM tabela_cadastro_motorista ORDER BY nome ASC";
+			//$tabela_cadastro_usuario = "SELECT * FROM tabela_cadastro_motorista WHERE id = $id ORDER BY nome ASC";
+			$resultado_usuario = mysqli_query($conexao, $tabela_cadastro_usuario);
+			if($row_resultado = mysqli_fetch_assoc($resultado_usuario)){
+			 if ($row_resultado['cpf'] > 0) {
+			
+			?>
 			<h2><a class="button is-rounded is-block is-dark is-large is-fullwidth " href="usuario_ver_motorista.php">Dados do Motorista</a></h2>
+			<?php }} ?>
 		</div>
 	</div>
 

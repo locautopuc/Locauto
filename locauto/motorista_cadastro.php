@@ -214,7 +214,7 @@ session_start();
 	<div class="field">
 		<div class="control">
 			<strong>* Logradouro: </strong>
-			<input name="logradouro" type="text" class="input " placeholder="Logradouro" autofocus oninput="this.value = this.value.replace(/[^A-Za-z0-9- ]+/g, '').replace(/(\..*)\./g, '$1');" maxlength="50">
+			<input name="logradouro" type="text" class="input " placeholder="Logradouro" autofocus oninput="this.value = this.value.replace(/[^A-Za-z0-9-çÇãõÃÕÁ-Úá-úÂ-ûâ-û., ]+/g, '').replace(/(\..*)\./g, '$1');" maxlength="50">
 		</div>
 	</div>&nbsp;</td>
     </tr>
@@ -223,7 +223,7 @@ session_start();
 	<div class="field">
 		<div class="control">
 			<strong>* Nome Completo:</strong>
-				<input name="nome" type="text" class="input " placeholder="Nome Completo" autofocus oninput="this.value = this.value.replace(/[^A-Za-z0-9- ]+/g, '').replace(/(\..*)\./g, '$1');" maxlength="250">
+				<input name="nome" type="text" class="input " placeholder="Nome Completo" autofocus oninput="this.value = this.value.replace(/[^A-Za-z0-9-çÇãõÃÕÁ-Úá-úÂ-ûâ-û., ]+/g, '').replace(/(\..*)\./g, '$1');" maxlength="250">
 		</div>
 	</div>&nbsp;</td>
       <td>&nbsp;</td>
@@ -248,7 +248,7 @@ session_start();
 	<div class="field">
 		<div class="control">
 			<strong>* Complemento: </strong>
-			<input name="complemento" type="text" class="input " placeholder="Complemento" autofocus oninput="this.value = this.value.replace(/[^A-Za-z0-9- ]+/g, '').replace(/(\..*)\./g, '$1');" maxlength="250">
+			<input name="complemento" type="text" class="input " placeholder="Complemento" autofocus oninput="this.value = this.value.replace(/[^A-Za-z0-9-çÇãõÃÕÁ-Úá-úÂ-ûâ-û., ]+/g, '').replace(/(\..*)\./g, '$1');" maxlength="250">
 		</div>
 	</div>&nbsp;</td>
     </tr>
@@ -265,7 +265,7 @@ session_start();
 	<div class="field">
 		<div class="control">
 			<strong>* Bairro: </strong>
-			<input name="bairro" type="text" class="input " placeholder="Bairro" autofocus oninput="this.value = this.value.replace(/[^A-Za-z0-9- ]+/g, '').replace(/(\..*)\./g, '$1');" maxlength="50">
+			<input name="bairro" type="text" class="input " placeholder="Bairro" autofocus oninput="this.value = this.value.replace(/[^A-Za-z0-9-çÇãõÃÕÁ-Úá-úÂ-ûâ-û., ]+/g, '').replace(/(\..*)\./g, '$1');" maxlength="50">
 		</div>
 	</div>&nbsp;</td>
     </tr>
@@ -282,7 +282,7 @@ session_start();
 	<div class="field">
 		<div class="control">
 			<strong>* Cidade: </strong>
-			<input name="cidade" type="text" class="input is-large" placeholder="Cidade" autofocus oninput="this.value = this.value.replace(/[^A-Za-z0-9]+/g, '').replace(/(\..*)\./g, '$1');" maxlength="50">
+			<input name="cidade" type="text" class="input " placeholder="Cidade" autofocus oninput="this.value = this.value.replace(/[^A-Za-z0-9-çÇãõÃÕÁ-Úá-úÂ-ûâ-û., ]+/g, '').replace(/(\..*)\./g, '$1');" maxlength="50">
 		</div>
 	</div>&nbsp;</td>
     </tr>
@@ -299,7 +299,7 @@ session_start();
 	<div class="field">
 		<div class="control">
 			<strong>* Estado: </strong>
-			<input name="estado" type="text" class="input " placeholder="Estado" autofocus oninput="this.value = this.value.replace(/[^A-Za-z0-9- ]+/g, '').replace(/(\..*)\./g, '$1');" maxlength="50">
+			<input name="estado" type="text" class="input " placeholder="Estado" autofocus oninput="this.value = this.value.replace(/[^A-Za-z0-9-çÇãõÃÕÁ-Úá-úÂ-ûâ-û., ]+/g, '').replace(/(\..*)\./g, '$1');" maxlength="50">
 		</div>
 	</div>&nbsp;</td>
     </tr>
@@ -308,7 +308,7 @@ session_start();
 	<div class="field">
 		<div class="control">
 			<strong>* Categoria da CNH:</strong> &nbsp; ( ABCDE )
-				<input name="categoria" type="text" class="input " placeholder="Categoria" autofocus oninput="this.value = this.value.replace(/[^A-Za-z0-9]+/g, '').replace(/(\..*)\./g, '$1');" maxlength="5">
+				<input name="categoria" type="text" class="input " placeholder="Categoria" autofocus oninput="this.value = this.value.replace(/[^A-Za-z]+/g, '').replace(/(\..*)\./g, '$1');" maxlength="5">
 		</div>
 	</div>&nbsp;</td>
       <td>&nbsp;</td>
@@ -496,7 +496,7 @@ session_start();
 	<button type="submit" name="cadastrar_botao" class="button is-block is-dark is-large is-fullwidth">Cadastrar</button>
 		<!-- **************************************************** -->
 		<!-- Botão cancelar -->
-		<a href="usuario_perfil.php"><strong>Cancelar Locação</strong></a>
+		<a href="locacao_cadastro.php"><strong>Cancelar Locação</strong></a>
 		</form>
 			</div>
 		</div>

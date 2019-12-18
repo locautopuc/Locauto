@@ -34,7 +34,7 @@ include('admin_verifica_login.php');
 	<section class="hero is-success is-fullheight">
 		<div class="hero-body">
 			<div class="container has-text-centered">
-				<div class="column is-4 is-offset-4">
+				<div class="column is-20 is-offset-0">
 					<h3 class="title has-text-grey">Master Admin</h3>
 
 

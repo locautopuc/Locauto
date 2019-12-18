@@ -44,7 +44,7 @@ include('verifica_login.php');
 	<section class="hero is-success is-fullheight">
 		<div class="hero-body">
 			<div class="container has-text-centered">
-				<div class="column is-4 is-offset-4">
+				<div class="column is-20 is-offset-0">
 					<h3 class="title has-text-grey">Dados do Motorista</h3>
 
 
@@ -57,8 +57,8 @@ include('verifica_login.php');
 			  <h1><strong>Motorista</strong></h1>
 			  <p><br>
 
-				<h3>Olá, <strong></h3>
-				<?php echo $_SESSION['cpf_cnpj']; ?> <br> 
+				<h3>Olá, <strong>
+				<?php echo $_SESSION['nome']; ?> <br> <?php echo $_SESSION['escolher']; ?> : <?php echo $_SESSION['cpf_cnpj']; ?>
 				<!-- </strong><br>Seja bem vindo ao seu perfil.</h3> -->
 
 			</div>
@@ -124,8 +124,9 @@ include('verifica_login.php');
 	
 		  <!-- ARRUMAR O MOSTRAR FOTO DE CNH -->
 	<?php 
-	echo '<img src="uploads/imagens/'.$row_resultado['cpf'].'/'.$row_resultado['foto_cnh'].'" width="100" height="100">'; /*echo $row_resultado['foto_cnh'];*/
-    ?></option>&nbsp;</td>
+	//echo '<img src="uploads/imagens/'.$row_resultado['cpf'].'/'.$row_resultado['foto_cnh'].'" width="100" height="100">'; /*echo $row_resultado['foto_cnh'];*/
+    echo '<img src="'.$row_resultado['foto_cnh'].'" width="500" height="500">';
+		  ?></option>&nbsp;</td>
     </tr>
 	<tr>
       <td>Logradouro: &nbsp;</td>

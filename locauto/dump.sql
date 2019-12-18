@@ -5,7 +5,7 @@ USE locauto;
 
 /* tabela de cadastro de usuario */
 CREATE TABLE `locauto`.`tabela_cadastro_usuario` (
-`ID_usuario` int AUTO_INCREMENT PRIMARY KEY NOT NULL,
+`ID_usuario` bigint AUTO_INCREMENT PRIMARY KEY NOT NULL,
 `escolher` VARCHAR(4) NOT NULL,
 `cpf_cnpj` bigint(14) NOT NULL,
 `nome` VARCHAR(250) NOT NULL,
@@ -63,7 +63,7 @@ REFERENCES `locauto`.`tabela_cadastro_usuario` (`cpf_cnpj`)
 
 /* tabela de admin */
 CREATE TABLE `locauto`.`tabela_admin` (
-`ID_admin` int AUTO_INCREMENT PRIMARY KEY NOT NULL,
+`ID_admin` bigint AUTO_INCREMENT PRIMARY KEY NOT NULL,
 `admin` VARCHAR(5) NOT NULL,
 `senha` VARCHAR(5) NOT NULL
 );
@@ -81,7 +81,7 @@ DELETE FROM tabela_admin WHERE ID_admin = 1;
 
 /* tabela de cadastro de funcionario */
 CREATE TABLE `locauto`.`tabela_cadastro_funcionario` (
-`ID_funcionario` int AUTO_INCREMENT PRIMARY KEY NOT NULL,
+`ID_funcionario` bigint AUTO_INCREMENT PRIMARY KEY NOT NULL,
 `matricula` bigint(11) NOT NULL,
 `nome` VARCHAR(250) NOT NULL,
 `identidade` bigint(10) NOT NULL,
@@ -112,11 +112,11 @@ DELETE FROM tabela_cadastro_funcionario WHERE ID_funcionario = 1;
 */
 /************************************************************************/
 
-
+/*
 CREATE TABLE `locauto`.`tabela_cadastro_veiculo_categoria` (
-`ID_categoria` int AUTO_INCREMENT PRIMARY KEY NOT NULL,
+`ID_categoria` bigint AUTO_INCREMENT PRIMARY KEY NOT NULL,
 `categoria` VARCHAR(50) NOT NULL
-);
+);*/
 /*
 INSERT INTO tabela_cadastro_veiculo_categoria (categoria)
 VALUE ('suv');
@@ -128,11 +128,11 @@ UPDATE tabela_cadastro_veiculo_categoria SET categoria = 'esportivo' WHERE ID_ca
 DELETE FROM tabela_cadastro_veiculo_categoria WHERE ID_categoria = 1;
 */
 /************************************************************************/
-
+/*
 CREATE TABLE `locauto`.`tabela_cadastro_veiculo_marca` (
-`ID_marca` int AUTO_INCREMENT PRIMARY KEY NOT NULL,
+`ID_marca` bigint AUTO_INCREMENT PRIMARY KEY NOT NULL,
 `marca` VARCHAR(50) NOT NULL
-);
+);*/
 /*
 INSERT INTO tabela_cadastro_veiculo_marca (marca)
 VALUE ('BMW');
@@ -144,14 +144,14 @@ UPDATE tabela_cadastro_veiculo_marca SET marca = 'Jeep' WHERE ID_marca = 1;
 DELETE FROM tabela_cadastro_veiculo_marca WHERE ID_marca = 1;
 */
 /************************************************************************/
-
+/*
 CREATE TABLE `locauto`.`tabela_cadastro_veiculo_modelo` (
-`ID_modelo` int AUTO_INCREMENT PRIMARY KEY NOT NULL,
+`ID_modelo` bigint AUTO_INCREMENT PRIMARY KEY NOT NULL,
 `ID_marca` INT,
 `modelo` VARCHAR(50) NOT NULL,
 CONSTRAINT FK_MarcaModelo FOREIGN KEY (`ID_marca`) 
 REFERENCES `locauto`.`tabela_cadastro_veiculo_marca` (`ID_marca`)
-);
+);*/
 /*
 INSERT INTO tabela_cadastro_veiculo_modelo (ID_marca,modelo) SELECT tabela_cadastro_veiculo_marca.ID_marca, 'JeepVerde' FROM tabela_cadastro_veiculo_marca WHERE tabela_cadastro_veiculo_marca.ID_marca = $marca;
 
@@ -197,7 +197,7 @@ REFERENCES `locauto`.`tabela_cadastro_veiculo_categoria` (`ID_categoria`)
 /************************************************************************/
 
 CREATE TABLE `locauto`.`tabela_cadastro_veiculo` (
-`ID_veiculo` int AUTO_INCREMENT PRIMARY KEY NOT NULL,
+`ID_veiculo` bigint AUTO_INCREMENT PRIMARY KEY NOT NULL,
 `placa` VARCHAR(10) NOT NULL,
 `marca` VARCHAR(50) NOT NULL,
 `modelo` VARCHAR(50) NOT NULL,
@@ -207,8 +207,8 @@ CREATE TABLE `locauto`.`tabela_cadastro_veiculo` (
 `preco_compra` bigint(10) NOT NULL,
 `preco_venda` bigint(10)NOT NULL,
 `numero_passageiro` bigint(10) NOT NULL,
-`ano_fabricacao` INT(4) NOT NULL,
-`ano_modelo` INT(4) NOT NULL,
+`ano_fabricacao` bigint(4) NOT NULL,
+`ano_modelo` bigint(4) NOT NULL,
 `tipo_combustivel` VARCHAR(20) NOT NULL,
 `kilometragem` bigint(250) NOT NULL,
 `potencia` bigint(10) NOT NULL,
@@ -225,7 +225,7 @@ UNIQUE KEY unique_renavam (`renavam`)
 
 /* tabela de cadastro de motorista */
 CREATE TABLE `locauto`.`tabela_cadastro_motorista` (
-`ID_motorista` int AUTO_INCREMENT PRIMARY KEY NOT NULL,
+`ID_motorista` bigint AUTO_INCREMENT PRIMARY KEY NOT NULL,
 `cpf` bigint(11) NOT NULL,
 `nome` VARCHAR(250) NOT NULL,
 `identidade` bigint(10) NOT NULL,

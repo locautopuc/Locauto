@@ -381,7 +381,7 @@ session_start();
 	<div class="field">
 		<div class="control">
 			<strong>* Chassi:</strong>
-			<input name="chassi" type="text" class="input " placeholder="Chassi" autofocus oninput="this.value = this.value.replace(/[^A-Za-z0-9]+/g, '').replace(/(\..*)\./g, '$1');" >
+			<input name="chassi" type="text" class="input " placeholder="Chassi" autofocus oninput="this.value = this.value.replace(/[^A-Za-z0-9]+/g, '').replace(/(\..*)\./g, '$1');" maxlength="17">
 		</div>
 	</div>&nbsp;</td>
       <td>&nbsp;</td>
@@ -389,7 +389,7 @@ session_start();
 	<div class="field">
 		<div class="control">
 			<strong>* Tipo de Combustivel: </strong>
-			<input name="tipo_combustivel" type="text" class="input " placeholder="Tipo de Combustivel" oninput="this.value = this.value.replace(/[^A-Za-z0-9- ]+/g, '').replace(/(\..*)\./g, '$1');" autofocus >
+			<input name="tipo_combustivel" type="text" class="input " placeholder="Tipo de Combustivel" oninput="this.value = this.value.replace(/[^A-Za-z0-9-çÇãõÃÕÁ-Úá-úÂ-ûâ-û., ]+/g, ]+/g, '').replace(/(\..*)\./g, '$1');" autofocus maxlength="50">
 		</div>
 	</div>&nbsp;</td>
     </tr>
@@ -398,7 +398,7 @@ session_start();
 	<div class="field">
 		<div class="control">
 			<strong>* Renavam: </strong>
-			<input name="renavam" type="text" class="input " placeholder="Renavam" autofocus oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');" >
+			<input name="renavam" type="text" class="input " placeholder="Renavam" autofocus oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');" maxlength="11">
 		</div>
 	</div>&nbsp;</td>
       <td>&nbsp;</td>
@@ -432,7 +432,7 @@ session_start();
 	<div class="field">
 		<div class="control">
 			<strong>* Potência: </strong>
-			<input name="potencia" type="text" class="input " placeholder="Potência" autofocus oninput="this.value = this.value.replace(/[^A-Za-z0-9]+/g, '').replace(/(\..*)\./g, '$1');">
+			<input name="potencia" type="text" class="input " placeholder="Potência" autofocus oninput="this.value = this.value.replace(/[^0-9.]+/g, '').replace(/(\..*)\./g, '$1');">
 		</div>
 	</div>&nbsp;</td>
     </tr>

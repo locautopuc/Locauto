@@ -33,22 +33,20 @@ $situacao = mysqli_real_escape_string($conexao, trim($_POST['situacao']));
 // é preciso separar as fotos por pastas diferentes entre pastas
 // pois se duas fotos forem enviadas com o mesmo nome e tipo
 // a última foto irá sobrescrever a foto do cadastro passado
-
-$target_dir = "uploads/imagens/veiculo/".$marca."/".$modelo."/";
+//$target_dir = "uploads/imagens/veiculo/".$marca."/".$modelo."/";
+$target_dir = "uploads/imagens/veiculo/".$marca."/";
 
 // cria uma pasta se não existir
 if (!file_exists($target_dir)) 
 {
    mkdir( $target_dir,0777,false );
 }
-
-// se já existir um arquivo na pasta - deleta ele
+// se já existir um arquivo - deleta ele
 else if (file_exists($foto_veiculo)) 
 {
    unlink($foto_veiculo);
-} 
-
-// adicionando nova foto
+}  
+//adicionando uma nova foto
 $foto_veiculo = $target_dir . basename($_FILES["foto_veiculo"]["name"]);
 $uploadOk = 1;
 $imageFileType = strtolower(pathinfo($foto_veiculo,PATHINFO_EXTENSION));
@@ -67,8 +65,7 @@ if(isset($_POST["cadastrar_botao"]))
 }
 /*
 // verifica se o arquivo já existe
-if (file_exists($foto_veiculo)) 
-{
+if (file_exists($foto_veiculo)) {
     echo "Este arquivo já existe.";
     $uploadOk = 0;
 }*/
@@ -84,21 +81,21 @@ if($imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg
     echo "ERRO, apenas JPG, JPEG, PNG";
     $uploadOk = 0;
 }
-
-if ($uploadOk == 0) // se não tiver nenhum arquivo - ERRO
-{
-    echo "Erro ao fazer o upload";
+// checa se tudo foi ok
+if ($uploadOk == 0) 
+{ // se estiver vazio
+    echo "Erro ao fazer o upload"; // ERRO
 } 
 else 
-{	// se tiver algum arquivo e for tudo ok - FAZ O UPLOAD
-    if (move_uploaded_file($_FILES["foto_veiculo"]["tmp_name"], $foto_veiculo)) 
+{ 	// se não estiver vazio - faz o upload da foto
+	if (move_uploaded_file($_FILES["foto_veiculo"]["tmp_name"], $foto_veiculo)) 
 	{
-        echo "O arquivo ". basename( $_FILES["foto_veiculo"]["name"]). " foi enviado.";
-    } 
+		echo "O arquivo ". basename( $_FILES["foto_veiculo"]["name"]). " foi enviado.";
+	} 
 	else 
-	{	// se tiver um arquivo e acontecer algum problema - ERRO
-        echo "Erro ao fazer upload";
-    }
+	{	// se não estiver vazio, mas der algum problema - ERRO
+		echo "Erro ao fazer upload";
+	}
 }
 
 
@@ -165,6 +162,19 @@ else if (empty($_POST["renavam"]))
 	exit();
 }
 else if (!preg_match("/^[0-9]*$/", $renavam))
+{
+	$_SESSION['apenas_letras'] = true;
+	header('Location: veiculo_cadastro.php');
+	exit();
+}
+/****************************************************/
+else if (empty($_POST["potencia"]))
+{
+	$_SESSION['obrigatorio_digitar'] = true;
+	header('Location: veiculo_cadastro.php');
+	exit();
+}
+else if (!preg_match("/^[0-9.]*$/", $potencia))
 {
 	$_SESSION['apenas_letras'] = true;
 	header('Location: veiculo_cadastro.php');
@@ -279,19 +289,7 @@ else if (!preg_match("/^[a-zA-Z0-9]*$/", $chassi))
 	header('Location: veiculo_cadastro.php');
 	exit();
 }
-/****************************************************/
-else if (empty($_POST["tipo_combustivel"]))
-{
-	$_SESSION['obrigatorio_digitar'] = true;
-	header('Location: veiculo_cadastro.php');
-	exit();
-}
-else if (!preg_match("/^[a-zA-Z0-9- ]*$/", $tipo_combustivel))
-{
-	$_SESSION['apenas_letras_numeros'] = true;
-	header('Location: veiculo_cadastro.php');
-	exit();
-}
+
 
 /****************************************************/
 /****************************************************/

@@ -226,7 +226,7 @@ session_start();
 	<div class="field">
 		<div class="control">
 			<strong>* Logradouro: </strong>
-			<input name="logradouro" type="text" class="input " placeholder="Logradouro" autofocus oninput="this.value = this.value.replace(/[^A-Za-z0-9- ]+/g, '').replace(/(\..*)\./g, '$1');" maxlength="50">
+			<input name="logradouro" type="text" class="input " placeholder="Logradouro" autofocus oninput="this.value = this.value.replace(/[^A-Za-z0-9-çÇãõÃÕÁ-Úá-úÂ-ûâ-û., ]+/g, '').replace(/(\..*)\./g, '$1');" maxlength="50">
 		</div>
 	</div>&nbsp;</td>
 	        </tr>
@@ -235,7 +235,7 @@ session_start();
 	<div class="field">
 		<div class="control">
 			<strong>* Nome Completo:</strong>
-				<input name="nome" type="text" class="input " placeholder="Nome Completo" autofocus oninput="this.value = this.value.replace(/[^A-Za-z0-9- ]+/g, '').replace(/(\..*)\./g, '$1');" maxlength="250">
+				<input name="nome" type="text" class="input " placeholder="Nome Completo" autofocus oninput="this.value = this.value.replace(/[^A-Za-z0-9-çÇãõÃÕÁ-Úá-úÂ-ûâ-û., ]+/g, '').replace(/(\..*)\./g, '$1');" maxlength="250">
 		</div>
 	</div>&nbsp;</td>
 	        <td>&nbsp;</td>
@@ -260,7 +260,7 @@ session_start();
 	<div class="field">
 		<div class="control">
 			<strong>* Complemento: </strong>
-			<input name="complemento" type="text" class="input " placeholder="Complemento" autofocus oninput="this.value = this.value.replace(/[^A-Za-z0-9- ]+/g, '').replace(/(\..*)\./g, '$1');" maxlength="250">
+			<input name="complemento" type="text" class="input " placeholder="Complemento" autofocus oninput="this.value = this.value.replace(/[^A-Za-z0-9-çÇãõÃÕÁ-Úá-úÂ-ûâ-û., ]+/g, '').replace(/(\..*)\./g, '$1');" maxlength="250">
 		</div>
 	</div>&nbsp;</td>
 	        </tr>
@@ -277,7 +277,7 @@ session_start();
 	<div class="field">
 		<div class="control">
 			<strong>* Bairro: </strong>
-			<input name="bairro" type="text" class="input " placeholder="Bairro" autofocus oninput="this.value = this.value.replace(/[^A-Za-z0-9- ]+/g, '').replace(/(\..*)\./g, '$1');" maxlength="50">
+			<input name="bairro" type="text" class="input " placeholder="Bairro" autofocus oninput="this.value = this.value.replace(/[^A-Za-z0-9-çÇãõÃÕÁ-Úá-úÂ-ûâ-û., ]+/g, '').replace(/(\..*)\./g, '$1');" maxlength="50">
 		</div>
 	</div>&nbsp;</td>
 	        </tr>
@@ -286,7 +286,7 @@ session_start();
 	<div class="field">
 		<div class="control">
 			<strong>* Email:</strong> &nbsp; ( exemplo@mail.com )
-			<input name="email" type="text" class="input " placeholder="E-mail" autofocus oninput="this.value = this.value.replace(/[^A-Za-z0-9- ]+/g, '').replace(/(\..*)\./g, '$1');" maxlength="100">
+			<input name="email" type="text" class="input " placeholder="E-mail" autofocus oninput="this.value = this.value.replace(/[^A-Za-z0-9-@. ]+/g, '').replace(/(\..*)\./g, '$1');" maxlength="100">
 		</div>
 	</div>&nbsp;</td>
 	        <td>&nbsp;</td>
@@ -294,7 +294,7 @@ session_start();
 	<div class="field">
 		<div class="control">
 			<strong>* Cidade: </strong>
-			<input name="cidade" type="text" class="input " placeholder="Cidade" autofocus oninput="this.value = this.value.replace(/[^A-Za-z0-9- ]+/g, '').replace(/(\..*)\./g, '$1');" maxlength="50">
+			<input name="cidade" type="text" class="input " placeholder="Cidade" autofocus oninput="this.value = this.value.replace(/[^A-Za-z0-9-çÇãõÃÕÁ-Úá-úÂ-ûâ-û., ]+/g, '').replace(/(\..*)\./g, '$1');" maxlength="50">
 		</div>
 	</div>&nbsp;</td>
 	        </tr>
@@ -310,7 +310,7 @@ session_start();
 	<div class="field">
 		<div class="control">
 			<strong>* Estado: </strong>
-			<input name="estado" type="text" class="input " placeholder="Estado" autofocus oninput="this.value = this.value.replace(/[^A-Za-z0-9- ]+/g, '').replace(/(\..*)\./g, '$1');" maxlength="50">
+			<input name="estado" type="text" class="input " placeholder="Estado" autofocus oninput="this.value = this.value.replace(/[^A-Za-z0-9-çÇãõÃÕÁ-Úá-úÂ-ûâ-û., ]+/g, '').replace(/(\..*)\./g, '$1');" maxlength="50">
 		</div>
 	</div>&nbsp;</td>
 	        </tr>

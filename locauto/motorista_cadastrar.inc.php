@@ -29,12 +29,12 @@ $date = mysqli_real_escape_string($conexao, trim($_POST['date']));
 // é preciso separar as fotos por pastas diferentes entre usuários (CPF)
 // pois se dois usuários diferentes enviar uma foto com o mesmo nome e tipo
 // a última foto irá sobrescrever a foto do cadastro anterior
-$target_dir = "uploads/imagens/".$cpf."/";
+$target_dirC = "uploads/imagens/motorista/".$cpf."/";
 
 // cria uma pasta se não existir
-if (!file_exists($target_dir)) 
+if (!file_exists($target_dirC)) 
 {
-   mkdir( $target_dir,0777,false );
+   mkdir( $target_dirC,0777,false );
 }
 // se já existir um arquivo - deleta ele
 else if (file_exists($foto_cnh)) 
@@ -42,42 +42,42 @@ else if (file_exists($foto_cnh))
    unlink($foto_cnh);
 }  
 //adicionando uma nova foto
-$foto_cnh = $target_dir . basename($_FILES["foto_cnh"]["name"]);
-$uploadOk = 1;
-$imageFileType = strtolower(pathinfo($foto_cnh,PATHINFO_EXTENSION));
+$foto_cnh = $target_dirC . basename($_FILES["foto_cnh"]["name"]);
+$uploadOkC = 1;
+$imageFileTypeC = strtolower(pathinfo($foto_cnh,PATHINFO_EXTENSION));
 // Check if image file is a actual image or fake image
 if(isset($_POST["cadastrar_botao"])) 
 {
-    $check = getimagesize($_FILES["foto_cnh"]["tmp_name"]);
-    if($check !== false) 
+    $checkC = getimagesize($_FILES["foto_cnh"]["tmp_name"]);
+    if($checkC !== false) 
 	{
-        echo "File is an image - " . $check["mime"] . ".";
-        $uploadOk = 1;
+        echo "File is an image - " . $checkC["mime"] . ".";
+        $uploadOkC = 1;
     } else {
         echo "O arquivo não é uma imagem";
-        $uploadOk = 0;
+        $uploadOkC = 0;
     }
 }
 /*
 // verifica se o arquivo já existe
 if (file_exists($foto_cnh)) {
     echo "Este arquivo já existe.";
-    $uploadOk = 0;
+    $uploadOkC = 0;
 }*/
 // verifica o tamanho do arquivo - max 5mb
 if ($_FILES["foto_cnh"]["size"] > 500000) 
 {
     echo "O arquivo é grande demais";
-    $uploadOk = 0;
+    $uploadOkC = 0;
 }
 // verifica se os formatos são png jpg jpeg
-if($imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg") 
+if($imageFileTypeC != "jpg" && $imageFileTypeC != "png" && $imageFileTypeC != "jpeg") 
 {
     echo "ERRO, apenas JPG, JPEG, PNG";
-    $uploadOk = 0;
+    $uploadOkC = 0;
 }
 // checa se tudo foi ok
-if ($uploadOk == 0) 
+if ($uploadOkC == 0) 
 { // se estiver vazio
     echo "Erro ao fazer o upload"; // ERRO
 } 
@@ -241,7 +241,7 @@ else if (empty($_POST["nome"]))
 	header('Location: motorista_cadastro.php');
 	exit();
 }
-else if (!preg_match("/^[a-zA-Z0-9- ]*$/", $nome))
+else if (!preg_match("/^[A-Za-z0-9-çÇãõÃÕÁ-Úá-úÂ-ûâ-û., ]*$/", $nome))
 {
 	$_SESSION['apenas_letras_numeros'] = true;
 	header('Location: motorista_cadastro.php');
@@ -254,7 +254,7 @@ else if (empty($_POST["categoria"]))
 	header('Location: motorista_cadastro.php');
 	exit();
 }
-else if (!preg_match("/^[a-zA-Z0-9- ]*$/", $categoria))
+else if (!preg_match("/^[a-zA-Z]*$/", $categoria))
 {
 	$_SESSION['apenas_letras_numeros'] = true;
 	header('Location: motorista_cadastro.php');
@@ -267,7 +267,7 @@ else if (empty($_POST["logradouro"]))
 	header('Location: motorista_cadastro.php');
 	exit();
 }
-else if (!preg_match("/^[a-zA-Z0-9- ]*$/", $logradouro))
+else if (!preg_match("/^[A-Za-z0-9-çÇãõÃÕÁ-Úá-úÂ-ûâ-û., ]*$/", $logradouro))
 {
 	$_SESSION['apenas_letras_numeros'] = true;
 	header('Location: motorista_cadastro.php');
@@ -280,7 +280,7 @@ else if (empty($_POST["complemento"]))
 	header('Location: motorista_cadastro.php');
 	exit();
 }
-else if (!preg_match("/^[a-zA-Z0-9- ]*$/", $complemento))
+else if (!preg_match("/^[A-Za-z0-9-çÇãõÃÕÁ-Úá-úÂ-ûâ-û., ]*$/", $complemento))
 {
 	$_SESSION['apenas_letras_numeros'] = true;
 	header('Location: motorista_cadastro.php');
@@ -293,7 +293,7 @@ else if (empty($_POST["bairro"]))
 	header('Location: motorista_cadastro.php');
 	exit();
 }
-else if (!preg_match("/^[a-zA-Z0-9- ]*$/", $bairro))
+else if (!preg_match("/^[A-Za-z0-9-çÇãõÃÕÁ-Úá-úÂ-ûâ-û., ]*$/", $bairro))
 {
 	$_SESSION['apenas_letras_numeros'] = true;
 	header('Location: motorista_cadastro.php');
@@ -306,7 +306,7 @@ else if (empty($_POST["cidade"]))
 	header('Location: motorista_cadastro.php');
 	exit();
 }
-else if (!preg_match("/^[a-zA-Z0-9- ]*$/", $cidade))
+else if (!preg_match("/^[A-Za-z0-9-çÇãõÃÕÁ-Úá-úÂ-ûâ-û., ]*$/", $cidade))
 {
 	$_SESSION['apenas_letras_numeros'] = true;
 	header('Location: motorista_cadastro.php');
@@ -319,7 +319,7 @@ else if (empty($_POST["estado"]))
 	header('Location: motorista_cadastro.php');
 	exit();
 }
-else if (!preg_match("/^[a-zA-Z0-9- ]*$/", $estado))
+else if (!preg_match("/^[A-Za-z0-9-çÇãõÃÕÁ-Úá-úÂ-ûâ-û., ]*$/", $estado))
 {
 	$_SESSION['apenas_letras_numeros'] = true;
 	header('Location: motorista_cadastro.php');
@@ -409,6 +409,6 @@ if($conexao->query($sql) === TRUE) {
 
 $conexao->close();
 // se o cadastro foi tudo bem a tela retorna para a tela de login para o usuário logar
-header('Location: usuario_perfil.php');
+header('Location: locacao_cadastro.php');
 exit;
 ?>
